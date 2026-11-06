@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#1b2733"/>
-  <!-- stylized Space Needle -->
-  <ellipse cx="16" cy="10" rx="9" ry="3.2" fill="#e8791d"/>
-  <circle cx="16" cy="7.2" r="2.2" fill="#e8791d"/>
-  <path d="M14.6 13 L13 27 h6 L17.4 13 Z" fill="#edf1f4"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#141a20"/><path d="M6 50L22 20L31 34L42 14L58 50Z" fill="#8ad8e0"/><path d="M18 28L22 20L26 27L22 25ZM38 22L42 14L46 22L42 20Z" fill="#fff"/></svg>

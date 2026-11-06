@@ -1,0 +1,18 @@
+# here-core's shared files: what tools/sync.py copies into a city repo.
+#   always  <path>   copied into every city
+#   present <glob>   copied only where the city already has that file (a new shared script is copied in by hand once)
+#   styles  <path>   copied with the city's own --v-* hue runs kept (light, dark, system-dark)
+#   never   <glob>   a city's own file, even where a line above matches it
+# A city opts out of more in its own .core-keep (see README.md).
+always  site/app.js
+always  site/filter.js
+always  site/qrcode.js
+always  site/cities.js
+present site/local-map.js
+present scripts/*.mjs
+present scripts/cffi-fetch.py
+styles  site/styles.css
+never   scripts/fetch-events.mjs
+never   scripts/sources.mjs
+never   scripts/sources.test.mjs
+never   scripts/city.test.mjs
