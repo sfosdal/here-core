@@ -11,6 +11,7 @@ always  site/cities.js
 present site/local-map.js
 present scripts/*.mjs
 present scripts/cffi-fetch.py
+present lambda/index.mjs   # the calendar-feed Lambda (cal.here.events): its source is here; lqa still carries a copy. Its test and fixture are Twin Peaks' and stay here
 styles  site/styles.css
 never   scripts/fetch-events.mjs
 never   scripts/sources.mjs

@@ -56,6 +56,8 @@ the same 40 rows fixed at 2026-11-05.
 
 `~/Desktop/projects/lqa-events/sync-shared.sh` runs `tools/sync.py`.
 
-Not shared yet: `index.html`, `faq.html`, `about.html` and `embed.js`.
-Cities have their own copies, and the ones here are Twin Peaks' pages.
-Templating their shared parts is a later step.
+Not shared yet: `index.html`, `faq.html`, `about.html`, `advertise.html` and
+`embed.js`. Cities have their own copies. The ones here are lqa's as of the
+seed: only `index.html` is reworded for Twin Peaks, while `about.html`,
+`advertise.html` and `embed.js` still say Lower Queen Anne. Templating their
+shared parts is a later step.
