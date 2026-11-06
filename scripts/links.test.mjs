@@ -116,9 +116,10 @@ test('repointMoved gives rows on a dropped venue link the venue link now, and le
   assert.equal(repointMoved(rows, new Map(), now), 0);
 });
 
-test('venueLinks reads the real Twin Peaks city: each venue its page, each club its schedule at its home venue', async () => {
+test("venueLinks reads this city's city.js: each venue its page, each club its schedule at its home venue", async () => {
   await import('../site/city.js');
-  const links = venueLinks(globalThis.LQACity);
-  assert.ok(links.get('Timber Arena').has(globalThis.LQACity.venues['Timber Arena'].url));
-  for (const t of globalThis.LQACity.teams.filter((t) => t.venue && t.schedule)) assert.ok(links.get(t.venue).has(t.schedule), t.key);
+  const city = globalThis.LQACity;
+  const links = venueLinks(city);
+  for (const [v, x] of Object.entries(city.venues || {})) if (cleanUrl(x.url)) assert.ok(links.get(v).has(cleanUrl(x.url)), v);
+  for (const t of (city.teams || []).filter((t) => t.venue && cleanUrl(t.schedule))) assert.ok(links.get(t.venue).has(cleanUrl(t.schedule)), t.slug || t.key);
 });
