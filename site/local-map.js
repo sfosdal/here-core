@@ -1,0 +1,667 @@
+// The Map view — the fourth stop of the view toolbar, in a city whose city.js
+// carries a `map` block and `geo: [lat, lon]` on its rooms (Steve, 2026-10-24,
+// "local map view for event locations": Kona first, then lqa and Seattle).
+// Shared: synced from lqa by sync-shared.sh; a city without a map simply does
+// not load it (no Map stop in its index.html), and app.js's hooks stay quiet.
+//
+// The ground is local-map.json (scripts/build-local-map.mjs — an island's
+// outline from Natural Earth, or a city's shoreline, lakes and main roads
+// from OpenStreetMap, read once at build time and committed), drawn as one
+// SVG with a pin on every room that has geo. A pin is sized by the room's
+// upcoming events under the filters in force and opens a card of them (the
+// month view's day card) with the room's own site at its foot. Wheel, pinch,
+// drag and the +/−/fit buttons zoom and pan; two rooms on one spot are nudged
+// apart so both can be tapped. app.js lends what it needs via window.LQAHooks.
+// A site whose rows are circuits and regions rather than rooms (curling.events)
+// sets map.pins: 'places' — then a pin is a place the events name (each event's
+// `place` and `geo`, written by its build), on a world ground (map.kind 'world').
+// A neighbourhood site (map.city) also draws the rest of its city: the city's
+// rooms and their upcoming events, read from the city site's feed at build
+// time into city-map.json (scripts/city-map.mjs) — "maps for neighborhoods
+// should include events from the entire city" (Steve, 2026-10-25). A city's
+// ground (kind 'urban') is a rectangle of data, so the view never leaves it:
+// zoomed right out the frame is still full (same day, "the map should fill
+// the area"). A trackpad pinch or scroll zooms by the wheel's delta, not a
+// fixed step per event (same day, "way sensitive"). The crosshair button asks
+// the browser for the visitor's position and marks it (no service involved).
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var CITY = window.LQACity, H = window.LQAHooks, svg = $('lmSvg');
+  if (!CITY || !H || !svg) return;
+  var VENUES = CITY.venues, ROOMS = Object.keys(VENUES).filter(function (v) { return VENUES[v].geo; });
+  var BY_PLACE = !!(CITY.map && CITY.map.pins === 'places'); // the pins are the places the events name, not the rooms
+  var data = null, view = null, FRAME = { w: 1000, h: 1000 }, u = 1; // view: the viewBox in frame units; u: frame units per CSS pixel
+  var CITYMAP = null, CITY_ROOMS = []; // a neighbourhood site: the rest of the city's rooms (city-map.json) — those its own city.js does not carry
+  var me = null; // the visitor's own spot, once asked for: { x, y, acc } in frame units, and when
+  var NS = 'http://www.w3.org/2000/svg';
+  var openVenue = null, rafId = 0;
+  var HOOD = {}; (CITY.hoods || []).forEach(function (h) { (h.venues || []).forEach(function (v) { HOOD[v] = h.label; }); }); // a venue's neighbourhood (city.js hoods), the name a group of its venues goes by
+  var GROUPS = {}; // the group pins of the last render, by key ('group:' + the venues' names)
+  // One colour, one size (Steve, 2026-10-30: "instread of red with the GWL orange (include the light and dark version)",
+  // "the glow around them isn't needed", "I want size of dot to be proportional to number of venues in the dote"): every
+  // dot is the Ghostwood orange (styles.css --lm-dot, a shade per theme); a lone venue is the smallest dot whatever its
+  // count, and a group's dot has the area of its venues' dots together (radius × √venues), so a dot's size says how many
+  // venues it holds — never how busy one is. Nearby venues fold into one dot as soon as their dots would touch
+  // ("close venues … collapse into one until you zoom in").
+  var DOT_R = 12, DOT_MAX = 4; // a lone venue's radius, in screen pixels; a group's at most DOT_MAX times it
+  function el(tag, attrs, parent) { var e = document.createElementNS(NS, tag); for (var k in attrs) if (attrs[k] != null) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+  function px(lat, lon) { var p = data.proj; if (p.kind === 'miller') return [(lon - p.cx) * p.s + p.w / 2, (p.my0 - 1.25 * Math.asinh(Math.tan(.8 * lat * Math.PI / 180)) * 180 / Math.PI) * p.s]; return [(lon - p.cx) * p.k * p.s + p.w / 2, (p.cy - lat) * p.s + p.h / 2]; } // a world ground is Miller cylindrical; a city's is flat
+  function version() { var s = document.querySelector('script[src*="local-map.js"]'); var m = s && /[?&]v=([^&]+)/.exec(s.getAttribute('src')); return m ? m[1] : ''; }
+  function load() {
+    if (data) return Promise.resolve(data);
+    return fetch('local-map.json' + (version() ? '?v=' + version() : '')).then(function (r) { return r.json(); }).then(function (d) {
+      data = d; FRAME = { w: d.proj.w, h: d.proj.h };
+      svg.parentElement.style.setProperty('--lm-ar', FRAME.w / FRAME.h); // the frame takes the ground's shape
+      if (!view) home(false);
+      if (!(CITY.map && CITY.map.city)) return d;
+      return fetch('city-map.json' + (version() ? '?v=' + version() : '')).then(function (r) { return r.ok ? r.json() : null; }).then(function (c) {
+        CITYMAP = c && c.venues ? c : null;
+        CITY_ROOMS = CITYMAP ? Object.keys(CITYMAP.venues).filter(function (v) { return !VENUES[v] && CITYMAP.venues[v].geo; }) : []; // a room the neighbourhood lists itself keeps its own, filtered pin
+        return d;
+      }, function () { return d; }); // no city file (a build that could not read the city's feed): the neighbourhood alone
+    });
+  }
+  // a neighbourhood site (`map.focus: 'hood'`) opens on its own rooms — those
+  // without `area: 'town'` — with room round them for the discs and names
+  // (Steve, 2026-10-24: "focus to contain the URLs in that neighboorhood")
+  // the box round the neighbourhood's own line (map units), with a hair of room so the line is not on the frame's edge
+  var lineBoxOf = null, lineBoxVal = null;
+  function lineBox() { return CITY.map && CITY.map.focus === 'hood' ? lineExtent() : null; } // a neighbourhood site's own line
+  function lineExtent() { // the whole city or neighbourhood line, with a margin, in frame units — any urban site
+    if (!data || !data.boundary) return null;
+    if (lineBoxOf === data.boundary) return lineBoxVal;
+    var nums = data.boundary.match(/-?\d+(?:\.\d+)?/g), bx = [], by = [];
+    for (var i = 0; nums && i + 1 < nums.length; i += 2) { bx.push(+nums[i]); by.push(+nums[i + 1]); }
+    lineBoxOf = data.boundary; lineBoxVal = null;
+    if (bx.length < 2) return null;
+    var l = Infinity, r = -Infinity, t = Infinity, b = -Infinity; // a loop, not Math.min.apply: a city line runs to many thousand points
+    for (i = 0; i < bx.length; i++) { l = Math.min(l, bx[i]); r = Math.max(r, bx[i]); t = Math.min(t, by[i]); b = Math.max(b, by[i]); }
+    var m = Math.max(r - l, b - t) * .06;
+    return (lineBoxVal = [l - m, t - m, r - l + 2 * m, b - t + 2 * m]);
+  }
+  function hoodBox() {
+    if (!data || !CITY.map || CITY.map.focus !== 'hood') return null;
+    // the neighbourhood's own line, as close as the map zooms (Steve, 2026-11-03: "I want the map zoom to show the
+    // neighborhood as zoomed in as possible"); home() widens it to the deepest zoom when the line is smaller still
+    var lb = lineBox();
+    if (lb) return lb;
+    var pts = ROOMS.filter(function (v) { return VENUES[v].area !== 'town'; }).map(function (v) { return px(VENUES[v].geo[0], VENUES[v].geo[1]); });
+    if (!pts.length) return null;
+    var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+    var pad = Math.max((x1 - x0) * .35, (y1 - y0) * .35, FRAME.w * .03);
+    return [x0 - pad, y0 - pad, x1 - x0 + 2 * pad, y1 - y0 + 2 * pad];
+  }
+  // the view at first: the neighbourhood's rooms, else the city's `home` box (a wider frame holds the out-of-town rooms), else the whole frame
+  var atHome = true; // the view is still the opening one (no zoom or pan yet): it follows the frame's shape when that changes
+  function home(draw) {
+    atHome = true; var hb = hoodBox();
+    if (hb || (data && data.home)) { var h = hb || data.home, a = ar(), w = Math.max(h[2], h[3] / a, hb ? MIN_W() : 0); view = { x: h[0] + h[2] / 2 - w / 2, y: h[1] + h[3] / 2 - w * a / 2, w: w, h: w * a }; }
+    else fit(false);
+    if (draw !== false) render();
+  }
+  function fit(draw) { atHome = false; var a = ar(), w = COVER() ? MAX_W() : Math.max(FRAME.w, FRAME.h / a); view = { x: (FRAME.w - w) / 2, y: (FRAME.h - w * a) / 2, w: w, h: w * a }; if (COVER()) { clamp(); takeInLine(); } if (draw !== false) render(); } // a city ground: as far out as still fills the frame; an island or the world: the whole ground
+  // the frame's own proportions (height over width): it fills the content's width and the height the window leaves,
+  // whatever the ground's shape — the viewBox follows the frame, not the other way round (Steve, 2026-10-24)
+  function ar() { var r = svg.parentElement.getBoundingClientRect(); return r.width > 0 && r.height > 0 ? r.height / r.width : FRAME.h / FRAME.w; }
+  function size() { // as tall as the window leaves between the frame's top and the pinned footer, less the caption under it (never under 18rem, or half the window on a short phone)
+    var fr = svg.parentElement, cap = $('lmCaption'), foot = document.querySelector('footer');
+    var top = fr.getBoundingClientRect().top + window.scrollY, floor = window.innerHeight - (foot ? foot.offsetHeight : 0);
+    var h = Math.floor(floor - top - (cap ? cap.offsetHeight + 10 : 0) - 8), rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+    var min = Math.min(18 * rem, window.innerHeight * .5); fr.style.height = Math.max(h, min) + 'px';
+    var over = document.documentElement.scrollHeight - window.innerHeight; if (over > 0 && h - over >= min) fr.style.height = (h - over) + 'px'; // whatever the estimate missed (a caption that wrapped), once
+  }
+  function reshape() { if (!view) return; var cy = view.y + view.h / 2; view.h = view.w * ar(); view.y = cy - view.h / 2; } // the frame changed shape: keep the centre, follow the new proportions
+  function unit() { var r = svg.getBoundingClientRect(); return r.width ? view.w / r.width : 1; }
+  function isOpen() { return document.documentElement.classList.contains('map-open'); }
+
+  // the rooms' upcoming events under the filters, per room, in date order — or per place, where the pins are places
+  // (every upcoming place is a pin, filtered out or not, so a filtered-out one shows as a hollow ring like an empty room)
+  function tally() {
+    var today = H.todayStr(), by = H.byDate(), n = {}, next = {}, geo = {}, color = {};
+    Object.keys(by).sort().forEach(function (d) {
+      if (d < today) return;
+      if (BY_PLACE) by[d].forEach(function (e) { if (e.geo && e.place && !geo[e.place]) { geo[e.place] = e.geo; color[e.place] = e.venue; } });
+      H.dayItems(d).forEach(function (e) { var k = BY_PLACE ? e.place : e.venue; if (BY_PLACE && !e.geo) return; n[k] = (n[k] || 0) + 1; (next[k] = next[k] || []).push(e); });
+    });
+    CITY_ROOMS.forEach(function (v) { // the rest of the city: the room's upcoming count as of the build, no filter but the date (the panel's rows are the neighbourhood's own); the card gets the first few
+      var cm = CITYMAP.venues[v], list = (cm.next || []).filter(function (e) { return e.date >= today; });
+      if (cm.n) { n[v] = Math.max(cm.n - ((cm.next || []).length - list.length), list.length); next[v] = list; } // less whatever of the kept few has passed since the build
+    });
+    return { n: n, next: next, geo: geo, color: color };
+  }
+
+  // pins closer than a tap apart are pushed off each other (a few iterations
+  // of pairwise repulsion), but never farther than their own radius from the
+  // true spot (p.cap) — the venue stays under its disc; where a city's rooms
+  // sit closer than that, the discs overlap, and a zoom in parts them
+  function spread(pins, gap) {
+    for (var it = 0; it < 40; it++) {
+      var moved = false;
+      for (var i = 0; i < pins.length; i++) for (var j = i + 1; j < pins.length; j++) {
+        var a = pins[i], b = pins[j], dx = b.x - a.x, dy = b.y - a.y, d = Math.sqrt(dx * dx + dy * dy) || .001, want = a.r + b.r + gap; // the discs clear each other by a hair
+        if (d >= want) continue;
+        var push = (want - d) / 2, ux = dx / d, uy = dy / d;
+        if (d < .01) { ux = 1; uy = 0; }
+        a.x -= ux * push; a.y -= uy * push; b.x += ux * push; b.y += uy * push; moved = true;
+      }
+      pins.forEach(function (p) { var ex = p.x - p.ox, ey = p.y - p.oy, e = Math.sqrt(ex * ex + ey * ey); if (e > p.cap) { p.x = p.ox + ex / e * p.cap; p.y = p.oy + ey / e * p.cap; } });
+      if (!moved) break;
+    }
+  }
+  // labels: right of the pin first, then left, below, above — the first spot
+  // clear of every label already placed (and the frame's edge); none, if none
+  function placeLabels(pins, fs, seed) {
+    var boxes = (seed || []).slice(), cw = fs * .58, lh = fs * 1.25;
+    function free(bx, self) { if (bx.x < view.x || bx.x + bx.w > view.x + view.w || bx.y < view.y || bx.y + bx.h > view.y + view.h) return false; return !boxes.some(function (o) { return o.pin !== self && bx.x < o.x + o.w && bx.x + bx.w > o.x && bx.y < o.y + o.h && bx.y + bx.h > o.y; }); }
+    function disc(p) { boxes.push({ x: p.x - p.r, y: p.y - p.r, w: 2 * p.r, h: 2 * p.r, pin: p }); } // a square round the disc; a pin's own square is skipped for its own label (the diagonal spots clear the circle, not the square)
+    pins.filter(function (p) { return p.n; }).forEach(disc); // the counted discs first; an empty pin's disc only after the counted names are placed (a name beats a hollow ring)
+    pins.slice().sort(function (a, b) { return b.n - a.n || a.y - b.y; }).forEach(function (p, i, all) {
+      if (!p.n && (i === 0 || all[i - 1].n)) pins.filter(function (q) { return !q.n; }).forEach(disc);
+      var w = p.name.length * cw + fs * .3, g = p.r + fs * .35;
+      var spots = [
+        { x: p.x + g, y: p.y - lh / 2, anchor: 'start', tx: p.x + g, ty: p.y },
+        { x: p.x - g - w, y: p.y - lh / 2, anchor: 'end', tx: p.x - g, ty: p.y },
+        { x: p.x - w / 2, y: p.y + g, anchor: 'middle', tx: p.x, ty: p.y + g + lh / 2 },
+        { x: p.x - w / 2, y: p.y - g - lh, anchor: 'middle', tx: p.x, ty: p.y - g - lh / 2 },
+        // then the diagonals, for a pin hemmed in on its four sides
+        { x: p.x + g * .75, y: p.y - g * .75 - lh, anchor: 'start', tx: p.x + g * .75, ty: p.y - g * .75 - lh / 2 },
+        { x: p.x + g * .75, y: p.y + g * .75, anchor: 'start', tx: p.x + g * .75, ty: p.y + g * .75 + lh / 2 },
+        { x: p.x - g * .75 - w, y: p.y - g * .75 - lh, anchor: 'end', tx: p.x - g * .75, ty: p.y - g * .75 - lh / 2 },
+        { x: p.x - g * .75 - w, y: p.y + g * .75, anchor: 'end', tx: p.x - g * .75, ty: p.y + g * .75 + lh / 2 },
+      ];
+      for (var k = 0; k < spots.length; k++) { var bx = { x: spots[k].x, y: spots[k].y, w: w, h: lh }; if (free(bx, p)) { boxes.push(bx); p.label = spots[k]; return; } }
+      p.label = null;
+    });
+    return boxes;
+  }
+
+  // ---- groups (Steve, 2026-10-28: "better collapsing of locations in the map page (maybe like reddit? but not sure)") ----
+  // venues whose discs would sit mostly on one another at this zoom fold into one group disc: the biggest venue
+  // is the seed and takes in every venue whose disc centre lies inside GROUP_AT of the two radii — measured on the
+  // venues' own discs, never on the group's, so a group never snowballs across a city; a zoom in parts them again.
+  // A city.js neighbourhood is a wall (a group is one neighbourhood's, and takes its name), and a neighbourhood
+  // site's own venues never group with the rest of the city's. Done over every pin, in view or not, so a pan
+  // never regroups anything — only a zoom does. `scale` sizes the discs for another zoom (canSplit).
+  var GROUP_AT = 1.15; // dots whose centres sit closer than the two radii plus a little fold into one (was .6, mostly on one another, 2026-10-28)
+  function group(pins, scale) {
+    var left = pins.slice().sort(function (a, b) { return b.n - a.n || b.r - a.r || (a.v < b.v ? -1 : 1); }), out = [];
+    while (left.length) {
+      var seed = left.shift(), members = [seed];
+      left = left.filter(function (p) {
+        if (p.city !== seed.city || HOOD[p.v] !== HOOD[seed.v]) return true;
+        if (Math.hypot(p.ox - seed.ox, p.oy - seed.oy) >= GROUP_AT * (p.r + seed.r) * scale) return true;
+        members.push(p); return false;
+      });
+      out.push(members.length === 1 ? seed : groupPin(members));
+    }
+    // inside one neighbourhood two groups that touch become one (one "Downtown & Belltown", not two side
+    // by side) — the neighbourhood bounds it, so this never snowballs across the city as it would with no walls
+    for (var again = true; again;) {
+      again = false;
+      for (var i = 0; i < out.length && !again; i++) for (var j = i + 1; j < out.length && !again; j++) {
+        var a = out[i], b = out[j], h = HOOD[(a.group ? a.group[0] : a).v];
+        if (!a.group || !b.group || !h || h !== HOOD[b.group[0].v] || a.city !== b.city || Math.hypot(a.ox - b.ox, a.oy - b.oy) >= (a.r + b.r) * scale) continue; // two groups, as soon as their discs touch — a lone venue joins only by the seed's rule, so the deepest zoom still shows McCaw Hall on its own
+        out.splice(j, 1); out[i] = groupPin((a.group || [a]).concat(b.group || [b]).sort(function (p, q) { return q.n - p.n || q.r - p.r; })); again = true;
+      }
+    }
+    // a name on the map once: a group whose neighbourhood's name another pin also carries (a second group of it
+    // farther off, or the venue called "Seattle Center") goes by its biggest venue instead
+    var seen = {}; out.forEach(function (p) { seen[p.name] = (seen[p.name] || 0) + 1; });
+    out.forEach(function (p) { if (p.group && seen[p.name] > 1) p.name = p.group[0].name + ' & ' + (p.group.length - 1) + ' more'; });
+    return out;
+  }
+  function groupPin(m) { // the members busiest first; the dot at their centre, weighted by count, its area the members' together
+    var n = 0, x = 0, y = 0, w = 0, top = m[0];
+    m.forEach(function (p) { var k = p.n || .5; n += p.n; x += p.ox * k; y += p.oy * k; w += k; });
+    return { v: 'group:' + m.map(function (p) { return p.v; }).sort().join('|'), group: m, city: top.city, name: HOOD[top.v] || top.name + ' & ' + (m.length - 1) + ' more',
+      ox: x / w, oy: y / w, x: x / w, y: y / w, n: n, r: top.r * Math.min(DOT_MAX, Math.sqrt(m.length)), color: top.color };
+  }
+  function canSplit(g) { // would the deepest zoom part this group? Venues on one spot (the Rose Quarter's two halls) never part: no Zoom in for those
+    if (view.w <= MIN_W() * 1.01) return false;
+    return group(g.group, MIN_W() / view.w).length > 1;
+  }
+  function zoomToGroup(g) { // centred on the group, in far enough that its venues' discs part — or as far as the map goes
+    var xs = g.group.map(function (p) { return p.ox; }), ys = g.group.map(function (p) { return p.oy; });
+    var bw = Math.max.apply(null, xs) - Math.min.apply(null, xs), bh = Math.max.apply(null, ys) - Math.min.apply(null, ys), cx = (Math.max.apply(null, xs) + Math.min.apply(null, xs)) / 2, cy = (Math.max.apply(null, ys) + Math.min.apply(null, ys)) / 2;
+    var w = view.w / 2.5; while (w > MIN_W() && group(g.group, w / view.w).length < 2) w /= 1.25; // the first step in that parts them
+    w = Math.max(MIN_W(), Math.max(w, bw * 1.6, bh * 1.6 / ar()));
+    atHome = false; view = { x: cx - w / 2, y: cy - w * ar() / 2, w: w, h: w * ar() }; clamp(); closePop(); schedule();
+  }
+
+  function render() {
+    if (!data || !isOpen()) return;
+    size(); if (atHome) home(false); else reshape(); clamp(); // the frame may have changed shape since the view was set
+    u = unit();
+    svg.setAttribute('viewBox', [view.x, view.y, view.w, view.h].map(function (v) { return v.toFixed(2); }).join(' '));
+    svg.style.setProperty('--u', u);
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var zoom = FRAME.w / view.w; // 1 = the whole frame
+    // ---- the ground ----
+    if (data.kind === 'urban') { // land everywhere inside the frame, the sea and the lakes over it, then the roads
+      el('rect', { x: -FRAME.w, y: -FRAME.h, width: FRAME.w * 3, height: FRAME.h * 3, 'class': 'lm-land' }, svg); // land everywhere the view can reach (it stays inside the frame — a sliver past the edge, if any, is land too)
+      (data.sea || []).forEach(function (d) { el('path', { d: d, 'class': 'lm-sea', 'fill-rule': 'evenodd' }, svg); });
+      (data.water || []).forEach(function (d) { el('path', { d: d, 'class': 'lm-water', 'fill-rule': 'evenodd' }, svg); });
+      ['secondary', 'primary', 'trunk', 'motorway'].forEach(function (c) { if (data.roads && data.roads[c]) el('path', { d: data.roads[c], 'class': 'lm-road lm-road-' + c }, svg); });
+      if (data.boundary) el('path', { d: data.boundary, 'class': 'lm-boundary' }, svg); // the city's (or neighbourhood's) own line, always on (Steve, 2026-11-02)
+    } else if (data.kind === 'world') { // the ocean everywhere, the countries over it, the state lines and the great lakes over those
+      el('rect', { x: -FRAME.w, y: -FRAME.h, width: FRAME.w * 3, height: FRAME.h * 3, 'class': 'lm-ocean' }, svg);
+      (data.land || []).forEach(function (d) { el('path', { d: d, 'class': 'lm-island', 'fill-rule': 'evenodd' }, svg); });
+      if (data.borders) el('path', { d: data.borders, 'class': 'lm-border' }, svg);
+      (data.water || []).forEach(function (d) { el('path', { d: d, 'class': 'lm-water', 'fill-rule': 'evenodd' }, svg); });
+    } else {
+      (data.far || data.neighbours || []).forEach(function (d) { el('path', { d: d, 'class': 'lm-far' }, svg); });
+      (data.land || [data.island]).forEach(function (d) { el('path', { d: d, 'class': 'lm-island' }, svg); });
+    }
+    // ---- the venues: one dot each (or a group's), nudged apart, then labelled ----
+    var t = tally(), fs = 12.5 * u, total = 0, cityTotal = 0, keys = (BY_PLACE ? Object.keys(t.geo) : ROOMS).concat(CITY_ROOMS);
+    var pins = keys.map(function (v) {
+      var cm = !VENUES[v] && CITYMAP && CITYMAP.venues[v]; // one of the city's rooms beyond the neighbourhood
+      var g = cm ? cm.geo : BY_PLACE ? t.geo[v] : VENUES[v].geo, p = px(g[0], g[1]), n = t.n[v] || 0; if (cm) cityTotal += n; else total += n;
+      var room = cm || VENUES[v] || {};
+      return { v: v, city: !!cm, name: BY_PLACE && !cm ? v.split(',')[0] : (room.short || v.replace(/ National Historic(al)? (Park|Site)$/, '')), ox: p[0], oy: p[1], x: p[0], y: p[1], n: n, r: DOT_R * u, color: 'var(--lm-dot)' };
+    });
+    pins = group(pins, 1); GROUPS = {}; pins.forEach(function (p) { if (p.group) GROUPS[p.v] = p; });
+    // crowding: the discs in view may cover about a sixth of it; past that every disc shrinks alike (a dense city at the whole-frame zoom), never below half
+    var area = 0; pins.forEach(function (p) { if (p.ox > view.x - p.r && p.ox < view.x + view.w + p.r && p.oy > view.y - p.r && p.oy < view.y + view.h + p.r) area += Math.PI * p.r * p.r; });
+    var shrink = Math.min(1, Math.max(.5, Math.sqrt(.16 * view.w * view.h / (area || 1))));
+    pins.forEach(function (p) { p.r *= shrink; p.cap = p.group ? Math.max(p.r * 2, 10 * u) : Math.max(p.r * .9, 10 * u); }); // a group's spot is an average anyway: it may stray farther to clear its neighbours
+    spread(pins, 3 * u);
+    // The green mileage signposts that stood here (2026-10-26 → 2026-10-31) gave way to the Cities and Neighbourhoods
+    // buttons in the zoom column (Steve, 2026-10-31: "for signposts, I want a switch cities button … and switch
+    // neighborfoods" → option 1) — see switcher() below; nothing is drawn over the map for the other sites any more.
+    var signBoxes = [];
+    var boxes = placeLabels(pins, fs, signBoxes); // the labels keep clear of the signs
+    // ---- the places a visitor steers by, where a pin's label has not taken the spot ----
+    var tfs = 10.5 * u;
+    function labelFree(x, y, w, anchor) { var bx = { x: anchor === 'end' ? x - w : anchor === 'middle' ? x - w / 2 : x, y: y - tfs, w: w, h: tfs * 1.3 }; if (bx.x < view.x || bx.x + bx.w > view.x + view.w || bx.y < view.y || bx.y + bx.h > view.y + view.h) return false; return !boxes.some(function (o) { return bx.x < o.x + o.w && bx.x + bx.w > o.x && bx.y < o.y + o.h && bx.y + bx.h > o.y; }) && (boxes.push(bx), true); }
+    (data.labels || []).forEach(function (L) {
+      var x = L.xy[0], y = L.xy[1], tx;
+      if (L.kind === 'peak') {
+        var s = 5 * u;
+        el('path', { d: 'M' + (x - s) + ' ' + (y + s * .8) + 'L' + x + ' ' + (y - s) + 'L' + (x + s) + ' ' + (y + s * .8) + 'Z', 'class': 'lm-peak' }, svg);
+        if (zoom >= .9 && labelFree(x, y + s * 2.6, L.name.length * tfs * .62, 'middle')) { tx = el('text', { x: x, y: y + s * 2.6, 'text-anchor': 'middle', 'font-size': tfs * .92, 'class': 'lm-peak-name' }, svg); tx.textContent = L.name; }
+      } else if (L.kind === 'water') {
+        if (labelFree(x, y, L.name.length * tfs * .6, 'middle')) { tx = el('text', { x: x, y: y, 'text-anchor': 'middle', 'font-size': tfs * .95, 'class': 'lm-water-name' }, svg); tx.textContent = L.name; }
+      } else {
+        var dx = (L.anchor === 'end' ? -1 : L.anchor === 'middle' ? 0 : 1) * 6 * u, dy = (L.dy || 4) * u;
+        el('circle', { cx: x, cy: y, r: 2.2 * u, 'class': 'lm-town-dot' }, svg);
+        if (labelFree(x + dx, y + dy, L.name.length * tfs * .68, L.anchor)) { tx = el('text', { x: x + dx, y: y + dy, 'text-anchor': L.anchor, 'font-size': tfs, 'class': 'lm-town' }, svg); tx.textContent = L.name; }
+      }
+    });
+    pins.forEach(function (p) {
+      if (Math.abs(p.x - p.ox) + Math.abs(p.y - p.oy) > 1.5 * u) el('path', { d: 'M' + p.ox + ' ' + p.oy + 'L' + p.x + ' ' + p.y, 'class': 'lm-leader' }, svg);
+    });
+    pins.slice().sort(function (a, b) { return b.r - a.r; }).forEach(function (p) { // the big discs first, so a small one overlapped stays on top
+      var g = el('g', { 'class': 'lm-pin' + (p.n ? '' : ' is-empty') + (p.city ? ' is-city' : '') + (p.group ? ' is-group' : '') + (openVenue === p.v ? ' is-open' : ''), role: 'button', tabindex: '0', 'data-venue': p.v }, svg);
+      g.style.setProperty('--pin', p.color);
+      var title = el('title', {}, g); title.textContent = (p.group ? p.name + ' — ' + p.group.length + ' venues, ' : p.v + ' — ') + (p.n ? p.n + ' upcoming' : 'nothing upcoming under these filters');
+      el('circle', { cx: p.x, cy: p.y, r: p.r, fill: p.color }, g);
+      if (p.n) { var nz = Math.min(p.r * .95, 2.6 * p.r / String(p.n).length), n = el('text', { x: p.x, y: p.y + nz * .36, 'font-size': nz, 'class': 'lm-n' }, g); n.textContent = p.n; } // the count fits its dot: a mono digit is about .6 em wide
+      if (p.label) { var l = el('text', { x: p.label.tx, y: p.label.ty + fs * .36, 'text-anchor': p.label.anchor, 'font-size': fs, 'class': 'lm-name' }, g); l.textContent = p.name; }
+    });
+    if (me) { // the visitor: a ring the size of the fix's uncertainty, a dot at its centre
+      var mg = el('g', { 'class': 'lm-me' }, svg);
+      el('circle', { cx: me.x, cy: me.y, r: Math.max(me.acc, 6 * u), 'class': 'lm-me-acc' }, mg);
+      el('circle', { cx: me.x, cy: me.y, r: 5 * u, 'class': 'lm-me-dot' }, mg);
+      var mt = el('title', {}, mg); mt.textContent = 'You are here';
+    }
+    var cap = $('lmCaption'), own = keys.filter(function (v) { return VENUES[v] && t.n[v]; }).length, ownAll = keys.length - CITY_ROOMS.length;
+    var filteredOut = !total && ownAll > 0 && !!H.resetFilters && !(H.isDefaultView && H.isDefaultView()); // the filters leave nothing on the map (Steve, 2026-10-31: "#1, yes" — a whole map of hollow rings read as broken)
+    if (cap) {
+      cap.firstElementChild.textContent = (filteredOut ? 'Nothing upcoming under these filters' : total + ' upcoming at ' + own + ' of ' + ownAll + ' places') + (CITY_ROOMS.length ? ' · ' + cityTotal + ' more across ' + (CITYMAP.city || 'the city') : '');
+      var rs = cap.querySelector('.lm-reset');
+      if (filteredOut && !rs) { rs = document.createElement('button'); rs.type = 'button'; rs.className = 'lm-reset'; rs.textContent = 'Reset filters'; rs.addEventListener('click', function () { H.resetFilters(); }); cap.insertBefore(rs, cap.firstElementChild.nextSibling); }
+      if (rs) rs.hidden = !filteredOut;
+    }
+  }
+  function schedule() { if (!rafId) rafId = requestAnimationFrame(function () { rafId = 0; render(); }); }
+
+  // ---- zoom and pan ----
+  var MIN_W = function () { // a neighbourhood site may go as deep as fills a narrow frame with its own line (Steve, 2026-11-03)
+    var base = FRAME.w / (data && data.kind === 'urban' ? 24 : data && data.kind === 'world' ? 120 : 16), lb = lineBox();
+    return lb ? Math.min(base, Math.max(lb[2], lb[3] / ar())) : base;
+  }; // a city zooms a little deeper: its rooms sit a block apart; the world much deeper, down to a state's towns
+  var COVER = function () { return !!data && data.kind === 'urban'; }; // a city's ground is a rectangle of data, so the view stays inside it and the frame is always full (Steve, 2026-10-25); an island sits in open sea, the world in ocean — those run on past the data
+  var MAX_W = function () { // out to the whole ground (plus a margin) in the frame's own shape — or, covered, as far as still fills it,
+    var a = ar(); if (!COVER()) return Math.max(FRAME.w, FRAME.h / a) * 1.3;
+    var le = lineExtent(); // and on to the whole city line in any window shape, the ground then centred (Steve, 2026-11-05: "allow zooming out
+    return Math.max(Math.min(FRAME.w, FRAME.h / a), le ? Math.max(le[2], le[3] / a) : 0); // to show the complete city line inside the view")
+  }; // out to the whole ground (plus a margin) in the frame's own shape — or, covered, as far as still fills it
+  function clamp() {
+    view.w = Math.min(MAX_W(), Math.max(MIN_W(), view.w)); view.h = view.w * ar();
+    var m = COVER() ? 0 : .15; // the margin the view may show past the ground
+    var lo = -FRAME.w * m, hi = FRAME.w * (1 + m) - view.w; view.x = hi < lo ? (lo + hi) / 2 : Math.min(hi, Math.max(lo, view.x)); // wider than the ground: centred on it
+    lo = -FRAME.h * m; hi = FRAME.h * (1 + m) - view.h; view.y = hi < lo ? (lo + hi) / 2 : Math.min(hi, Math.max(lo, view.y));
+  }
+  function takeInLine() { // on a zoom out (and the fit button), past the ground's fill or all the way out: the view slides to take in as much
+    // of the city line as it holds, so at the widest the whole line shows (Steve, 2026-11-05); only then, so a pan at that scale stays free
+    var le = COVER() && view.w > Math.min(Math.min(FRAME.w, FRAME.h / ar()), MAX_W() - 1) + .5 ? lineExtent() : null;
+    if (le) { // +1: rounding at MAX_W; the line's margin is cut to the ground's edge
+      var lo = Math.max(0, Math.min(FRAME.w, le[0] + le[2]) - view.w), hi = Math.min(FRAME.w - view.w, Math.max(0, le[0])); if (lo <= hi + 1) view.x = Math.min(hi, Math.max(lo, view.x));
+      lo = Math.max(0, Math.min(FRAME.h, le[1] + le[3]) - view.h); hi = Math.min(FRAME.h - view.h, Math.max(0, le[1])); if (lo <= hi + 1) view.y = Math.min(hi, Math.max(lo, view.y));
+    }
+  }
+  function zoomAt(cx, cy, f) { // cx, cy: client coordinates the zoom keeps still
+    var r = svg.getBoundingClientRect(), k = view.w / r.width, fx = (cx - r.left) * k + view.x, fy = (cy - r.top) * k + view.y;
+    atHome = false; var w = view.w / f; w = Math.min(MAX_W(), Math.max(MIN_W(), w)); var ff = view.w / w;
+    view.x = fx - (fx - view.x) / ff; view.y = fy - (fy - view.y) / ff; view.w = w; view.h = w * ar();
+    clamp(); if (f < 1) takeInLine(); closePop(); schedule();
+  }
+  // the double-click and the + / − buttons glide to the new scale over a moment, eased, the way a pinch moves — they jumped
+  // until Steve (2026-10-31): "when double clicking to zoome the map, it should just jump, it should slow zoom in. link pinch
+  // zoom in/out does. the +- should do the same"; a reduced-motion setting keeps the jump
+  var glideId = 0;
+  function stopGlide() { if (glideId) { cancelAnimationFrame(glideId); glideId = 0; } }
+  function glideZoom(cx, cy, f) {
+    stopGlide();
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { zoomAt(cx, cy, f); return; }
+    var t0 = 0, done = 1, MS = 300;
+    function step(now) {
+      if (!t0) t0 = now;
+      var k = Math.min(1, (now - t0) / MS), want = Math.pow(f, 1 - Math.pow(1 - k, 3)); // ease-out cubic, on the scale's log (each frame a ratio, so the point under the pointer stays put)
+      zoomAt(cx, cy, want / done); done = want;
+      if (rafId) { cancelAnimationFrame(rafId); rafId = 0; } render(); // this frame, not the next
+      glideId = k < 1 ? requestAnimationFrame(step) : 0;
+    }
+    glideId = requestAnimationFrame(step);
+  }
+  var pts = {}, drag = null, pinch = null;
+  svg.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    stopGlide(); // a hand on the map takes over from a glide
+    pts[e.pointerId] = { x: e.clientX, y: e.clientY }; svg.setPointerCapture(e.pointerId);
+    var ids = Object.keys(pts);
+    if (ids.length === 1) drag = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y, moved: false, target: e.target.closest('.lm-pin') };
+    else if (ids.length === 2) { var a = pts[ids[0]], b = pts[ids[1]]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), w: view.w, mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2 }; drag = null; }
+  });
+  svg.addEventListener('pointermove', function (e) {
+    if (!pts[e.pointerId]) return;
+    pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+    var ids = Object.keys(pts);
+    if (pinch && ids.length === 2) {
+      var a = pts[ids[0]], b = pts[ids[1]], d = Math.hypot(a.x - b.x, a.y - b.y), f = d / (pinch.d || 1);
+      view.w = pinch.w; view.h = view.w * ar(); zoomAt(pinch.mx, pinch.my, f); return;
+    }
+    if (!drag) return;
+    var k = view.w / svg.getBoundingClientRect().width, dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (!drag.moved && Math.hypot(dx, dy) < 4) return;
+    drag.moved = true; atHome = false; svg.classList.add('is-dragging'); closePop();
+    view.x = drag.vx - dx * k; view.y = drag.vy - dy * k; clamp();
+    svg.setAttribute('viewBox', [view.x, view.y, view.w, view.h].join(' '));
+  });
+  function up(e) {
+    delete pts[e.pointerId];
+    if (drag && !drag.moved && drag.target) toggleVenue(drag.target.dataset.venue, drag.target);
+    else if (drag && !drag.moved && !drag.target) closePop();
+    if (drag && drag.moved) schedule(); // the labels re-fitted to the new frame
+    drag = null; if (Object.keys(pts).length < 2) pinch = null; svg.classList.remove('is-dragging');
+  }
+  svg.addEventListener('pointerup', up); svg.addEventListener('pointercancel', up);
+  svg.addEventListener('wheel', function (e) { // by the delta's size, never a fixed step per event: a trackpad pinch (ctrlKey, small deltas, dozens a second) or two-finger scroll lands many events per gesture, a mouse notch one of ±100 or so (≈ 1.2×)
+    e.preventDefault(); stopGlide();
+    var d = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 100 : 1), f = Math.exp(-d * (e.ctrlKey ? .01 : .002));
+    zoomAt(e.clientX, e.clientY, Math.min(1.5, Math.max(1 / 1.5, f)));
+  }, { passive: false });
+  svg.addEventListener('dblclick', function (e) { e.preventDefault(); glideZoom(e.clientX, e.clientY, 2); });
+  svg.addEventListener('keydown', function (e) { var g = e.target.closest && e.target.closest('.lm-pin'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); toggleVenue(g.dataset.venue, g); } });
+  $('mapView').querySelector('.lm-zoom').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-z]'); if (!b) return;
+    var r = svg.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    if (b.dataset.z === 'in') glideZoom(cx, cy, 1.6); else if (b.dataset.z === 'out') glideZoom(cx, cy, 1 / 1.6); else if (b.dataset.z === 'me') locate(b); else if (b.dataset.z === 'cities' || b.dataset.z === 'hoods') switchCard(b.dataset.z, b); else { stopGlide(); closePop(); fit(); } // fit: the whole frame, out-of-town rooms included
+  });
+
+  // ---- the visitor's own spot (Steve, 2026-10-25: "find my location") ----
+  // the browser's Geolocation API, on the visitor's say-so each time (its own permission prompt); nothing leaves the page
+  function note(text, link, keep) { // a line under the frame, for a moment — with a link it stays until the next note
+    var cap = $('lmCaption'); if (!cap) return;
+    var n = cap.querySelector('.lm-note'); if (!n) { n = document.createElement('span'); n.className = 'lm-note'; cap.appendChild(n); }
+    n.textContent = text; clearTimeout(note.t);
+    if (link) { var a = document.createElement('a'); a.href = link.url; a.textContent = link.text; n.appendChild(a); }
+    if (!keep) note.t = setTimeout(function () { n.textContent = ''; }, 6000);
+  }
+  // the nearest other city on here.events to a spot (great-circle, km) — for a visitor off this map's ground; a
+  // neighbourhood site's own city (map.city) is not "another city", its rooms are on this map already
+  function nearestCity(lat, lon, within) {
+    var list = (window.LQACities && window.LQACities.cities) || [], own = CITY.key, cityKey = CITY.map && CITY.map.city && CITY.map.city.key, best = null;
+    list.forEach(function (c) {
+      if (!c.live || c.lat == null || c.key === own || c.key === cityKey || c.name !== c.city) return; // city-wide sites only: a neighbourhood's rooms are on its city's map
+      var dLat = (c.lat - lat) * Math.PI / 180, dLon = (c.lon - lon) * Math.PI / 180, a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat * Math.PI / 180) * Math.cos(c.lat * Math.PI / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      var km = 2 * 6371 * Math.asin(Math.sqrt(a));
+      if (km <= within && (!best || km < best.km)) best = { city: c, km: km };
+    });
+    return best;
+  }
+  var PREVIEW = (new URLSearchParams(location.search).get('preview') || ''); // a local demo: ?preview=seattle:8120,everett:8088 sends a city's sign or jump to that preview port instead of its live host, and carries the list along (nothing of it in production links)
+  var PREVIEW_PORT = {}; PREVIEW.split(',').forEach(function (kv) { var m = /^([\w-]+):(\d+)$/.exec(kv); if (m) PREVIEW_PORT[m[1]] = m[2]; });
+  function cityLink(c) { return (PREVIEW_PORT[c.key] ? 'http://localhost:' + PREVIEW_PORT[c.key] + '/repo/site/' : c.url) + '?view=map&from=' + encodeURIComponent(CITY.key) + (PREVIEW ? '&preview=' + encodeURIComponent(PREVIEW) : ''); }
+  var FROM = new URLSearchParams(location.search).get('from') || ''; // the site whose Cities card brought the visitor here: it heads this site's card, so there is a way back (Steve, 2026-10-26)
+  // ---- the other sites on here.events: the Cities and Neighbourhoods buttons in the zoom column ----
+  // (Steve, 2026-10-31: "I want a switch cities buttone somewhere if you are in a city that doesn't have any neighborfooh
+  // here sites. if you are in a city with neighborhoods defiend I want a switch cities and switch neighborfoods" → option 1,
+  // in place of the green signposts.) A city's neighbourhood sites are the cities.js entries of the same city and state
+  // whose name is not the city's (Lower Queen Anne · Seattle); no field of their own.
+  function sites() { return (window.LQACities && window.LQACities.cities) || []; }
+  function self() { return sites().filter(function (c) { return c.key === CITY.key; })[0] || null; }
+  function family() { // this site's city-wide site and its neighbourhood sites, when it has any — Seattle, Lower Queen Anne, Pioneer Square
+    var me0 = self(); if (!me0) return [];
+    var f = sites().filter(function (c) { return c.live && c.city === me0.city && c.state === me0.state; });
+    return f.length > 1 && f.some(function (c) { return c.name !== c.city; }) ? f : [];
+  }
+  function unproject(x, y) { var p = data.proj; if (p.kind === 'miller') return [Math.atan(Math.sinh((p.my0 - y / p.s) * Math.PI / 180 / 1.25)) / .8 * 180 / Math.PI, (x - p.w / 2) / p.s + p.cx]; return [p.cy - (y - p.h / 2) / p.s, (x - p.w / 2) / (p.k * p.s) + p.cx]; } // px() backwards: frame units → [lat, lon]
+  function otherCities() { // the other city-wide sites, nearest first: from this city's own spot on here.events, or — a site that is no city (tango) — from the middle of the view
+    var me0 = self(), o = me0 && me0.lat != null ? [me0.lat, me0.lon] : data && view ? unproject(view.x + view.w / 2, view.y + view.h / 2) : null;
+    var skip = {}; skip[CITY.key] = 1; if (CITY.map && CITY.map.city) skip[CITY.map.city.key] = 1; family().forEach(function (c) { skip[c.key] = 1; });
+    var out = sites().filter(function (c) { return c.live && c.lat != null && !skip[c.key] && c.name === c.city; }).map(function (c) { // city-wide sites only: a neighbourhood belongs to its city's card
+      var r = { key: c.key, name: c.name, url: c.url, state: c.state };
+      if (o) {
+        var f1 = o[0] * Math.PI / 180, f2 = c.lat * Math.PI / 180, dl = (c.lon - o[1]) * Math.PI / 180, a = Math.sin((f2 - f1) / 2) * Math.sin((f2 - f1) / 2) + Math.cos(f1) * Math.cos(f2) * Math.sin(dl / 2) * Math.sin(dl / 2);
+        r.km = 2 * 6371 * Math.asin(Math.sqrt(a));
+        r.deg = (Math.atan2(Math.sin(dl) * Math.cos(f2), Math.cos(f1) * Math.sin(f2) - Math.sin(f1) * Math.cos(f2) * Math.cos(dl)) * 180 / Math.PI + 360) % 360; // the initial bearing, clockwise from north
+      }
+      return r;
+    });
+    out.sort(function (p, q) { return o ? p.km - q.km : p.name.localeCompare(q.name); });
+    return out;
+  }
+  var ARROWS = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖'];
+  var SIGNPOST = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M9 21h6M12 5h6.5l2 2.5-2 2.5H12M12 12H5.5l-2 2.5 2 2.5H12"/></svg>';
+  var HOODS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21v-9l4-3 4 3v9M13 21v-6l3.5-2.5L20 15v6M8 15h2"/></svg>';
+  function mountSwitch() { // the buttons, under find-my-location, once cities.js is in (a deferred script like this one)
+    var col = $('mapView').querySelector('.lm-zoom'); if (!col || col.querySelector('[data-z="cities"]') || !sites().length) return;
+    function add(z, label, icon) { var b = document.createElement('button'); b.type = 'button'; b.dataset.z = z; b.title = label; b.setAttribute('aria-label', label); b.setAttribute('aria-haspopup', 'dialog'); b.setAttribute('aria-expanded', 'false'); b.innerHTML = icon; col.appendChild(b); }
+    add('cities', 'Switch City', SIGNPOST);
+    if (family().length) add('hoods', 'Switch Neighbourhood', HOODS_ICON);
+  }
+  var openSwitch = null; // 'cities' | 'hoods' while its card is up
+  function swRow(c, here, far, tag) {
+    var li = document.createElement('li'); if (here) li.className = 'is-here';
+    var a = document.createElement(here ? 'span' : 'a'); a.className = 'lm-sw-row'; if (here) a.setAttribute('aria-current', 'page'); else a.href = cityLink(c);
+    var n = document.createElement('span'); n.className = 'lm-sw-name'; n.textContent = c.name; a.appendChild(n);
+    if (tag) { var g = document.createElement('span'); g.className = 'lm-sw-tag'; g.textContent = tag; a.appendChild(g); }
+    if (far) { var d = document.createElement('span'); d.className = 'lm-sw-far'; d.textContent = far; a.appendChild(d); }
+    li.appendChild(a); return li;
+  }
+  function switchCard(kind, b) {
+    if (openSwitch === kind) { closePop(); return; }
+    H.closeDayPop(); closePop(); openSwitch = kind; b.setAttribute('aria-expanded', 'true');
+    var pop = document.createElement('div'); pop.className = 'mb-pop lm-pop lm-switch'; pop.setAttribute('role', 'dialog');
+    var ul = document.createElement('ul'); ul.className = 'lm-sw-list';
+    if (kind === 'cities') {
+      var unit = CITY.distanceUnit === 'km' ? 'km' : 'mi', list = otherCities(), back = FROM && list.filter(function (c) { return c.key === FROM; })[0];
+      popHead(pop, 'Switch City', list[0] && list[0].km != null ? 'nearest first' : '');
+      (back ? [back] : []).concat(list.filter(function (c) { return c !== back; }).slice(0, back ? 5 : 6)).forEach(function (c) {
+        var far = c.km != null ? Math.max(1, Math.round(unit === 'km' ? c.km : c.km * .621371)) + ' ' + unit + ' ' + ARROWS[Math.round(c.deg / 45) % 8] : '';
+        ul.appendChild(swRow(c, false, far, c === back ? 'Back' : ''));
+      });
+      pop.appendChild(ul);
+      var foot = document.createElement('div'); foot.className = 'lm-foot';
+      var all = document.createElement('button'); all.type = 'button'; all.className = 'lm-site lm-list'; all.textContent = 'All cities…';
+      all.addEventListener('click', function () { closePop(); if (!(H.openCities && H.openCities())) location.assign((window.LQACities && window.LQACities.map) || 'https://here.events/'); }); // the More Cities sheet (app.js); a site without it, the map of every city
+      foot.appendChild(all); pop.appendChild(foot);
+    } else {
+      var fam = family().slice().sort(function (p, q) { return (p.name === p.city ? 0 : 1) - (q.name === q.city ? 0 : 1) || p.name.localeCompare(q.name); }); // the whole city first, then its neighbourhoods
+      popHead(pop, 'Switch Neighbourhood', fam[0] ? fam[0].city : '');
+      fam.forEach(function (c) { ul.appendChild(swRow(c, c.key === CITY.key, '', c.name === c.city ? 'Whole city' : '')); });
+      pop.appendChild(ul);
+    }
+    showPop(pop, b, function () { // to the left of the button, its top level with the button's (a phone takes the sheet from the foot, as a pin's card does)
+      if (window.matchMedia('(max-width: 640px)').matches) return;
+      var r = b.getBoundingClientRect(), w = Math.min(17 * 16, window.innerWidth - 16), foot0 = document.querySelector('footer'), floor = foot0 ? Math.min(window.innerHeight, foot0.getBoundingClientRect().top) : window.innerHeight;
+      pop.style.width = w + 'px'; pop.style.left = Math.max(8, r.left - 8 - w) + 'px';
+      pop.style.top = Math.max(8, Math.min(r.top, floor - 8 - pop.offsetHeight)) + 'px';
+    });
+  }
+  function goTo(m) { // centre on the spot, in as far as a few blocks if the view is wider than that
+    atHome = false; var w = Math.min(view.w, MIN_W() * 4); view = { x: m.x - w / 2, y: m.y - w * ar() / 2, w: w, h: w * ar() }; clamp(); closePop(); schedule();
+  }
+  function place(c, b) { // a fix in hand (the browser's, or the test harness's): on this ground → the dot; off it → the nearest city on here.events
+    var p = px(c.latitude, c.longitude), m = { x: p[0], y: p[1], acc: (c.accuracy || 0) / 111320 * data.proj.s, at: Date.now() }; // metres → degrees of latitude → frame units
+    var slack = FRAME.w * .02;
+    if (p[0] < -slack || p[0] > FRAME.w + slack || p[1] < -slack || p[1] > FRAME.h + slack) { // off this ground: offer the nearest city instead (Steve, 2026-10-26: "take me to the everett page")
+      me = null; schedule();
+      var near = nearestCity(c.latitude, c.longitude, 80);
+      if (near) { note('You are near ' + near.city.name + ' — opening its calendar…', null, true); location.assign(cityLink(near.city) + '&me=' + [c.latitude.toFixed(4), c.longitude.toFixed(4), Math.round(c.accuracy || 0)].join(',')); } // the fix rides along, so the next site marks the spot too ("the next site should still highlight your location") // "it should jump" (Steve, 2026-10-26)
+      else note('You are outside this map');
+      return;
+    }
+    me = m; goTo(m); if (b) b.setAttribute('aria-pressed', 'true');
+  }
+  function locate(b) {
+    if (!navigator.geolocation) { note('This browser gives no location'); return; }
+    if (me && Date.now() - me.at < 60000) { goTo(me); return; } // a fresh fix: just go there again
+    if (b) b.classList.add('is-busy');
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      if (b) b.classList.remove('is-busy');
+      place(pos.coords, b);
+    }, function (err) {
+      if (b) b.classList.remove('is-busy');
+      note(err && err.code === 1 ? 'Location permission was declined' : 'Your location could not be found');
+    }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 });
+  }
+
+  // ---- the pin's card ----
+  function closePop() {
+    var old = document.querySelector('.lm-pop'); if (old) old.remove();
+    openVenue = null; openSwitch = null; $('mapView').querySelectorAll('.lm-zoom [aria-expanded="true"]').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); }); svg.querySelectorAll('.lm-pin.is-open').forEach(function (g) { g.classList.remove('is-open'); });
+    document.removeEventListener('click', popOff, true); document.removeEventListener('keydown', popOff); window.removeEventListener('scroll', closePop);
+  }
+  function popOff(e) {
+    if (e.type !== 'keydown' && openSwitch && e.target.closest('.lm-zoom button[data-z="' + openSwitch + '"]')) return; // its own button: the button's click folds the card
+    if (e.type === 'keydown' ? e.key === 'Escape' : !e.target.closest('.lm-pop')) closePop();
+  }
+  function cardDate(iso) { var m = /^(\d{4})-(\d\d)-(\d\d)/.exec(iso || ''); return m ? new Date(+m[1], +m[2] - 1, +m[3]).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : ''; } // "Oct 29": the city's calendar day as written, no zone shift
+  function eventRows(v, list, max, into) { // a venue's next few events, the day at each row's right end
+    list.slice(0, max).forEach(function (e) {
+      var tail = BY_PLACE && e.place ? ' — ' + e.place : '';
+      var row = H.boardEntry(tail && e.title.slice(-tail.length) === tail ? Object.assign({}, e, { title: e.title.slice(0, -tail.length) }) : e, true);
+      // the day at the row's right end, month and day only (Steve, 2026-10-26: "add dates here (just day/month, no year)") — the day card has its day for a heading, this card spans weeks
+      var d = document.createElement('span'); d.className = 'lm-date'; d.textContent = cardDate(e.date); row.appendChild(d);
+      into.appendChild(row);
+    }); // a place's card already names the place: the titles' "— Town, State" tail goes
+  }
+  function venueFoot(v) { // Venue list · Venue site ↗
+    var room = VENUES[v] || (CITYMAP && CITYMAP.venues[v]) || {}, foot = document.createElement('div'); foot.className = 'lm-foot';
+    if (VENUES[v] && H.onlyVenue) { // the venue's own list on this site: the List view narrowed to it (Steve, 2026-10-26); a city venue on a neighbourhood map has its rows on the city site, linked above
+      var lb = document.createElement('button'); lb.type = 'button'; lb.className = 'lm-site lm-list'; lb.textContent = (room.festival ? 'Festival' : 'Venue') + ' list';
+      lb.addEventListener('click', function () { closePop(); H.onlyVenue(v); open(false, true); var ag = document.querySelector('.agenda'); if (ag) ag.scrollIntoView({ block: 'start' }); });
+      foot.appendChild(lb);
+    }
+    if (room.url) { var a = document.createElement('a'); a.className = 'lm-site'; a.href = room.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = (room.festival ? 'Festival site' : 'Venue site') + ' ↗'; foot.appendChild(a); }
+    return foot.childNodes.length ? foot : null;
+  }
+  function placePop(pop, g) {
+    if (window.matchMedia('(max-width: 640px)').matches) return; // a phone takes the sheet from the foot (styles.css); here the card sits beside the pin
+    var r = g.querySelector('circle:last-of-type').getBoundingClientRect(), vw = window.innerWidth, vh = window.innerHeight, w = Math.min(22 * 16, vw - 16);
+    pop.style.width = w + 'px';
+    var left = r.right + 10; if (left + w > vw - 8) left = r.left - 10 - w; if (left < 8) left = Math.max(8, Math.min(r.left, vw - w - 8));
+    var foot = document.querySelector('footer'), floor = foot ? Math.min(vh, foot.getBoundingClientRect().top) : vh;
+    var hgt = pop.offsetHeight, top = r.top - 8; if (top + hgt > floor - 8) top = Math.max(8, floor - 8 - hgt);
+    pop.style.left = left + 'px'; pop.style.top = top + 'px';
+  }
+  function showPop(pop, g, place) {
+    document.body.appendChild(pop); if (place) place(); else placePop(pop, g);
+    setTimeout(function () { document.addEventListener('click', popOff, true); document.addEventListener('keydown', popOff); window.addEventListener('scroll', closePop, { passive: true }); }, 0);
+  }
+  function popHead(pop, name, count) {
+    var h = document.createElement('h3'); h.textContent = name;
+    var n = document.createElement('span'); n.className = 'mb-pop-n'; n.textContent = count; h.appendChild(n);
+    pop.setAttribute('aria-label', name); pop.appendChild(h);
+  }
+  function toggleVenue(v, g) {
+    if (openVenue === v) { closePop(); return; }
+    H.closeDayPop(); closePop();
+    openVenue = v; g.classList.add('is-open');
+    if (GROUPS[v]) { groupCard(GROUPS[v], g); return; }
+    var t = tally(), list = t.next[v] || []; // a place has no row of its own, so no site link; a city room's site is in the city file
+    var pop = document.createElement('div'); pop.className = 'mb-pop lm-pop'; pop.setAttribute('role', 'dialog'); pop.dataset.venue = v;
+    popHead(pop, v, list.length ? list.length + ' upcoming' : 'nothing upcoming');
+    if (!list.length) { var none = document.createElement('p'); none.className = 'mb-none'; none.textContent = 'Nothing listed under these filters'; pop.appendChild(none); }
+    eventRows(v, list, 6, pop);
+    var cityRoom = !VENUES[v] && CITYMAP && CITYMAP.venues[v], count = cityRoom ? (t.n[v] || 0) : list.length;
+    if (count > 6) { var more = document.createElement('p'); more.className = 'lm-more'; if (cityRoom) { more.textContent = '+ ' + (count - 6) + ' more on '; var ml = document.createElement('a'); ml.href = CITYMAP.url; ml.target = '_blank'; ml.rel = 'noopener'; ml.textContent = CITYMAP.url.replace(/^https?:\/\//, '').replace(/\/$/, ''); more.appendChild(ml); } else more.textContent = '+ ' + (count - 6) + ' more in the list'; pop.appendChild(more); }
+    var foot = venueFoot(v); if (foot) pop.appendChild(foot);
+    showPop(pop, g);
+  }
+  // a group's card: its venues one row each, biggest first, folded like a reddit thread — [+] opens a venue's
+  // next few events and its links under it, [–] folds it again; Zoom in, where a zoom can part the discs
+  function groupCard(gp, g) {
+    var t = tally(), pop = document.createElement('div'); pop.className = 'mb-pop lm-pop'; pop.setAttribute('role', 'dialog'); pop.dataset.venue = gp.v;
+    popHead(pop, gp.name, (gp.n ? gp.n + ' upcoming · ' : '') + gp.group.length + ' venues');
+    var tree = document.createElement('div'); tree.className = 'lm-tree'; pop.appendChild(tree);
+    gp.group.forEach(function (p) {
+      var item = document.createElement('div'); item.className = 'lm-branch';
+      var head = document.createElement('button'); head.type = 'button'; head.className = 'lm-branch-head'; head.setAttribute('aria-expanded', 'false'); head.style.setProperty('--pin', p.color);
+      head.innerHTML = '<span class="lm-tog" aria-hidden="true">[+]</span><span class="lm-dot" aria-hidden="true"></span><span class="lm-branch-name"></span><span class="lm-branch-n"></span>';
+      head.querySelector('.lm-branch-name').textContent = p.v; head.querySelector('.lm-branch-n').textContent = p.n || '–';
+      var body = document.createElement('div'); body.className = 'lm-branch-body'; body.hidden = true;
+      head.addEventListener('click', function () {
+        var on = body.hidden; body.hidden = !on; head.setAttribute('aria-expanded', on ? 'true' : 'false'); head.querySelector('.lm-tog').textContent = on ? '[–]' : '[+]';
+        if (on && !body.childNodes.length) { // filled on first open
+          var list = t.next[p.v] || [];
+          if (!list.length) { var none = document.createElement('p'); none.className = 'mb-none'; none.textContent = 'Nothing listed under these filters'; body.appendChild(none); }
+          eventRows(p.v, list, 3, body);
+          if ((t.n[p.v] || 0) > 3) { var more = document.createElement('p'); more.className = 'lm-more'; more.textContent = '+ ' + ((t.n[p.v] || 0) - 3) + ' more'; body.appendChild(more); }
+          var foot = venueFoot(p.v); if (foot) body.appendChild(foot);
+        }
+        placePop(pop, g); // the card grew or shrank: still clear of the page's foot
+      });
+      item.appendChild(head); item.appendChild(body); tree.appendChild(item);
+    });
+    if (canSplit(gp)) {
+      var foot = document.createElement('div'); foot.className = 'lm-foot';
+      var zb = document.createElement('button'); zb.type = 'button'; zb.className = 'lm-site lm-list'; zb.textContent = 'Zoom in';
+      zb.addEventListener('click', function () { zoomToGroup(gp); });
+      foot.appendChild(zb); pop.appendChild(foot);
+    }
+    showPop(pop, g);
+  }
+
+  // ---- the view itself ----
+  function open(on, remember) {
+    if (on) mountSwitch();
+    if (on === isOpen()) { if (on) render(); return; }
+    document.documentElement.classList.toggle('map-open', on);
+    $('mapView').hidden = !on;
+    var ag = document.querySelector('.agenda'); if (ag && $('teamsView').hidden) ag.hidden = on;
+    closePop();
+    if (remember) { try { localStorage.setItem('lqa-map', on ? '1' : '0'); if (on) localStorage.setItem('lqa-view', 'list'); } catch (e) { /* no storage */ } } // app.js restores List; this file then opens the map over it
+    H.syncViewSwitch(); H.fitFilterBar();
+    if (on) load().then(function () { size(); home(false); render(); }); // size first: home() reads the frame's shape
+  }
+  window.LQAMap = { open: open, isOpen: isOpen, render: schedule, locate: function (lat, lon, acc) { me = null; place({ latitude: lat, longitude: lon, accuracy: acc || 0 }); } }; // locate(): a spot given outright — the test harness's stand-in for the browser's fix, through the same path
+  window.addEventListener('resize', function () { if (isOpen()) schedule(); });
+  // at load: ?view=map, or the remembered choice — unless a ?team= link or a saved Month view got there first
+  (function () {
+    var q = new URLSearchParams(location.search), saved = null;
+    try { saved = localStorage.getItem('lqa-map'); } catch (e) { /* unreadable storage */ }
+    if (q.get('team') || document.documentElement.classList.contains('month-open')) { if (saved === '1') try { localStorage.setItem('lqa-map', '0'); } catch (e) { /* */ } return; }
+    var carried = /^(-?[\d.]+),(-?[\d.]+)(?:,(\d+))?$/.exec(q.get('me') || ''); // a fix the last site passed on when it sent the visitor here
+    if (q.get('view') === 'map' || (!q.get('view') && saved === '1')) {
+      open(true, false);
+      if (carried) load().then(function () { size(); place({ latitude: +carried[1], longitude: +carried[2], accuracy: +carried[3] || 0 }); });
+    } else load(); // warm, so the first tap draws at once
+    mountSwitch();
+  })();
+})();
