@@ -19,7 +19,8 @@ trap 'rm -rf "$LOCK"' EXIT
 DAY=$(date +%F)
 TMP=$(mktemp -d /tmp/here-link-audit.XXXXXX)
 node "$DIR/extract.mjs" > "$TMP/links.json" || { echo "extract failed"; osascript -e 'display notification "Could not read the sites'"'"' city.js — see ~/Library/Logs/here-events-link-audit/run.log" with title "here.events link audit"'; exit 1; }
-SUMMARY=$(uv run --quiet "$DIR/audit.py" "$TMP/links.json" "$STATE/state.json" "$OUT/$DAY.md") || { echo "audit failed"; osascript -e 'display notification "The audit failed — see ~/Library/Logs/here-events-link-audit/run.log" with title "here.events link audit"'; exit 1; }
+node -e "import('$DIR/../../scripts/links.mjs').then((m) => process.stdout.write(JSON.stringify(m.HIJACK)))" > "$TMP/patterns.json" || { echo "patterns not read"; exit 1; }
+SUMMARY=$(uv run --quiet "$DIR/audit.py" "$TMP/links.json" "$STATE/state.json" "$OUT/$DAY.md" "$TMP/patterns.json") || { echo "audit failed"; osascript -e 'display notification "The audit failed — see ~/Library/Logs/here-events-link-audit/run.log" with title "here.events link audit"'; exit 1; }
 ln -sf "$OUT/$DAY.md" "$OUT/latest.md"
 echo "$SUMMARY"
 MSG=${SUMMARY#*: }

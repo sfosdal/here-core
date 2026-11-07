@@ -15,7 +15,7 @@ Flags a link as:
   empty     the page showed 3+ dates last time and none now
 A link that cannot be read this time (a wall, a timeout, a 5xx) keeps last run's flags: walls come and go.
 
-usage: uv run audit.py <links.json from extract.mjs> <state.json> <report.md>
+usage: uv run audit.py <links.json from extract.mjs> <state.json> <report.md> <patterns.json>
 exit 0 always when it ran; the report's first line is the summary the notification shows.
 """
 import json, re, sys, time, datetime
@@ -30,13 +30,13 @@ try:
 except (FileNotFoundError, json.JSONDecodeError):
     state = None  # first run: a baseline
 
-PORN = re.compile(r"\b(porn\w*|порн\w*|секс\w*|порево|xxx|hentai|xvideos|xhamster|sex (videos?|cams?|chat)|cam ?girls|adult videos?|onlyfans leaks?)\b", re.I)
-GAMBLING = re.compile(r"\b(slot ?gacor|gacor|togel|judi (online|bola|slot)|situs (slot|judi|toto)|maxwin|rtp (live|slot)|sbobet|bandar (togel|judi)|slot ?(online|88|777)|casino online|1xbet|mostbet|pin-?up casino)\b", re.I)
-PARKED = re.compile(r"(this domain (is|may be) for sale|buy this domain|domain is for sale|hugedomains|afternic|sedoparking|sedo\.com|dan\.com|parkingcrew|bodis\.com|domain parking|is parked free|parked domain)", re.I)
+# the patterns are the build guard's own (scripts/links.mjs HIJACK), handed over by run.sh as JSON — one copy
+PAT = json.load(open(sys.argv[4]))
+PORN, GAMBLING, PARKED = (re.compile(PAT[k], re.I) for k in ("porn", "gambling", "parked"))
 MON = r"(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?"
 DATES = re.compile(rf"\b{MON}\s+\d{{1,2}}\b|\b\d{{1,2}}\s+{MON}\b|\b20\d\d-\d\d-\d\d\b|\b\d{{1,2}}/\d{{1,2}}(/\d{{2,4}})?\b", re.I)
 REFRESH = re.compile(r"""<meta[^>]+http-equiv=["']?refresh["']?[^>]+content=["']?\s*\d+\s*;\s*url=([^"'>\s]+)""", re.I)
-SLD = {"co", "com", "org", "net", "gov", "edu", "ac"}
+SLD = {"co", "com", "org", "net", "gov", "gob", "edu", "ac"}
 
 def site_of(url):
     host = (urlsplit(url).hostname or "").lower()
