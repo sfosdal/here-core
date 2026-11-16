@@ -54,7 +54,7 @@ the same 40 rows fixed at 2026-11-05.
   Big Island and Maui keep their island map scripts this way, and leave out
   the city-line style those scripts don't draw.
 
-`~/Desktop/projects/lqa-events/sync-shared.sh` runs `tools/sync.py`.
+`~/Desktop/projects/here-core/sync-shared.sh` runs `tools/sync.py`.
 
 Not shared yet: `index.html`, `faq.html`, `about.html`, `advertise.html` and
 `embed.js`. Cities have their own copies. The ones here are lqa's as of the
