@@ -61,3 +61,23 @@ Not shared yet: `index.html`, `faq.html`, `about.html`, `advertise.html` and
 seed: only `index.html` is reworded for Twin Peaks, while `about.html`,
 `advertise.html` and `embed.js` still say Lower Queen Anne. Templating their
 shared parts is a later step.
+
+## Jobs that serve every site
+
+These live here, not in a city's repo:
+
+- **Tests** (`.github/workflows/tests.yml`): the script tests and the calendar
+  Lambda's (`lambda/`), on every push.
+- **Festival finder** (`.github/workflows/festivals.yml`, Mondays):
+  `scripts/festival-finder.mjs` reads every live site's feed and opens the
+  week's checklist as an issue in this repo (label `festival-finder`). Every
+  city's build reads the answers from this repo's issues (`scripts/festivals.mjs`).
+- **Sold-out checker** (`tools/soldout/`): `run.sh`, run twice a day by launchd
+  on a Mac (`net.fosdal.here-soldout.plist`; Ticketmaster refuses GitHub's
+  runners), reads each site's upcoming Ticketmaster and TicketWeb links
+  through the Chromium container in `browser/` and pushes one `soldout.json`
+  to this repo's `soldout` branch. Every city's build reads that file
+  (`SOLDOUT_URL` in `scripts/build.mjs`). A run has a budget in minutes and
+  asks the events longest unasked first. The events lqa-events' own job
+  answers for (Seattle Center's venues and the clubs' away games) are left to
+  it; a city's own file is laid over the shared one in its build.

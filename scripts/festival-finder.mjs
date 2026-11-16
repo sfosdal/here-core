@@ -1,11 +1,12 @@
 // The weekly festival list (scripts/festivals.mjs has the why): reads every live site's events.json and
-// city.js, finds festivals no venue names, and opens one issue in sfosdal/lqa-events — a checklist by city,
+// city.js, finds festivals no venue names, and opens one issue in sfosdal/here-core — a checklist by city,
 // mailed to Steve by GitHub — after closing last week's (its unticked boxes become noes). No finds, no issue.
 // Run by .github/workflows/festivals.yml on Monday mornings.
 //
 //   node scripts/festival-finder.mjs            # print the issue it would open (no token needed)
 //   GITHUB_TOKEN=… node scripts/festival-finder.mjs --open    # the workflow: close last week's, open this week's
 import vm from 'node:vm';
+import { readFileSync } from 'node:fs';
 import { detect, issueLine, readAnswers, fetchIssues, REPO, LABEL } from './festivals.mjs';
 
 const OPEN = process.argv.includes('--open');
@@ -13,7 +14,7 @@ const token = process.env.GITHUB_TOKEN;
 const today = new Date().toISOString().slice(0, 10);
 
 const ctx = { window: {} }; vm.createContext(ctx);
-vm.runInContext(await (await fetch('https://lqa.seattle.here.events/cities.js')).text(), ctx);
+vm.runInContext(readFileSync(new URL('../site/cities.js', import.meta.url), 'utf8'), ctx);
 const sites = ctx.window.LQACities.cities.filter((c) => c.live && c.key !== 'hawaii') // Hawaiʻi is the islands' feeds again
   .map((c) => ({ key: c.key, name: c.name, url: c.url })); // curling.events is left out: a bonspiel is its own event, and its rows are every club's
 

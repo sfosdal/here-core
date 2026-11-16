@@ -1,0 +1,18 @@
+# The shared files' tests, on Twin Peaks (the test city). Every city's daily build runs the script tests
+# again on its own data; the calendar Lambda's tests run only here.
+name: tests
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test scripts/*.test.mjs lambda/*.test.mjs
