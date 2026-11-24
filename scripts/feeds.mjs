@@ -1323,7 +1323,8 @@ export function mapPopmenuEvents(list, { venue = '', base = '', today = '', unti
       const stop = last && last < until ? last : until;
       for (let d = first > today ? first : today; d <= stop; d = addDays(d, 1)) if (on[new Date(`${d}T12:00:00Z`).getUTCDay()] && !off.has(d)) dates.push(d);
     } else {
-      const stop = last && last > first ? last : first;
+      const overnight = !e.isAllDay && last === addDays(first, 1) && typeof e.endTime === 'number' && e.endTime < e.startTime;
+      const stop = last && last > first && !overnight ? last : first;
       for (let d = first; d <= stop && dates.length < 15; d = addDays(d, 1)) dates.push(d);
       if (dates.length > 14) dates = [first];
       dates = dates.filter((d) => d >= today && d <= until);
