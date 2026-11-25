@@ -564,3 +564,14 @@ test('mapPopmenuEvents: drop, skipped dates, an ended series, other locations, i
   assert.deepEqual(events.filter((e) => e.title === 'Late Night Dance Party').map((e) => [e.date, e.time, e.end]), [['2026-11-28', '23:45', undefined]]); // past midnight: one night (Smith's Olde Bar, 2026-11-24)
   assert.deepEqual(events.filter((e) => e.title === 'Untimed Weekly').map((e) => e.date).slice(0, 2), ['2026-11-24', '2026-12-01']); // no weekday flags: its first date's weekday
 });
+
+test('mapPopmenuEvents: `rename` takes a promoter\'s "X Presents" off the title, drop then sees the cleaned title', () => {
+  const list = [
+    pm({ id: 1, name: 'SOBATL Presents Global Ringo with Pepper Davis', startAt: '2026-11-27', endAt: '2026-11-27', startTime: 68400 }),
+    pm({ id: 2, name: 'EAR Productions, DJ EU & JB Entertainment Present Noreh', startAt: '2026-12-18', endAt: '2026-12-18', startTime: 68400 }),
+    pm({ id: 3, name: 'Caleb Lee Hutchinson: Long Line of Losers Tour', startAt: '2026-12-11', endAt: '2026-12-11', startTime: 68400 }),
+    pm({ id: 4, name: 'SOBATL Presents Private Event', startAt: '2026-12-12', endAt: '2026-12-12', startTime: 68400 }),
+  ];
+  const { events } = mapPopmenuEvents(list, { ...MUSE_OPTS, rename: [[/^[^:]*?\bpresents?\s+/i, '']], drop: /^private event$/i });
+  assert.deepEqual(events.map((e) => e.title), ['Global Ringo with Pepper Davis', 'Noreh', 'Caleb Lee Hutchinson: Long Line of Losers Tour']);
+});

@@ -136,8 +136,10 @@
  *                out. startTime/endTime are seconds after midnight on the venue's clock; isAllDay
  *                has no clock. The link is the event's own (Tock, Meetup) or the events page.
  *                `drop` takes titles by name, `location` (a regex on a location's name or town)
- *                keeps one location's events on a group's site, `chrome: true` reads through
- *                scripts/cffi-fetch.py (The Muse Whiskey & Coffee, Everett 2026-11-24).
+ *                keeps one location's events on a group's site, `rename` ([regex, text] pairs) rewrites
+ *                titles in order (a promoter's "X Presents …"), `chrome: true` reads through
+ *                scripts/cffi-fetch.py (The Muse Whiskey & Coffee, Everett 2026-11-24). A one-off
+ *                that ends the next day before it began is one night (Smith's Olde Bar's late shows).
  *
  * Also here: the empty-list gate every build runs (`emptyListGate`) — a
  * fresh pull with zero upcoming events is a scouting failure or an outage,
@@ -1300,10 +1302,11 @@ const popmenuClock = (sec) => (typeof sec === 'number' && sec >= 0 && sec < 8640
  * A section's upcomingCalendarEvents → { events, skipped }: feed rows from `today` to `until`
  * (YYYY-MM-DD), and the names of the repeating events left out because their repeat is not weekly.
  */
-export function mapPopmenuEvents(list, { venue = '', base = '', today = '', until = '', drop = null, location = null, type = '' } = {}) {
+export function mapPopmenuEvents(list, { venue = '', base = '', today = '', until = '', drop = null, location = null, type = '', rename = [] } = {}) {
   const events = [], skipped = [];
   for (const e of list || []) {
-    const title = decode(e?.name || '').replace(/\s+/g, ' ').trim();
+    let title = decode(e?.name || '').replace(/\s+/g, ' ').trim();
+    for (const [re, to] of rename || []) title = title.replace(re, to).trim();
     if (!title || e.status !== 'active' || e.isSecret || (drop && drop.test(title))) continue;
     const locs = (e.calendarEventSelectedLocations || []).filter((l) => l?.isEnabled !== false);
     if (location && locs.length && !locs.some((l) => location.test(`${l.location?.name || ''} ${l.location?.city || ''}`))) continue;
@@ -1366,7 +1369,7 @@ async function fetchPopmenu(url, ua, label, opts) {
   }
   const seen = new Set();
   const unique = list.filter((e) => !seen.has(e.id) && seen.add(e.id));
-  const { events, skipped } = mapPopmenuEvents(unique, { venue: venue || label, base: url, today, until, drop: drop || feed.drop, location: feed.location, type: feed.type || defaultType });
+  const { events, skipped } = mapPopmenuEvents(unique, { venue: venue || label, base: url, today, until, drop: drop || feed.drop, location: feed.location, type: feed.type || defaultType, rename: feed.rename });
   if (skipped.length) console.error(`${label} (Popmenu): left out, repeats that are not weekly: ${skipped.join('; ')}`);
   console.log(`${label} (Popmenu): ${events.length} rows from ${unique.length} events in ${sections.length} section(s)`);
   return events;
