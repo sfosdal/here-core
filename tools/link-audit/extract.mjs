@@ -1,5 +1,6 @@
 // The links to audit, as deployed: here.events/cities.json lists the live sites; each site serves its city.js at its
-// root. Prints JSON: [{ url, uses: [{ site, venue, field }] }] — one entry per distinct link.
+// root. Prints JSON: [{ url, uses: [{ site, venue, field, popmenu? }] }] — one entry per distinct link; `popmenu` on a
+// venue's own url says whether that venue is already read by the Popmenu reader.
 // usage: node extract.mjs > links.json
 import vm from 'node:vm';
 
@@ -22,8 +23,9 @@ for (const s of sites) {
     const ctx = {}; ctx.globalThis = ctx; ctx.window = ctx; ctx.self = ctx;
     vm.runInNewContext(src, ctx, { timeout: 5000 });
     const city = ctx.LQACity || {};
+    const popmenuRead = new Set((city.feeds || []).filter((f) => f && f.kind === 'popmenu' && f.venue).map((f) => f.venue)); // a city-wide feed pinned to a venue
     for (const [venue, v] of Object.entries(city.venues || city.rooms || {})) {
-      add(v && v.url, { site: s.key, venue, field: 'url' });
+      add(v && v.url, { site: s.key, venue, field: 'url', popmenu: (v && v.feed && v.feed.kind === 'popmenu') || popmenuRead.has(venue) }); // already read by the Popmenu reader (scripts/feeds.mjs)
       add(v && v.tm && v.tm.fallbackUrl, { site: s.key, venue, field: 'tm.fallbackUrl' });
     }
     for (const t of city.teams || []) {
