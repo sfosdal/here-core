@@ -1,7 +1,2848 @@
 {
- "generated": "2026-11-25T01:37:50.569Z",
+ "generated": "2026-11-26T02:04:55.582Z",
  "_": "scripts/soldout-check.mjs (a local run — Ticketmaster inventory as a real Chrome sees it, TicketWeb pages (TW… keys, the Crocodile) by plain fetch; committed by scripts/soldout-run.sh). status: available = box-office tickets on sale; soldout = only resale left; none = the inventory call and the page both showed nothing (not treated as sold out); presale = public sale not started; unknown = the page gave no answer; a none/unknown run keeps the last real answer, its own checked time, note says so.",
  "events": {
+  "TW15068903": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 24.95,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "UNIIQU3",
+   "date": "2026-12-19",
+   "venue": "Club Vinyl",
+   "checked": "2026-11-26T00:52:09.898Z"
+  },
+  "TW14221484": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 32.55,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "Jimmy's Buffet: A Pirate Looks at 80 Birthday Bash w/ Toga Party Band",
+   "date": "2026-12-26",
+   "venue": "Belly Up",
+   "checked": "2026-11-26T00:52:11.842Z"
+  },
+  "TW14176754": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 34.28,
+   "note": "2 of 2 ticket types on sale, availability M, no count",
+   "name": "Eric Bellinger",
+   "date": "2026-12-26",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:52:14.082Z"
+  },
+  "TW14993403": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 27.29,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Holiday of Horror 2026 Edition",
+   "date": "2026-12-26",
+   "venue": "Reggies",
+   "checked": "2026-11-26T00:52:16.019Z"
+  },
+  "TW15056573": {
+   "status": "unknown",
+   "note": "page says On Sale ",
+   "name": "Soul Food",
+   "date": "2026-12-26",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:52:18.041Z"
+  },
+  "TW14416244": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 15.94,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Ceremony Presents: 80's and Beyond Dance Party w/ DJ Evan Blackstone ",
+   "date": "2026-12-26",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:52:20.063Z"
+  },
+  "TW14243844": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 24.96,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "No Can Do A Tribute To The Music Of Daryl Hall & John Oates",
+   "date": "2026-12-26",
+   "venue": "Shank Hall",
+   "checked": "2026-11-26T00:52:22.521Z"
+  },
+  "TW14411804": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 0,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Tuesdays With Kev- Gremlins (free movie night)",
+   "date": "2026-12-22",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:52:24.639Z"
+  },
+  "TW14335094": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Magic Theater Presents: Eyes Wide Shut",
+   "date": "2026-12-22",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:52:27.721Z"
+  },
+  "TW14221404": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 29.55,
+   "note": "2 of 2 ticket types on sale, availability M/H, no count",
+   "name": "Abbey Road Christmas Show",
+   "date": "2026-12-23",
+   "venue": "Belly Up",
+   "checked": "2026-11-26T00:52:29.854Z"
+  },
+  "TW14345674": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 56.85,
+   "note": "3 of 3 ticket types on sale, availability H/M, no count",
+   "name": "The Magical Mystery Show!",
+   "date": "2026-12-23",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:52:31.818Z"
+  },
+  "TW14441574": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 20,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Haggus, Bifid Corpse, Ampolla, Corrupture, Cold Scope",
+   "date": "2026-12-06",
+   "venue": "Reggies",
+   "checked": "2026-11-26T00:52:33.718Z"
+  },
+  "TW15014273": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 51.08,
+   "note": "1 of 8 ticket types on sale, availability M, no count",
+   "name": "Jamila Woods: 10 Years of HEAVN featuring support from Ayanna Woods and a Sound Bath led by Shawnee Dez hosted by Raych Jackson",
+   "date": "2026-12-06",
+   "venue": "Thalia Hall",
+   "checked": "2026-11-26T00:52:35.832Z"
+  },
+  "TW14887033": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 18.03,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Piano Queen",
+   "date": "2026-12-06",
+   "venue": "Star Theater",
+   "checked": "2026-11-26T00:52:37.711Z"
+  },
+  "TW14197544": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 32.86,
+   "note": "21 of 21 ticket types on sale, availability M/H, no count",
+   "name": "Yaelokre, Ben Caplan",
+   "date": "2026-12-06",
+   "venue": "Knitting Factory",
+   "checked": "2026-11-26T00:52:39.628Z"
+  },
+  "TW15018693": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "Mack Geiger - When It’s Pouring 2026 Tour w/ Colton Dawson",
+   "date": "2026-12-07",
+   "venue": "Belly Up",
+   "checked": "2026-11-26T00:52:41.587Z"
+  },
+  "TW14448584": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 27.86,
+   "note": "2 of 2 ticket types on sale, availability H/M, no count",
+   "name": "Mariah Carey Christmas Tribute by Jiayin",
+   "date": "2026-12-07",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:52:43.565Z"
+  },
+  "TW14368454": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Wilco",
+   "date": "2026-12-07",
+   "venue": "Thalia Hall",
+   "checked": "2026-11-26T00:52:45.784Z"
+  },
+  "TW14409384": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Sand Dollar Foundation Annual Gala with music by Assisted Living",
+   "date": "2026-12-08",
+   "venue": "Belly Up",
+   "checked": "2026-11-26T00:52:47.880Z"
+  },
+  "TW14280444": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "The Womack Sisters, The Emkays",
+   "date": "2026-12-08",
+   "venue": "Music Box",
+   "checked": "2026-11-26T00:52:49.689Z"
+  },
+  "TW14339864": {
+   "status": "unknown",
+   "note": "HTTP 401",
+   "name": "Young the Giant - Presented by Alt 94.9's December to Remember",
+   "date": "2026-12-08",
+   "venue": "The Sound",
+   "checked": "2026-11-26T00:52:51.838Z"
+  },
+  "TW14448844": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 27.86,
+   "note": "2 of 2 ticket types on sale, availability H/M, no count",
+   "name": "Kaia Soul: A Very Soulful Christmas",
+   "date": "2026-12-08",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:52:53.791Z"
+  },
+  "TW14368524": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "Wilco",
+   "date": "2026-12-08",
+   "venue": "Thalia Hall",
+   "checked": "2026-11-26T00:52:55.655Z"
+  },
+  "TW14339904": {
+   "status": "unknown",
+   "note": "HTTP 401",
+   "name": "Cannons - Presented by Alt 94.9's December to Remember",
+   "date": "2026-12-09",
+   "venue": "The Sound",
+   "checked": "2026-11-26T00:52:57.797Z"
+  },
+  "TW15054493": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 46.08,
+   "note": "2 of 2 ticket types on sale, availability H/M, no count",
+   "name": "Brother Noland",
+   "date": "2026-12-09",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:53:00.118Z"
+  },
+  "TW14967733": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 39.96,
+   "note": "2 of 8 ticket types on sale, availability M/L, no count",
+   "name": "Jalen Ngonda: Doctrine of Love Tour with Brooke Combe",
+   "date": "2026-12-09",
+   "venue": "Thalia Hall",
+   "checked": "2026-11-26T00:53:02.145Z"
+  },
+  "TW14359654": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 27.24,
+   "note": "3 of 3 ticket types on sale, availability H, no count",
+   "name": "Silent Civilian \"Rebirth of the Temple\" 20th Anniversary",
+   "date": "2026-12-09",
+   "venue": "Bourbon Theatre",
+   "checked": "2026-11-26T00:53:04.325Z"
+  },
+  "TW14300424": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 38.3,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "JD McPherson - Socks: A Rock N’ Roll Christmas Tour w/ Melissa Carper",
+   "date": "2026-12-10",
+   "venue": "Belly Up",
+   "checked": "2026-11-26T00:53:06.378Z"
+  },
+  "TW15054503": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 46.08,
+   "note": "2 of 2 ticket types on sale, availability H, no count",
+   "name": "Brother Noland",
+   "date": "2026-12-10",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:53:08.312Z"
+  },
+  "TW15009653": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "*Sold Out* Thee Sinseers: Love Stories Tour with Taylor Williams",
+   "date": "2026-12-10",
+   "venue": "Thalia Hall",
+   "checked": "2026-11-26T00:53:10.058Z"
+  },
+  "TW14303224": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 31.55,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Mason Jennings",
+   "date": "2026-12-10",
+   "venue": "WOW Hall",
+   "checked": "2026-11-26T00:53:12.020Z"
+  },
+  "TW15027083": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "MISSIO: Love & Heartbreak Tour  w/ Ryan Oakes, Wrung",
+   "date": "2026-12-10",
+   "venue": "Star Theater",
+   "checked": "2026-11-26T00:53:14.384Z"
+  },
+  "TW15026823": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 28.3,
+   "note": "3 of 3 ticket types on sale, availability M/H, no count",
+   "name": "MISSIO: Love & Heartbreak Tour with Ryan Oakes & Wrung",
+   "date": "2026-12-10",
+   "venue": "Star Theater",
+   "checked": "2026-11-26T00:53:16.239Z"
+  },
+  "TW14355734": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 19.3,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "65 North Pickers",
+   "date": "2026-12-10",
+   "venue": "Shank Hall",
+   "checked": "2026-11-26T00:53:19.802Z"
+  },
+  "TW14328174": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 17.8,
+   "note": "2 of 2 ticket types on sale, availability H/M, no count",
+   "name": "Atomic Groove's A Very Merry Groovemas Happy Hour",
+   "date": "2026-12-11",
+   "venue": "Belly Up",
+   "checked": "2026-11-26T00:53:21.744Z"
+  },
+  "TW14204024": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "The Jayhawks - Sanctuary Park Tour: Celebrating 40 Years of The Jayhawks w/ Mary Gauthier",
+   "date": "2026-12-11",
+   "venue": "Belly Up",
+   "checked": "2026-11-26T00:53:23.589Z"
+  },
+  "TW14964463": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 57.08,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "Robert Earl Keen, Drayton Farley",
+   "date": "2026-12-11",
+   "venue": "Grizzly Rose",
+   "checked": "2026-11-26T00:53:25.540Z"
+  },
+  "TW14312034": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 44.95,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "3BallMTY",
+   "date": "2026-12-11",
+   "venue": "Club Vinyl",
+   "checked": "2026-11-26T00:53:27.615Z"
+  },
+  "TW14301364": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 46.08,
+   "note": "2 of 2 ticket types on sale, availability M/H, no count",
+   "name": "Mo Amer",
+   "date": "2026-12-11",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:53:29.618Z"
+  },
+  "TW14301394": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 46.08,
+   "note": "2 of 2 ticket types on sale, availability H, no count",
+   "name": "Mo Amer",
+   "date": "2026-12-11",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:53:31.578Z"
+  },
+  "TW14335174": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "Honey Revenge x Dead Poet Society",
+   "date": "2026-12-11",
+   "venue": "Bottom Lounge",
+   "checked": "2026-11-26T00:53:33.391Z"
+  },
+  "TW14300714": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 27.29,
+   "note": "2 of 8 ticket types on sale, availability M, no count",
+   "name": "Hollyy - 6th Annual Hollyy-Days Celebration with Nico Segal",
+   "date": "2026-12-11",
+   "venue": "Thalia Hall",
+   "checked": "2026-11-26T00:53:35.353Z"
+  },
+  "TW15035213": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 27.29,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "The Band Feel: What of Now Tour",
+   "date": "2026-12-11",
+   "venue": "Reggies",
+   "checked": "2026-11-26T00:53:37.235Z"
+  },
+  "TW14262894": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 22.09,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "Improv Comedy w/ The Disassociates ft. Fake Beef",
+   "date": "2026-12-11",
+   "venue": "Bourbon Theatre",
+   "checked": "2026-11-26T00:53:39.200Z"
+  },
+  "TW15031243": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 31.55,
+   "note": "3 of 3 ticket types on sale, availability H/M, no count",
+   "name": "Beyond Toxics Fundraiser Concert with Aaron Meyer",
+   "date": "2026-12-11",
+   "venue": "WOW Hall",
+   "checked": "2026-11-26T00:53:41.122Z"
+  },
+  "TW14997523": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 24.96,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "The Reverend Peyton's Big Damn Band",
+   "date": "2026-12-11",
+   "venue": "Shank Hall",
+   "checked": "2026-11-26T00:53:42.911Z"
+  },
+  "TW14219394": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 29.55,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "The FABBA Disco Christmas show w/ It's Britney Beep",
+   "date": "2026-12-12",
+   "venue": "Belly Up",
+   "checked": "2026-11-26T00:53:44.922Z"
+  },
+  "TW14319604": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 19.95,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": " Tsu Nami",
+   "date": "2026-12-12",
+   "venue": "Club Vinyl",
+   "checked": "2026-11-26T00:53:46.852Z"
+  },
+  "TW14373054": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 24.95,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Alex Wann",
+   "date": "2026-12-12",
+   "venue": "Club Vinyl",
+   "checked": "2026-11-26T00:53:48.767Z"
+  },
+  "TW14301374": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 46.08,
+   "note": "2 of 2 ticket types on sale, availability M, no count",
+   "name": "Mo Amer",
+   "date": "2026-12-12",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:53:50.659Z"
+  },
+  "TW14301384": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 46.08,
+   "note": "2 of 2 ticket types on sale, availability H, no count",
+   "name": "Mo Amer",
+   "date": "2026-12-12",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:53:53.293Z"
+  },
+  "TW14392024": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 0,
+   "note": "2 of 2 ticket types on sale, availability H, no count",
+   "name": "Intonation Student Showcase",
+   "date": "2026-12-12",
+   "venue": "Thalia Hall",
+   "checked": "2026-11-26T00:53:55.295Z"
+  },
+  "TW15059153": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 12.88,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "greaterkind & Arietta Ward play Earth, Wind & Fire",
+   "date": "2026-12-05",
+   "venue": "Star Theater",
+   "checked": "2026-11-26T00:53:57.382Z"
+  },
+  "TW14942453": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "*Sold Out* Clock-Out Lounge Presents: Heathen Axe (John Dwyer of Osees) W/ Special Guest Idol Ko Si & DJ Erik Xeroid",
+   "date": "2026-12-12",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:53:59.184Z"
+  },
+  "TW14335124": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Sold Out! Artist Home Presents: Dead Pioneers w/ P.E.S.T., Vic Bondi and His Issues",
+   "date": "2026-12-12",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:54:01.504Z"
+  },
+  "TW14429254": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 0,
+   "note": "3 of 4 ticket types on sale, availability H/M, no count",
+   "name": "Nocturne: A Big Gay Dance Party!",
+   "date": "2026-12-12",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:54:03.491Z"
+  },
+  "TW14451844": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 36.51,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "Clock-Out Lounge Presents: Blue Xmas with hostess Betty Wetter (PG 13+ matinee)",
+   "date": "2026-12-13",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:54:05.474Z"
+  },
+  "TW14300984": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Mason Jennings w/ Larsen Gardens",
+   "date": "2026-12-13",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:54:07.838Z"
+  },
+  "TW15014413": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Tractor Presents: Genevieve Artadi ft. Louis Cole & Chiquita Magic",
+   "date": "2026-12-13",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:54:11.599Z"
+  },
+  "TW14002624": {
+   "status": "unknown",
+   "note": "page says Protected",
+   "name": "Flammable",
+   "date": "2026-12-13",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:54:13.486Z"
+  },
+  "TW14947003": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 20.03,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Clock-Out Lounge Presents: Collide-O-Scope Xmess 2026 Edition!",
+   "date": "2026-12-14",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:54:15.661Z"
+  },
+  "TW14375814": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 11.3,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "Raised By TV Events Presents: all ages Christmas Films Trilogy Trivia Night",
+   "date": "2026-12-15",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:54:17.606Z"
+  },
+  "TW14087354": {
+   "status": "unknown",
+   "note": "page says Protected",
+   "name": "Scrambler Jam!",
+   "date": "2026-12-15",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:54:19.580Z"
+  },
+  "TW14415234": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 15.47,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Mikey Flores, Kataniica",
+   "date": "2026-12-16",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:54:21.518Z"
+  },
+  "TW14909473": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 32.3,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "Alistair Ogden",
+   "date": "2026-12-17",
+   "venue": "Rabbit Box",
+   "checked": "2026-11-26T00:54:23.735Z"
+  },
+  "TW14408404": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 14.99,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Bupp! Gameshow Night!",
+   "date": "2026-12-17",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:54:26.067Z"
+  },
+  "TW14434744": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 27.75,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Ruby Mimosa Presents: BurlesKaraoke",
+   "date": "2026-12-17",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:54:28.156Z"
+  },
+  "TW14354084": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "*Sold Out* Clock-Out Lounge Presents: Blue Xmas with hostess Betty Wetter",
+   "date": "2026-12-18",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:54:30.091Z"
+  },
+  "TW14440804": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 19.31,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Trans Music Showcase",
+   "date": "2026-12-19",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:54:32.017Z"
+  },
+  "TW14452374": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 7.23,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Party Girl - A Night Of Party Girl Anthems",
+   "date": "2026-12-19",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:54:34.095Z"
+  },
+  "TW15053603": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 29.55,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Dyego - Holiday Show and Toy Drive w/ BluNites",
+   "date": "2026-12-20",
+   "venue": "Music Box",
+   "checked": "2026-11-26T00:54:35.977Z"
+  },
+  "TW14291494": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 25.3,
+   "note": "2 of 2 ticket types on sale, availability M/H, no count",
+   "name": "Daring Greatly and Friends w/ Patch & Maggi",
+   "date": "2026-12-20",
+   "venue": "Belly Up",
+   "checked": "2026-11-26T00:54:37.950Z"
+  },
+  "TW14881883": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 40.69,
+   "note": "2 of 2 ticket types on sale, availability H/M, no count",
+   "name": "Chico Bean",
+   "date": "2026-12-20",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:54:39.922Z"
+  },
+  "TW14881893": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 40.69,
+   "note": "2 of 2 ticket types on sale, availability H, no count",
+   "name": "Chico Bean",
+   "date": "2026-12-20",
+   "venue": "Blue Note Hawaii",
+   "checked": "2026-11-26T00:54:41.830Z"
+  },
+  "TW15024723": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 59.68,
+   "note": "1 of 7 ticket types on sale, availability M, no count",
+   "name": "Mariachi Herencia De México - A Mariachi Christmas",
+   "date": "2026-12-20",
+   "venue": "Thalia Hall",
+   "checked": "2026-11-26T00:54:43.790Z"
+  },
+  "TW14354104": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "*Sold Out* Clock-Out Lounge Presents: Blue Xmas with hostess Betty Wetter (free PG-13 matinee w/ rsvp)",
+   "date": "2026-12-20",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:54:46.100Z"
+  },
+  "TW14002324": {
+   "status": "unknown",
+   "note": "page says Protected",
+   "name": "Flammable",
+   "date": "2026-12-20",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:54:48.167Z"
+  },
+  "TW14404734": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 0,
+   "note": "4 of 4 ticket types on sale, availability M/H, no count",
+   "name": "Promiscuous - A 2000's Club Bangers Throwbacks Party",
+   "date": "2026-11-27",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:54:50.055Z"
+  },
+  "TW14381724": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 25.18,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Mad Meow Music & Clock-Out Lounge Present: 3rd Annual Blackie Friday feat Blackie (A Tribute To Blondie), Cheap Scenery (vintage punk tribute)",
+   "date": "2026-11-27",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:54:52.045Z"
+  },
+  "TW14365504": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 15.47,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Iris Kymm, MiSSMANAGED, Hot Stepmom, Kissmark",
+   "date": "2026-11-28",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:54:53.991Z"
+  },
+  "TW14323474": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Bands Don't Cry  Cure Tribute Rusholme Ruffians Smiths Tribute Crvsh",
+   "date": "2026-11-28",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:54:56.264Z"
+  },
+  "TW14438014": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 0,
+   "note": "6 of 6 ticket types on sale, availability M/H, no count",
+   "name": "Whose Night Is It Anyways? Kaytranada Night",
+   "date": "2026-11-28",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:54:58.411Z"
+  },
+  "TW14407424": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 15.94,
+   "note": "kept from 2026-11-23: this run unknown (HTTP 404)",
+   "name": "ToX!c and DJ Baby Van Beezly Present: Flirt… A WLW & Flinta event",
+   "date": "2026-11-28",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-23T00:10:30.676Z",
+   "tried": "2026-11-26T00:55:00.357Z"
+  },
+  "TW15024483": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 15.47,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Lunar Pilots Album Release",
+   "date": "2026-11-29",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:55:02.282Z"
+  },
+  "TW14002444": {
+   "status": "unknown",
+   "note": "page says Protected",
+   "name": "Flammable",
+   "date": "2026-11-29",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:55:04.217Z"
+  },
+  "TW14335074": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Magic Theater Presents: Punch Drunk Love",
+   "date": "2026-11-30",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:55:06.471Z"
+  },
+  "TW14411774": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 0,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Tuesdays With Kev- Down By Law (free movie night)",
+   "date": "2026-12-01",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:55:08.554Z"
+  },
+  "TW14445454": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 15.47,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Little Venom, Tripe, Understater",
+   "date": "2026-12-02",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:55:10.539Z"
+  },
+  "TW14951463": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 15.94,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Emmett Montgomery and Brett Hamil Present: Joketellers Union w/ Richard Bowen and Erin Popelka",
+   "date": "2026-12-02",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:55:14.156Z"
+  },
+  "TW14408494": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 19.31,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Pronoia Program Benefit Show",
+   "date": "2026-12-03",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:55:15.949Z"
+  },
+  "TW15036373": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "A John Prine Christmas w/ Jenner Fox Band *partially seated*",
+   "date": "2026-12-03",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:55:18.652Z"
+  },
+  "TW14931813": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 25.18,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Clock-Out Lounge Presents: Imprecation w/ Torture Rack and Noroth (record release)",
+   "date": "2026-12-03",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:55:20.618Z"
+  },
+  "TW14369134": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "\"A Very Boy Band Christmas Party\" Ft All4doras - Seattle's only tribute boy band w/ DancingFaraz",
+   "date": "2026-12-04",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:55:22.915Z"
+  },
+  "TW13968274": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 7.23,
+   "note": "2 of 3 ticket types on sale, availability H/M, no count",
+   "name": "Candi Pop! (Christmas Party!)",
+   "date": "2026-12-04",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:55:24.983Z"
+  },
+  "TW14199514": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "25th Anniversary of musicforthemorningafter Pete Yorn solo acoustic",
+   "date": "2026-12-05",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:55:26.839Z"
+  },
+  "TW15033383": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "KEXP Presents! Sera Cahoone w/ Serafima & The Shakedowns (Night One)",
+   "date": "2026-12-05",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:55:29.201Z"
+  },
+  "TW14298924": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 0,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Rock N Roll Fantasy Camp Performance plus All Star Jam- free",
+   "date": "2026-12-05",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:55:31.403Z"
+  },
+  "TW14420454": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 0,
+   "note": "4 of 4 ticket types on sale, availability M/H, no count",
+   "name": "MILKSHAKE (2000's Club & Pop Hits!)",
+   "date": "2026-12-05",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:55:33.470Z"
+  },
+  "TW14415394": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 15.47,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "summercoat, Veradas, Long Dark Moon, Bøsque",
+   "date": "2026-12-06",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:55:35.415Z"
+  },
+  "TW14351374": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 11.3,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "Raised By TV Events Presents: all ages Buffy Trivia Night",
+   "date": "2026-12-06",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:55:37.344Z"
+  },
+  "TW15033393": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "KEXP Presents! Sera Cahoone w/ Chris Pureka (Night Two)",
+   "date": "2026-12-06",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:55:39.835Z"
+  },
+  "TW14201114": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Tractor Presents: Two Runner w/ guests AT The Sunset",
+   "date": "2026-12-06",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:55:43.553Z"
+  },
+  "TW14002394": {
+   "status": "unknown",
+   "note": "page says Protected",
+   "name": "Flammable",
+   "date": "2026-12-06",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:55:45.643Z"
+  },
+  "TW14427294": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 0,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Monday Night Football Seahawks vs Cowboys",
+   "date": "2026-12-07",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:55:47.610Z"
+  },
+  "TW14980853": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Oliver Hazard",
+   "date": "2026-12-07",
+   "venue": "Fremont Abbey",
+   "checked": "2026-11-26T00:55:50.525Z"
+  },
+  "TW14236494": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Jessica Lea Mayfield w/ Horsepower",
+   "date": "2026-12-07",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:55:52.827Z"
+  },
+  "TW14351404": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 11.3,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "Raised By TV Events Presents: all ages Avengers films Trivia Night",
+   "date": "2026-12-08",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:55:54.759Z"
+  },
+  "TW14903983": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "The Bobby Lees w/ Forty Feet Tall",
+   "date": "2026-12-08",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:55:57.282Z"
+  },
+  "TW14440604": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 15.47,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Benzo, Blast Cells, Cheliceral Kiss",
+   "date": "2026-12-09",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:55:59.204Z"
+  },
+  "TW14354064": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "*Sold Out* Clock-Out Lounge Presents: Blue Xmas with hostess Betty Wetter",
+   "date": "2026-12-10",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:56:01.050Z"
+  },
+  "TW14312564": {
+   "status": "unknown",
+   "note": "not a TicketWeb event page",
+   "name": "Tractor & Heirophant Present: Wayfarer w/ Nox Novacula, John Haughm",
+   "date": "2026-12-11",
+   "venue": "Tractor Tavern",
+   "checked": "2026-11-26T00:56:03.554Z"
+  },
+  "TW14437364": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 0,
+   "note": "4 of 4 ticket types on sale, availability H, no count",
+   "name": "Sorry For Party Rocking (2010 - 2015 Pop & EDM Bangers All Night Long)",
+   "date": "2026-12-11",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:56:05.596Z"
+  },
+  "TW14354074": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says Sold Out",
+   "name": "*Sold Out* Clock-Out Lounge Presents: Blue Xmas with hostess Betty Wetter",
+   "date": "2026-12-11",
+   "venue": "Clock-Out Lounge",
+   "checked": "2026-11-26T00:56:07.419Z"
+  },
+  "TW14439834": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 15.47,
+   "note": "1 of 1 ticket type on sale, availability H, no count",
+   "name": "Cofgod, Kuwaisiana, End of Small Sanctuary",
+   "date": "2026-12-12",
+   "venue": "Chop Suey",
+   "checked": "2026-11-26T00:56:09.413Z"
+  },
+  "TW14412654": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 11.09,
+   "note": "1 of 1 ticket type on sale, availability M, no count",
+   "name": "2nd Annual Battle of the Bands Â Columbia College Edition",
+   "date": "2026-12-12",
+   "venue": "Reggies",
+   "checked": "2026-11-26T00:56:11.446Z"
+  },
+  "0E0065780651F32F": {
+   "status": "available",
+   "primary": 750,
+   "resale": 0,
+   "fromPrimary": 35,
+   "fromResale": null,
+   "name": "State Champs - moved from Tabernacle",
+   "date": "2026-12-04",
+   "venue": "The Masquerade",
+   "checked": "2026-11-26T00:56:18.229Z"
+  },
+  "1700652B210989E3": {
+   "status": "available",
+   "primary": 975,
+   "resale": 0,
+   "fromPrimary": 24,
+   "fromResale": null,
+   "name": "Baby Smoove Live!",
+   "date": "2026-12-15",
+   "venue": "Brooklyn Bowl",
+   "checked": "2026-11-26T00:56:20.544Z"
+  },
+  "0A006537D2A61ADF": {
+   "status": "available",
+   "primary": 1046,
+   "resale": 0,
+   "fromPrimary": 39,
+   "fromResale": null,
+   "name": "World Ballet Company: The Nutcracker",
+   "date": "2026-12-26",
+   "venue": "Balboa Theatre",
+   "checked": "2026-11-26T00:56:22.698Z"
+  },
+  "0A006491C56EB1B3": {
+   "status": "available",
+   "primary": 853,
+   "resale": 0,
+   "fromPrimary": 39,
+   "fromResale": null,
+   "name": "World Ballet Company: The Nutcracker",
+   "date": "2026-12-26",
+   "venue": "Balboa Theatre",
+   "checked": "2026-11-26T00:56:24.827Z"
+  },
+  "0A0065666FF34250": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 21,
+   "note": "1 box-office listed on the page, no count",
+   "name": "Faux Fighters - Tribute to Foo Fighters",
+   "date": "2026-12-26",
+   "venue": "House of Blues",
+   "checked": "2026-11-26T00:56:45.029Z"
+  },
+  "1E0065737AC82615": {
+   "status": "available",
+   "primary": 443,
+   "resale": 0,
+   "fromPrimary": 15,
+   "fromResale": null,
+   "name": "Club Slayyy: Slayyyter + Hyperpop Night",
+   "date": "2026-12-26",
+   "venue": "Ophelia's Electric Soapbox",
+   "checked": "2026-11-26T00:56:47.231Z"
+  },
+  "0D006437B478CD5F": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 91.45,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Slow Burn Theatre Co: Roald Dahl's Charlie and the Chocolate Factory",
+   "date": "2026-12-26",
+   "venue": "Broward Center",
+   "checked": "2026-11-26T00:57:07.251Z"
+  },
+  "0D00651BD7E1AE31": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 61,
+   "note": "36 box-office listed on the page, no count",
+   "name": "Death Becomes Her (Touring)",
+   "date": "2026-12-26",
+   "venue": "Broward Center",
+   "checked": "2026-11-26T00:57:27.291Z"
+  },
+  "0D006437B47DCD69": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 96.76,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Slow Burn Theatre Co: Roald Dahl's Charlie and the Chocolate Factory",
+   "date": "2026-12-26",
+   "venue": "Broward Center",
+   "checked": "2026-11-26T00:57:47.516Z"
+  },
+  "0D0065707093193E": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 68.9,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Bebeshito En Concierto - El Comboy Tour USA",
+   "date": "2026-12-26",
+   "venue": "Kaseya Center",
+   "checked": "2026-11-26T00:58:07.536Z"
+  },
+  "0D0064FEC9F781D4": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 70.15,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Marcello Hernández",
+   "date": "2026-12-26",
+   "venue": "Hard Rock Live",
+   "checked": "2026-11-26T00:58:27.589Z"
+  },
+  "0D00651BD7E6AE50": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 61,
+   "note": "37 box-office listed on the page, no count",
+   "name": "Death Becomes Her (Touring)",
+   "date": "2026-12-26",
+   "venue": "Broward Center",
+   "checked": "2026-11-26T00:58:47.844Z"
+  },
+  "0E006474CA58E814": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 49.4,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Atlanta Ballet Presents The Nutcracker",
+   "date": "2026-12-26",
+   "venue": "Cobb Energy Centre",
+   "checked": "2026-11-26T00:59:07.856Z"
+  },
+  "0E0065059270528E": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 58.5,
+   "note": "36 box-office listed on the page, no count",
+   "name": "Atlanta Hawks vs. Charlotte Hornets",
+   "date": "2026-12-26",
+   "venue": "State Farm Arena",
+   "checked": "2026-11-26T00:59:27.987Z"
+  },
+  "0E0064C3DA5A2587": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Atlanta Gladiators vs. Savannah Ghost Pirates",
+   "date": "2026-12-26",
+   "venue": "Gas South Arena",
+   "checked": "2026-11-26T00:59:48.114Z"
+  },
+  "0E00654DEEA2B333": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Mother's Finest",
+   "date": "2026-12-26",
+   "venue": "Buckhead Theatre",
+   "checked": "2026-11-26T01:00:08.238Z"
+  },
+  "040065281742CAF9": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 51.05,
+   "note": "32 box-office listed on the page, no count",
+   "name": "Harlem Globetrotters: Rivalry Tour Presented By Sprite",
+   "date": "2026-12-26",
+   "venue": "Credit Union 1 Arena",
+   "checked": "2026-11-26T01:00:28.353Z"
+  },
+  "070064D1AD14763F": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "The Sound of Music (Chicago)",
+   "date": "2026-12-26",
+   "venue": "Cadillac Palace",
+   "checked": "2026-11-26T01:00:48.526Z"
+  },
+  "070064EDC219366A": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Dr. Seuss' How the Grinch Stole Christmas the Musical (Chicago)",
+   "date": "2026-12-26",
+   "venue": "Nederlander Theatre",
+   "checked": "2026-11-26T01:01:08.589Z"
+  },
+  "0400650EE8C32C90": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Chicago Bulls vs. Detroit Pistons",
+   "date": "2026-12-26",
+   "venue": "United Center",
+   "checked": "2026-11-26T01:01:28.783Z"
+  },
+  "070064D1AD0F763A": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "The Sound of Music (Chicago)",
+   "date": "2026-12-26",
+   "venue": "Cadillac Palace",
+   "checked": "2026-11-26T01:01:48.808Z"
+  },
+  "070064EDC2123664": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Dr. Seuss' How the Grinch Stole Christmas the Musical (Chicago)",
+   "date": "2026-12-26",
+   "venue": "Nederlander Theatre",
+   "checked": "2026-11-26T01:02:08.821Z"
+  },
+  "06006536AE49C404": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "El Monstero - a Tribute To Pink Floyd",
+   "date": "2026-12-26",
+   "venue": "The Pageant",
+   "checked": "2026-11-26T01:02:28.884Z"
+  },
+  "06006553EA4ADCA4": {
+   "status": "available",
+   "primary": 654,
+   "resale": 0,
+   "fromPrimary": 20,
+   "fromResale": null,
+   "name": "Dr. Zhivegas - Prince Tribute",
+   "date": "2026-12-26",
+   "venue": "Delmar Hall",
+   "checked": "2026-11-26T01:02:31.548Z"
+  },
+  "17006528058E51C3": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "The Swinging Bronx Wanderers Christmas",
+   "date": "2026-12-26",
+   "venue": "South Point Showroom",
+   "checked": "2026-11-26T01:02:51.662Z"
+  },
+  "170065450F2B7D6A": {
+   "status": "available",
+   "primary": 1511,
+   "resale": 0,
+   "fromPrimary": 9.25,
+   "fromResale": null,
+   "name": "Red Eye Gin - A Very Jerry Christmas",
+   "date": "2026-12-26",
+   "venue": "Brooklyn Bowl",
+   "checked": "2026-11-26T01:02:54.366Z"
+  },
+  "170064FFDAF68BD2": {
+   "status": "available",
+   "primary": 341,
+   "resale": 1196,
+   "fromPrimary": 117.5,
+   "fromResale": 258,
+   "name": "Backstreet Boys: Into The Millennium",
+   "date": "2026-12-26",
+   "venue": "Sphere",
+   "checked": "2026-11-26T01:02:56.881Z"
+  },
+  "39006524C7ED8DBB": {
+   "status": "available",
+   "primary": 493,
+   "resale": 7,
+   "fromPrimary": 98,
+   "fromResale": 177,
+   "name": "Eric Moo",
+   "date": "2026-12-26",
+   "venue": "The Colosseum",
+   "checked": "2026-11-26T01:02:59.697Z"
+  },
+  "0F006545E593C2D0": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Lucy Darling Of The Holidays",
+   "date": "2026-12-26",
+   "venue": "Neptune Theatre",
+   "checked": "2026-11-26T01:03:19.733Z"
+  },
+  "0F0065469B3A641A": {
+   "status": "available",
+   "primary": 160,
+   "resale": 0,
+   "fromPrimary": 50,
+   "fromResale": null,
+   "name": "3:30pm Preshow Talkback Upgrade",
+   "date": "2026-12-26",
+   "venue": "Neptune Theatre",
+   "checked": "2026-11-26T01:03:22.902Z"
+  },
+  "0F006545E599C2D8": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Lucy Darling Of The Holidays",
+   "date": "2026-12-26",
+   "venue": "Neptune Theatre",
+   "checked": "2026-11-26T01:03:42.977Z"
+  },
+  "0F0065469B416421": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says sold out",
+   "name": "6:30pm Preshow Talkback Upgrade",
+   "date": "2026-12-26",
+   "venue": "Neptune Theatre",
+   "checked": "2026-11-26T01:03:47.911Z"
+  },
+  "070064D7DB6271B0": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Milwaukee Ballet Presents: The Nutcracker",
+   "date": "2026-12-26",
+   "venue": "Uihlein Hall",
+   "checked": "2026-11-26T01:04:07.941Z"
+  },
+  "070064F4A0B1255E": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "The Unauthorized Hallmark(ish) Parody Musical",
+   "date": "2026-12-26",
+   "venue": "Wilson Theater at Vogel Hall",
+   "checked": "2026-11-26T01:04:28.140Z"
+  },
+  "07006511DA5B60C1": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 99,
+   "note": "38 box-office listed on the page, no count",
+   "name": "Trans-Siberian Orchestra - The Ghosts Of Christmas Eve",
+   "date": "2026-12-26",
+   "venue": "Fiserv Forum",
+   "checked": "2026-11-26T01:04:48.300Z"
+  },
+  "07006511DA5F60C9": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 59,
+   "note": "27 box-office listed on the page, no count",
+   "name": "Trans-Siberian Orchestra - The Ghosts Of Christmas Eve",
+   "date": "2026-12-26",
+   "venue": "Fiserv Forum",
+   "checked": "2026-11-26T01:05:08.493Z"
+  },
+  "070064D7DB5D71AC": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Milwaukee Ballet Presents: The Nutcracker",
+   "date": "2026-12-26",
+   "venue": "Uihlein Hall",
+   "checked": "2026-11-26T01:05:28.588Z"
+  },
+  "070064F4A0AE2554": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "The Unauthorized Hallmark(ish) Parody Musical",
+   "date": "2026-12-26",
+   "venue": "Wilson Theater at Vogel Hall",
+   "checked": "2026-11-26T01:05:48.765Z"
+  },
+  "1E0064EE0A11AA91": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 44.25,
+   "note": "1 box-office listed on the page, no count",
+   "name": "Suicide Silence: Reminders Of Hell Tour",
+   "date": "2026-12-04",
+   "venue": "Summit Music Hall",
+   "checked": "2026-11-26T01:06:08.855Z"
+  },
+  "1E006490A077925C": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 112.1,
+   "note": "7 box-office listed on the page, no count",
+   "name": "Decibel - Metal & Beer Festival: Day 1 Pass (12-04)",
+   "date": "2026-12-04",
+   "venue": "The Fillmore Auditorium",
+   "checked": "2026-11-26T01:06:28.879Z"
+  },
+  "1E0064C4CF3FBC7C": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 37,
+   "fromPrimary": null,
+   "fromResale": 31,
+   "name": "Oliver Hazard",
+   "date": "2026-12-04",
+   "venue": "Marquis Theater",
+   "checked": "2026-11-26T01:06:31.431Z"
+  },
+  "1E0064AEAA5F945F": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "A Drag Queen Christmas",
+   "date": "2026-12-04",
+   "venue": "Paramount Theatre",
+   "checked": "2026-11-26T01:06:51.526Z"
+  },
+  "0D006547E528FAA7": {
+   "status": "available",
+   "primary": 552,
+   "resale": 0,
+   "fromPrimary": 77,
+   "fromResale": null,
+   "name": "PPL Miami - The Finals - Quarterfinals",
+   "date": "2026-12-04",
+   "venue": "James L. Knight Center",
+   "checked": "2026-11-26T01:06:54.296Z"
+  },
+  "0D006553EEFB1715": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Rumble in Miami: Garcia vs. Provodnikov",
+   "date": "2026-12-04",
+   "venue": "Watsco Center",
+   "checked": "2026-11-26T01:07:14.535Z"
+  },
+  "0D00653696704FE7": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 29.5,
+   "note": "32 box-office listed on the page, no count",
+   "name": "Elf Jr",
+   "date": "2026-12-04",
+   "venue": "Broward Center",
+   "checked": "2026-11-26T01:07:34.663Z"
+  },
+  "0D006546D560E203": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 167.05,
+   "note": "kept from 2026-11-19: this run unknown (no inventory call)",
+   "name": "RAWAYANA - ¿Dónde es el after? World Tour",
+   "date": "2026-12-04",
+   "venue": "Kaseya Center",
+   "checked": "2026-11-19T22:15:21.269Z",
+   "tried": "2026-11-26T01:07:54.757Z"
+  },
+  "0D0064CBD319F076": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Menudo 50",
+   "date": "2026-12-04",
+   "venue": "Hard Rock Live",
+   "checked": "2026-11-26T01:08:14.921Z"
+  },
+  "0D00650AC4916CB4": {
+   "status": "available",
+   "primary": 1290,
+   "resale": 0,
+   "fromPrimary": 22,
+   "fromResale": null,
+   "name": "Up Next Music Fest 2026",
+   "date": "2026-12-04",
+   "venue": "Revolution Live",
+   "checked": "2026-11-26T01:08:17.887Z"
+  },
+  "0E006494ED9012F9": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Matteo Lane: We Gotta Catch Up!",
+   "date": "2026-12-04",
+   "venue": "Atlanta Symphony Hall",
+   "checked": "2026-11-26T01:08:38.125Z"
+  },
+  "0E006529E48654CD": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "The Atlanta Cup 2026",
+   "date": "2026-12-04",
+   "venue": "Gas South Arena",
+   "checked": "2026-11-26T01:08:58.159Z"
+  },
+  "0E006549D8853465": {
+   "status": "available",
+   "primary": 1007,
+   "resale": 0,
+   "fromPrimary": 26,
+   "fromResale": null,
+   "name": "Babyfxce E - The Xperience Tour",
+   "date": "2026-12-04",
+   "venue": "The Masquerade",
+   "checked": "2026-11-26T01:09:00.663Z"
+  },
+  "0E00656398527E17": {
+   "status": "available",
+   "primary": 238,
+   "resale": 0,
+   "fromPrimary": 15,
+   "fromResale": null,
+   "name": "Peace Cult",
+   "date": "2026-12-04",
+   "venue": "The Masquerade",
+   "checked": "2026-11-26T01:09:03.843Z"
+  },
+  "0E006442CD877F51": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Maria Bamford",
+   "date": "2026-12-04",
+   "venue": "Buckhead Theatre",
+   "checked": "2026-11-26T01:09:24.016Z"
+  },
+  "0E006546B512E89C": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 135.15,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Lil Baby: Fresh Prince of Atlanta Birthday Celebration",
+   "date": "2026-12-04",
+   "venue": "State Farm Arena",
+   "checked": "2026-11-26T01:09:44.042Z"
+  },
+  "0E00647EABF29083": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 43,
+   "fromPrimary": null,
+   "fromResale": 41,
+   "name": "Akeem Ali",
+   "date": "2026-12-04",
+   "venue": "Center Stage",
+   "checked": "2026-11-26T01:09:46.448Z"
+  },
+  "0E006555D49D2E14": {
+   "status": "available",
+   "primary": 516,
+   "resale": 0,
+   "fromPrimary": 26,
+   "fromResale": null,
+   "name": "Rexv2",
+   "date": "2026-12-04",
+   "venue": "The Loft",
+   "checked": "2026-11-19T22:18:15.451Z",
+   "note": "kept from 2026-11-19: this run none",
+   "tried": "2026-11-26T01:09:56.670Z"
+  },
+  "0E0064DDCC02B80B": {
+   "status": "available",
+   "primary": 70,
+   "resale": 0,
+   "fromPrimary": 20,
+   "fromResale": null,
+   "name": "Eddie And The Getaway",
+   "date": "2026-12-04",
+   "venue": "Vinyl",
+   "checked": "2026-11-26T01:09:59.626Z"
+  },
+  "0400654143E6C31D": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 14,
+   "fromPrimary": null,
+   "fromResale": 205,
+   "name": "Zeds Dead 2Day Ticket",
+   "date": "2026-12-04",
+   "venue": "Aragon Ballroom",
+   "checked": "2026-11-26T01:10:02.525Z"
+  },
+  "0400656C9F2767B8": {
+   "status": "available",
+   "primary": 744,
+   "resale": 0,
+   "fromPrimary": 27,
+   "fromResale": null,
+   "name": "Chicago Elite Classic",
+   "date": "2026-12-04",
+   "venue": "Credit Union 1 Arena",
+   "checked": "2026-11-26T01:10:05.037Z"
+  },
+  "040064D3EF1DEE01": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 207.5,
+   "note": "40 resale listed on the page",
+   "name": "Illinois v. UCONN",
+   "date": "2026-12-04",
+   "venue": "United Center",
+   "checked": "2026-11-26T01:10:25.139Z"
+  },
+  "0700650CA747E687": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 67.97,
+   "note": "3 resale listed on the page",
+   "name": "Blue Man Group - A New Holiday Surprise",
+   "date": "2026-12-04",
+   "venue": "CIBC Theatre",
+   "checked": "2026-11-26T01:10:45.153Z"
+  },
+  "0700652A9CF947F5": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Wilco - Winterlude 2026",
+   "date": "2026-12-04",
+   "venue": "The Chicago Theatre",
+   "checked": "2026-11-26T01:11:05.157Z"
+  },
+  "04006519EDFF715B": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 42,
+   "fromPrimary": null,
+   "fromResale": 117.7,
+   "name": "Zeds Dead",
+   "date": "2026-12-04",
+   "venue": "Aragon Ballroom",
+   "checked": "2026-11-26T01:11:07.559Z"
+  },
+  "0600654D03418194": {
+   "status": "unknown",
+   "note": "no answer in 90 s",
+   "name": "Dynasty Combat Sports: Seasons Beatings 2026",
+   "date": "2026-12-04",
+   "venue": "Pinnacle Bank Arena",
+   "checked": "2026-11-26T01:21:09.213Z"
+  },
+  "06006537A7BFB8ED": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 19.13,
+   "note": "kept from 2026-11-19: this run unknown (no answer in 90 s)",
+   "name": "Omaha Women's Basketball vs. Stephen F. Austin",
+   "date": "2026-12-04",
+   "venue": "Baxter Arena",
+   "checked": "2026-11-19T22:20:38.390Z",
+   "tried": "2026-11-26T01:28:02.054Z"
+  },
+  "20006506C0442F84": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 141.6,
+   "note": "1 box-office listed on the page, no count",
+   "name": "#IMOMSOHARD",
+   "date": "2026-12-04",
+   "venue": "The Astro Theater",
+   "checked": "2026-11-26T01:28:22.186Z"
+  },
+  "17006458E0629A4D": {
+   "status": "available",
+   "primary": 342,
+   "resale": 0,
+   "fromPrimary": 45.99,
+   "fromResale": null,
+   "name": "Mark Normand",
+   "date": "2026-12-04",
+   "venue": "Palazzo Theatre",
+   "checked": "2026-11-26T01:28:25.629Z"
+  },
+  "2E0064A6E9674385": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Matt Rife: Stay Golden World Tour",
+   "date": "2026-12-04",
+   "venue": "Dolby Live",
+   "checked": "2026-11-26T01:28:45.839Z"
+  },
+  "170064EAD77A9115": {
+   "status": "available",
+   "primary": 753,
+   "resale": 29,
+   "fromPrimary": 56,
+   "fromResale": 124,
+   "name": "Dierks Bentley",
+   "date": "2026-12-04",
+   "venue": "Fontainebleau",
+   "checked": "2026-11-26T01:28:49.319Z"
+  },
+  "170062F0FD686374": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 80.84,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Barry Manilow",
+   "date": "2026-12-04",
+   "venue": "Westgate International Theater",
+   "checked": "2026-11-26T01:29:09.426Z"
+  },
+  "17006483D6F9FC58": {
+   "status": "available",
+   "primary": 25,
+   "resale": 0,
+   "fromPrimary": 243.5,
+   "fromResale": null,
+   "name": "Eagles Live at Sphere",
+   "date": "2026-12-04",
+   "venue": "Sphere",
+   "checked": "2026-11-26T01:29:11.845Z"
+  },
+  "3900650EE958A2F0": {
+   "status": "available",
+   "primary": 1064,
+   "resale": 0,
+   "fromPrimary": 29.59,
+   "fromResale": null,
+   "name": "An Evening With Jeff Foxworthy And Larry The Cable Guy",
+   "date": "2026-12-04",
+   "venue": "PH Live",
+   "checked": "2026-11-26T01:29:14.493Z"
+  },
+  "17006513D3BB499D": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 72.2,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Dita Von Teese",
+   "date": "2026-12-04",
+   "venue": "Voltaire",
+   "checked": "2026-11-26T01:29:34.646Z"
+  },
+  "170064FCD11330E0": {
+   "status": "available",
+   "primary": 419,
+   "resale": 0,
+   "fromPrimary": 94,
+   "fromResale": null,
+   "name": "Hooey Presents: Cross Canadian Ragweed",
+   "date": "2026-12-04",
+   "venue": "Brooklyn Bowl",
+   "checked": "2026-11-26T01:29:37.039Z"
+  },
+  "1700652AE33241DB": {
+   "status": "available",
+   "primary": 531,
+   "resale": 0,
+   "fromPrimary": 20.75,
+   "fromResale": null,
+   "name": "Whitey Morgan & the 78s",
+   "date": "2026-12-04",
+   "venue": "24 Oxford",
+   "checked": "2026-11-26T01:29:39.234Z"
+  },
+  "170064D1D77FE95D": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Pat Green",
+   "date": "2026-12-04",
+   "venue": "Golden Nugget Showroom",
+   "checked": "2026-11-26T01:29:59.288Z"
+  },
+  "1700656C7B72765F": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Colin Stough",
+   "date": "2026-12-04",
+   "venue": "Golden Nugget Showroom",
+   "checked": "2026-11-26T01:30:19.327Z"
+  },
+  "0F0064FB99067372": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 33.79,
+   "note": "9 resale listed on the page",
+   "name": "Portland Winterhawks vs Victoria Royals",
+   "date": "2026-12-04",
+   "venue": "Veterans Memorial Coliseum",
+   "checked": "2026-11-26T01:30:39.551Z"
+  },
+  "0F0064E9C16BA5CA": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 49.91,
+   "note": "36 box-office listed on the page, no count",
+   "name": "Cirque Musica Holiday Wonderland",
+   "date": "2026-12-04",
+   "venue": "Angel of the Winds Arena",
+   "checked": "2026-11-26T01:30:59.648Z"
+  },
+  "0F0064F4CB69E2C8": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 8,
+   "fromPrimary": null,
+   "fromResale": 200,
+   "name": "Tape B: 2-Day Pass",
+   "date": "2026-12-04",
+   "venue": "WAMU Theater",
+   "checked": "2026-11-26T01:31:02.139Z"
+  },
+  "0F0064F899EAADA4": {
+   "status": "available",
+   "primary": 88,
+   "resale": 0,
+   "fromPrimary": 65,
+   "fromResale": null,
+   "name": "Wamu Theater Amplified: 2-Day Tape B (Not an Event Ticket)",
+   "date": "2026-12-04",
+   "venue": "WAMU Theater",
+   "checked": "2026-11-26T01:31:04.953Z"
+  },
+  "0F0064F4C041D0B7": {
+   "status": "available",
+   "primary": 831,
+   "resale": 24,
+   "fromPrimary": 55,
+   "fromResale": 62,
+   "name": "Tape B",
+   "date": "2026-12-04",
+   "venue": "WAMU Theater",
+   "checked": "2026-11-26T01:31:08.233Z"
+  },
+  "0F0064F713DBDB32": {
+   "status": "available",
+   "primary": 215,
+   "resale": 0,
+   "fromPrimary": 40,
+   "fromResale": null,
+   "name": "WAMU Theater Amplified: Tape B (Not an Event Ticket)",
+   "date": "2026-12-04",
+   "venue": "WAMU Theater",
+   "checked": "2026-11-26T01:31:11.179Z"
+  },
+  "070064ED988F1F7C": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Christmas On The Avenue",
+   "date": "2026-12-04",
+   "venue": "Fox Cities P.A.C.",
+   "checked": "2026-11-26T01:31:31.334Z"
+  },
+  "06006531F7FDFDDE": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Tyler Henry - The Hollywood Medium: An Evening of Hope and Healing",
+   "date": "2026-12-04",
+   "venue": "Treasure Island Resort & Casino",
+   "checked": "2026-11-26T01:31:51.505Z"
+  },
+  "0700654D835B204F": {
+   "status": "unknown",
+   "note": "facets unparsable",
+   "name": "AMA Partzilla Arenacross: Track Walk Experience",
+   "date": "2026-12-04",
+   "venue": "Veterans Memorial Coliseum",
+   "checked": "2026-11-26T01:31:54.632Z"
+  },
+  "07006521EC2774DC": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 25,
+   "note": "1 box-office listed on the page, no count",
+   "name": "AMA Partzilla National Arenacross Championship Series",
+   "date": "2026-12-04",
+   "venue": "Veterans Memorial Coliseum",
+   "checked": "2026-11-26T01:32:14.726Z"
+  },
+  "0700651B9E4D25D4": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 45.32,
+   "note": "2 resale listed on the page",
+   "name": "Steely Dane",
+   "date": "2026-12-04",
+   "venue": "Orpheum Theater",
+   "checked": "2026-11-26T01:32:34.961Z"
+  },
+  "0700638315AEAA2F": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Aly & AJ- Places To Run Tour 2026",
+   "date": "2026-12-04",
+   "venue": "The Sylvee",
+   "checked": "2026-11-26T01:32:55.081Z"
+  },
+  "07006536C59A4F83": {
+   "status": "available",
+   "primary": 390,
+   "resale": 0,
+   "fromPrimary": 15,
+   "fromResale": null,
+   "name": "Varsity Mac + Scorched Waves W/ Velvet Blue & In Ropes",
+   "date": "2026-12-04",
+   "venue": "High Noon Saloon",
+   "checked": "2026-11-26T01:32:58.162Z"
+  },
+  "0A00654CC5007BDA": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "San Diego State Aztecs Mens Basketball vs. UNLV Runnin' Rebels Mens Basketball",
+   "date": "2026-12-05",
+   "venue": "Viejas Arena",
+   "checked": "2026-11-26T01:33:18.288Z"
+  },
+  "0A006512E64863D6": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "The Hip Hop Nutcracker (Touring)",
+   "date": "2026-12-05",
+   "venue": "Balboa Theatre",
+   "checked": "2026-11-26T01:33:38.531Z"
+  },
+  "0A006529A2E97B75": {
+   "status": "available",
+   "primary": 12968,
+   "resale": 0,
+   "fromPrimary": 22,
+   "fromResale": null,
+   "name": "Holiday Wonderland at Petco Park",
+   "date": "2026-12-05",
+   "venue": "Petco Park",
+   "checked": "2026-11-26T01:33:40.843Z"
+  },
+  "0A00652BE0ECE34F": {
+   "status": "available",
+   "primary": 45,
+   "resale": 0,
+   "fromPrimary": 25,
+   "fromResale": null,
+   "name": "Eric Blake",
+   "date": "2026-12-05",
+   "venue": "Pechanga Resort Casino",
+   "checked": "2026-11-26T01:33:43.296Z"
+  },
+  "0A006512E64263C9": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "The Hip Hop Nutcracker (Touring)",
+   "date": "2026-12-05",
+   "venue": "Balboa Theatre",
+   "checked": "2026-11-26T01:34:03.304Z"
+  },
+  "0B00653090DEA64A": {
+   "status": "available",
+   "primary": 894,
+   "resale": 0,
+   "fromPrimary": 17,
+   "fromResale": null,
+   "name": "Punchis Presents: ¿Eres Emo?",
+   "date": "2026-12-05",
+   "venue": "The Observatory North Park",
+   "checked": "2026-11-26T01:34:06.526Z"
+  },
+  "0A006505AB55AEB5": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Pedro Fernández - Ave Fénix Two'r",
+   "date": "2026-12-05",
+   "venue": "Cal Coast Open Air Theatre",
+   "checked": "2026-11-26T01:34:26.585Z"
+  },
+  "0A00655290FE3577": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Nguoi Ke Chuyen Tinh",
+   "date": "2026-12-05",
+   "venue": "Pechanga Resort Casino",
+   "checked": "2026-11-26T01:34:46.719Z"
+  },
+  "0A00652BE0EEE353": {
+   "status": "available",
+   "primary": 61,
+   "resale": 0,
+   "fromPrimary": 25,
+   "fromResale": null,
+   "name": "Eric Blake",
+   "date": "2026-12-05",
+   "venue": "Pechanga Resort Casino",
+   "checked": "2026-11-26T01:34:49.402Z"
+  },
+  "1E006490A17D9473": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Decibel - Metal & Beer Festival: Day 2 Pass (12-05)",
+   "date": "2026-12-05",
+   "venue": "The Fillmore Auditorium",
+   "checked": "2026-11-26T01:35:09.485Z"
+  },
+  "1E006541AC5A9459": {
+   "status": "available",
+   "primary": 382,
+   "resale": 0,
+   "fromPrimary": 30,
+   "fromResale": null,
+   "name": "Colorado Hardcore Toy Drive Feat. All Out War",
+   "date": "2026-12-05",
+   "venue": "Marquis Theater",
+   "checked": "2026-11-26T01:35:12.432Z"
+  },
+  "1E006531ECA4DF79": {
+   "status": "available",
+   "primary": 1015,
+   "resale": 0,
+   "fromPrimary": 22.5,
+   "fromResale": null,
+   "name": "BRESH - 18+",
+   "date": "2026-12-05",
+   "venue": "Summit Music Hall",
+   "checked": "2026-11-26T01:35:14.684Z"
+  },
+  "0D0064D0BCFD77B4": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Sensory-Inclusive: Elf Jr.",
+   "date": "2026-12-05",
+   "venue": "Broward Center",
+   "checked": "2026-11-26T01:35:34.827Z"
+  },
+  "0D00653696764FF3": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Elf Jr",
+   "date": "2026-12-05",
+   "venue": "Broward Center",
+   "checked": "2026-11-26T01:35:55.084Z"
+  },
+  "0D006548C2BCEB80": {
+   "status": "available",
+   "primary": 521,
+   "resale": 0,
+   "fromPrimary": 77,
+   "fromResale": null,
+   "name": "PPL Miami - The Finals - Semifinals",
+   "date": "2026-12-05",
+   "venue": "James L. Knight Center",
+   "checked": "2026-11-26T01:35:58.774Z"
+  },
+  "0D0065478FBA4A13": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 11.5,
+   "note": "25 box-office listed on the page, no count",
+   "name": "Miami Hurricanes Men's Basketball vs. Stetson Hatters",
+   "date": "2026-12-05",
+   "venue": "Watsco Center",
+   "checked": "2026-11-26T01:36:19.018Z"
+  },
+  "0D006536967D4FF9": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 29.5,
+   "note": "33 box-office listed on the page, no count",
+   "name": "Elf Jr",
+   "date": "2026-12-05",
+   "venue": "Broward Center",
+   "checked": "2026-11-26T01:36:39.217Z"
+  },
+  "0D00648DDB9EC91E": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 91.02,
+   "note": "6 resale listed on the page",
+   "name": "The R&B Tour - Starring Usher Raymond & Chris Brown",
+   "date": "2026-12-05",
+   "venue": "Hard Rock Stadium",
+   "checked": "2026-11-26T01:36:59.342Z"
+  },
+  "0D00652B3BD7353D": {
+   "status": "available",
+   "primary": 668,
+   "resale": 0,
+   "fromPrimary": 32.5,
+   "fromResale": null,
+   "name": "DJ Meredith Marks You. Can. Dance. Tour",
+   "date": "2026-12-05",
+   "venue": "Revolution Live",
+   "checked": "2026-11-26T01:37:02.236Z"
+  },
+  "0D0064B5BFA4BF26": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 69.62,
+   "note": "40 box-office listed on the page, no count",
+   "name": "SOTA : Dionne Warwick, Deborah Cox, Jordin Sparks, and Myles Frost",
+   "date": "2026-12-05",
+   "venue": "Broward Center",
+   "checked": "2026-11-26T01:37:22.456Z"
+  },
+  "0D00646CAA719BDC": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 167.05,
+   "note": "3 box-office listed on the page, no count",
+   "name": "RAWAYANA - ¿Dónde es el after? World Tour",
+   "date": "2026-12-05",
+   "venue": "Kaseya Center",
+   "checked": "2026-11-26T01:37:42.513Z"
+  },
+  "0D0064C4D94E447E": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Willy Chirino & Lissette Navidad en Familia",
+   "date": "2026-12-05",
+   "venue": "The Fillmore Miami Beach",
+   "checked": "2026-11-26T01:38:02.519Z"
+  },
+  "0D006504CC766EF5": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 92.74,
+   "note": "32 box-office listed on the page, no count",
+   "name": "Silvestre Dangond - El Baile de Todos",
+   "date": "2026-12-05",
+   "venue": "Hard Rock Live",
+   "checked": "2026-11-26T01:38:22.632Z"
+  },
+  "0E006474CA08E771": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 87,
+   "note": "34 box-office listed on the page, no count",
+   "name": "Atlanta Ballet Presents The Nutcracker",
+   "date": "2026-12-05",
+   "venue": "Cobb Energy Centre",
+   "checked": "2026-11-26T01:38:42.737Z"
+  },
+  "0E0064DDB3A2962A": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 365.04,
+   "note": "40 resale listed on the page",
+   "name": "2026 Sec Championship Game: Georgia vs TBD",
+   "date": "2026-12-05",
+   "venue": "Mercedes-Benz Stadium",
+   "checked": "2026-11-26T01:39:02.938Z"
+  },
+  "0E0064CBB153D288": {
+   "status": "available",
+   "primary": 903,
+   "resale": 0,
+   "fromPrimary": 39.5,
+   "fromResale": null,
+   "name": "Senses Fail Presents Still Searching",
+   "date": "2026-12-05",
+   "venue": "Buckhead Theatre",
+   "checked": "2026-11-26T01:39:05.614Z"
+  },
+  "0E006564EFF96C8F": {
+   "status": "available",
+   "primary": 95,
+   "resale": 0,
+   "fromPrimary": 100,
+   "fromResale": null,
+   "name": "Junhee Vvip Add-on",
+   "date": "2026-12-05",
+   "venue": "The Loft",
+   "checked": "2026-11-26T01:39:09.650Z"
+  },
+  "0E006564EF0F696E": {
+   "status": "available",
+   "primary": 94,
+   "resale": 0,
+   "fromPrimary": 70,
+   "fromResale": null,
+   "name": "JUNHEE VIP-Add on",
+   "date": "2026-12-05",
+   "venue": "The Loft",
+   "checked": "2026-11-26T01:39:12.449Z"
+  },
+  "0E006564F57D8311": {
+   "status": "available",
+   "primary": 169,
+   "resale": 0,
+   "fromPrimary": 51,
+   "fromResale": null,
+   "name": "JUNHEE Selfi Add-on",
+   "date": "2026-12-05",
+   "venue": "The Loft",
+   "checked": "2026-11-26T01:39:14.921Z"
+  },
+  "0E006564EC90617E": {
+   "status": "available",
+   "primary": 532,
+   "resale": 0,
+   "fromPrimary": 50,
+   "fromResale": null,
+   "name": "Junhee World Domination CH. 02 U.S",
+   "date": "2026-12-05",
+   "venue": "The Loft",
+   "checked": "2026-11-26T01:39:17.341Z"
+  },
+  "0E006564F2717595": {
+   "status": "available",
+   "primary": 79,
+   "resale": 0,
+   "fromPrimary": 130,
+   "fromResale": null,
+   "name": "Junhee Silver VIP",
+   "date": "2026-12-05",
+   "venue": "The Loft",
+   "checked": "2026-11-26T01:39:20.778Z"
+  },
+  "0E006474CA0CE777": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 49.4,
+   "note": "35 box-office listed on the page, no count",
+   "name": "Atlanta Ballet Presents The Nutcracker",
+   "date": "2026-12-05",
+   "venue": "Cobb Energy Centre",
+   "checked": "2026-11-26T01:39:40.873Z"
+  },
+  "0E006515D83C9B99": {
+   "status": "available",
+   "primary": 13,
+   "resale": 0,
+   "fromPrimary": 55,
+   "fromResale": null,
+   "name": "Skyline Lounge Nutcracker",
+   "date": "2026-12-05",
+   "venue": "Cobb Energy Centre",
+   "checked": "2026-11-26T01:39:43.144Z"
+  },
+  "0E00653CB0ACAC5D": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 236.12,
+   "note": "40 resale listed on the page",
+   "name": "Lil Baby: Fresh Prince of Atlanta Birthday Celebration",
+   "date": "2026-12-05",
+   "venue": "State Farm Arena",
+   "checked": "2026-11-26T01:40:03.333Z"
+  },
+  "0E0064D8A6799E54": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Music from Carmen and Roméo and Juliet",
+   "date": "2026-12-05",
+   "venue": "Atlanta Symphony Hall",
+   "checked": "2026-11-26T01:40:23.522Z"
+  },
+  "0E0064F5E0FC3CE9": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 59.15,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Martin Lawrence with Nate Jackson, Desi Banks and more!",
+   "date": "2026-12-05",
+   "venue": "Gas South Arena",
+   "checked": "2026-11-26T01:40:43.755Z"
+  },
+  "0E0065240D14B240": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "An Intimate Evening with Tamar & Friends",
+   "date": "2026-12-05",
+   "venue": "Tabernacle",
+   "checked": "2026-11-26T01:41:03.828Z"
+  },
+  "0E0065392BDF1910": {
+   "status": "available",
+   "primary": 235,
+   "resale": 0,
+   "fromPrimary": 37,
+   "fromResale": null,
+   "name": "Akeem Ali",
+   "date": "2026-12-05",
+   "venue": "Center Stage",
+   "checked": "2026-11-26T01:41:06.470Z"
+  },
+  "0E0065729FE28D6C": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "note": "page says sold out",
+   "name": "Lil Nakur & Gorilla Glue",
+   "date": "2026-12-05",
+   "venue": "Vinyl",
+   "checked": "2026-11-26T01:41:11.896Z"
+  },
+  "0E006550FA971742": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "K-Pop Club Night | 18+",
+   "date": "2026-12-05",
+   "venue": "The Masquerade",
+   "checked": "2026-11-26T01:41:32.087Z"
+  },
+  "04006507DD1E82D3": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Sister Hazel 2 Day Ticket: Show =17+ & Brunch = All Ages",
+   "date": "2026-12-05",
+   "venue": "House of Blues",
+   "checked": "2026-11-26T01:41:52.318Z"
+  },
+  "0400656C9F036780": {
+   "status": "available",
+   "primary": 732,
+   "resale": 0,
+   "fromPrimary": 27,
+   "fromResale": null,
+   "name": "Chicago Elite Classic",
+   "date": "2026-12-05",
+   "venue": "Credit Union 1 Arena",
+   "checked": "2026-11-26T01:41:54.790Z"
+  },
+  "0700650CA757E690": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Blue Man Group - A New Holiday Surprise",
+   "date": "2026-12-05",
+   "venue": "CIBC Theatre",
+   "checked": "2026-11-26T01:42:14.895Z"
+  },
+  "0700650CA751E68C": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 67.2,
+   "note": "2 resale listed on the page",
+   "name": "Blue Man Group - A New Holiday Surprise",
+   "date": "2026-12-05",
+   "venue": "CIBC Theatre",
+   "checked": "2026-11-26T01:42:35.112Z"
+  },
+  "04006507D40A65E3": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 37.25,
+   "note": "1 box-office listed on the page, no count",
+   "name": "Sister Hazel",
+   "date": "2026-12-05",
+   "venue": "House of Blues",
+   "checked": "2026-11-26T01:42:55.327Z"
+  },
+  "040064EA9B0A8C90": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Chicago Wolves V Cleveland Monsters",
+   "date": "2026-12-05",
+   "venue": "Allstate Arena",
+   "checked": "2026-11-26T01:43:15.345Z"
+  },
+  "0700652A9CFF4803": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 178.88,
+   "note": "40 resale listed on the page",
+   "name": "Wilco - Winterlude 2026",
+   "date": "2026-12-05",
+   "venue": "The Chicago Theatre",
+   "checked": "2026-11-26T01:43:35.571Z"
+  },
+  "04006519F0557B37": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 35,
+   "fromPrimary": null,
+   "fromResale": 160,
+   "name": "Zeds Dead",
+   "date": "2026-12-05",
+   "venue": "Aragon Ballroom",
+   "checked": "2026-11-26T01:43:39.433Z"
+  },
+  "06006495AEB92095": {
+   "status": "available",
+   "primary": 1439,
+   "resale": 97,
+   "fromPrimary": 39,
+   "fromResale": 57,
+   "name": "Christmas Together with Amy Grant, Michael W. Smith, and CeCe Winans",
+   "date": "2026-12-05",
+   "venue": "Pinnacle Bank Arena",
+   "checked": "2026-11-26T01:43:41.826Z"
+  },
+  "06006549D607F03D": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 79.73,
+   "note": "40 resale listed on the page",
+   "name": "Creighton Bluejays vs Nebraska Cornhuskers",
+   "date": "2026-12-05",
+   "venue": "CHI Health Center Omaha",
+   "checked": "2026-11-26T01:44:02.069Z"
+  },
+  "200064CA906A19BD": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 36.45,
+   "note": "15 box-office listed on the page, no count",
+   "name": "Imminence - Axis Mundi Tour: North America 2026",
+   "date": "2026-12-05",
+   "venue": "Steelhouse Omaha",
+   "checked": "2026-11-26T01:44:22.211Z"
+  },
+  "2000646CC4254AB9": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Blue October",
+   "date": "2026-12-05",
+   "venue": "The Astro Theater",
+   "checked": "2026-11-26T01:44:42.416Z"
+  },
+  "170062F0FD6A6376": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 80.84,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Barry Manilow",
+   "date": "2026-12-05",
+   "venue": "Westgate International Theater",
+   "checked": "2026-11-26T01:45:02.528Z"
+  },
+  "170064B1FB07DC83": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 72,
+   "note": "1 box-office listed on the page, no count",
+   "name": "Dweezil Zappa DZ20: Like Father, Like Son",
+   "date": "2026-12-05",
+   "venue": "House of Blues",
+   "checked": "2026-11-26T01:45:22.774Z"
+  },
+  "390064E29A59174B": {
+   "status": "available",
+   "primary": 102,
+   "resale": 138,
+   "fromPrimary": 99,
+   "fromResale": 181,
+   "name": "Rascal Flatts",
+   "date": "2026-12-05",
+   "venue": "The Colosseum",
+   "checked": "2026-11-26T01:45:26.157Z"
+  },
+  "390064901B3786FD": {
+   "status": "available",
+   "primary": 547,
+   "resale": 297,
+   "fromPrimary": 59,
+   "fromResale": 62,
+   "name": "Bailey Zimmerman",
+   "date": "2026-12-05",
+   "venue": "PH Live",
+   "checked": "2026-11-26T01:45:29.621Z"
+  },
+  "170064EAD782913B": {
+   "status": "available",
+   "primary": 884,
+   "resale": 41,
+   "fromPrimary": 56,
+   "fromResale": 97,
+   "name": "Dierks Bentley",
+   "date": "2026-12-05",
+   "venue": "Fontainebleau",
+   "checked": "2026-11-26T01:45:32.378Z"
+  },
+  "1700644BFBA4D431": {
+   "status": "available",
+   "primary": 1,
+   "resale": 0,
+   "fromPrimary": 45,
+   "fromResale": null,
+   "name": "Kathleen Madigan: Flying Cats & Marching Armadillos Tour",
+   "date": "2026-12-05",
+   "venue": "Palazzo Theatre",
+   "checked": "2026-11-19T22:42:07.548Z",
+   "note": "kept from 2026-11-19: this run unknown (no inventory call)",
+   "tried": "2026-11-26T01:45:52.534Z"
+  },
+  "17006483D6FAFC5E": {
+   "status": "available",
+   "primary": 30,
+   "resale": 0,
+   "fromPrimary": 857.5,
+   "fromResale": null,
+   "name": "Eagles Live at Sphere",
+   "date": "2026-12-05",
+   "venue": "Sphere",
+   "checked": "2026-11-26T01:45:55.437Z"
+  },
+  "170064A5DB957E9E": {
+   "status": "available",
+   "primary": 336,
+   "resale": 34,
+   "fromPrimary": 45,
+   "fromResale": 51.75,
+   "name": "Clay Walker: Doin' What I Love Tour",
+   "date": "2026-12-05",
+   "venue": "The Venetian Theatre",
+   "checked": "2026-11-26T01:45:59.108Z"
+  },
+  "17006521E5AC78A6": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Ron White",
+   "date": "2026-12-05",
+   "venue": "The Chelsea",
+   "checked": "2026-11-26T01:46:19.273Z"
+  },
+  "17006513D3BD49AC": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 72.2,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Dita Von Teese",
+   "date": "2026-12-05",
+   "venue": "Voltaire",
+   "checked": "2026-11-26T01:46:39.385Z"
+  },
+  "170064D1DDE7F427": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 220.61,
+   "note": "1 resale listed on the page",
+   "name": "Sammy Kershaw",
+   "date": "2026-12-05",
+   "venue": "Golden Nugget Showroom",
+   "checked": "2026-11-26T01:46:59.474Z"
+  },
+  "0F00653E803C4090": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 18,
+   "note": "kept from 2026-11-19: this run unknown (no inventory call)",
+   "name": "Oregon Ducks Men's Basketball vs. USC Trojans Men's Basketball",
+   "date": "2026-12-05",
+   "venue": "Matthew Knight Arena",
+   "checked": "2026-11-19T22:43:52.980Z",
+   "tried": "2026-11-26T01:47:19.515Z"
+  },
+  "0F0064FB990B737F": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Portland Winterhawks vs Victoria Royals",
+   "date": "2026-12-05",
+   "venue": "Veterans Memorial Coliseum",
+   "checked": "2026-11-26T01:47:39.665Z"
+  },
+  "0F0064F6A4DCB3F7": {
+   "status": "unknown",
+   "note": "no inventory call",
+   "name": "Everett Silvertips vs. Kelowna Rockets",
+   "date": "2026-12-05",
+   "venue": "Angel of the Winds Arena",
+   "checked": "2026-11-26T01:47:59.890Z"
+  },
+  "0F00653E7ABC35A9": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 21,
+   "note": "21 box-office listed on the page, no count",
+   "name": "Lewd & Crued & Made In Iron",
+   "date": "2026-12-05",
+   "venue": "APEX Everett",
+   "checked": "2026-11-26T01:48:20.032Z"
+  },
+  "0F0064F4C3DCD65E": {
+   "status": "available",
+   "primary": 1821,
+   "resale": 30,
+   "fromPrimary": 60,
+   "fromResale": 70,
+   "name": "Tape B",
+   "date": "2026-12-05",
+   "venue": "WAMU Theater",
+   "checked": "2026-11-26T01:48:24.621Z"
+  },
+  "0F0064F89A47AE5C": {
+   "status": "available",
+   "primary": 210,
+   "resale": 0,
+   "fromPrimary": 40,
+   "fromResale": null,
+   "name": "WAMU Theater Amplified: Tape B (Not an Event Ticket)",
+   "date": "2026-12-05",
+   "venue": "WAMU Theater",
+   "checked": "2026-11-26T01:48:29.883Z"
+  },
+  "06006546A09A981D": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 25.15,
+   "note": "40 box-office listed on the page, no count",
+   "name": "Rochester Dance Company presents The Nutcracker",
+   "date": "2026-12-05",
+   "venue": "Mayo Civic Center",
+   "checked": "2026-11-26T01:48:49.981Z"
+  },
+  "06006546A0A09827": {
+   "status": "available",
+   "primary": null,
+   "resale": 0,
+   "fromPrimary": 25.15,
+   "note": "30 box-office listed on the page, no count",
+   "name": "Rochester Dance Company presents The Nutcracker",
+   "date": "2026-12-05",
+   "venue": "Mayo Civic Center",
+   "checked": "2026-11-26T01:49:10.219Z"
+  },
+  "0700654D83682061": {
+   "status": "unknown",
+   "note": "facets unparsable",
+   "name": "AMA Partzilla Arenacross: Track Walk Experience",
+   "date": "2026-12-05",
+   "venue": "Veterans Memorial Coliseum",
+   "checked": "2026-11-26T01:49:14.093Z"
+  },
+  "07006521EC2D74DF": {
+   "status": "unknown",
+   "note": "no answer in 90 s",
+   "name": "AMA Partzilla National Arenacross Championship Series",
+   "date": "2026-12-05",
+   "venue": "Veterans Memorial Coliseum",
+   "checked": "2026-11-26T01:59:23.160Z"
+  },
+  "07006571A2BC3684": {
+   "status": "unknown",
+   "note": "no answer in 90 s",
+   "name": "2010s Night (ages 18+)",
+   "date": "2026-12-05",
+   "venue": "Majestic Theatre",
+   "checked": "2026-11-26T02:01:44.642Z"
+  },
+  "07006534DDA35413": {
+   "status": "soldout",
+   "primary": 0,
+   "resale": 0,
+   "fromResale": 105.91,
+   "note": "kept from 2026-11-19: this run unknown (no answer in 90 s)",
+   "name": "Marquette Golden Eagles Men's Basketball vs. University of Wisconsin Badgers Mens Basketball",
+   "date": "2026-12-05",
+   "venue": "Fiserv Forum",
+   "checked": "2026-11-19T22:56:11.502Z",
+   "tried": "2026-11-26T02:04:55.579Z"
+  },
   "TW15067183": {
    "status": "available",
    "primary": null,
@@ -478,94 +3319,6 @@
    "date": "2026-12-19",
    "venue": "Shank Hall",
    "checked": "2026-11-25T00:08:49.221Z"
-  },
-  "TW15029833": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 12.8,
-   "note": "2 of 2 ticket types on sale, availability M/H, no count",
-   "name": "Oceans & The Imposters Happy Hour",
-   "date": "2026-11-25",
-   "venue": "Belly Up",
-   "checked": "2026-11-25T00:08:51.227Z"
-  },
-  "TW14265204": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 37.3,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "Queen Nation, DJ Organic Hispanic",
-   "date": "2026-11-25",
-   "venue": "Belly Up",
-   "checked": "2026-11-25T00:08:53.428Z"
-  },
-  "TW14250594": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 140.72,
-   "note": "2 of 2 ticket types on sale, availability M/L, no count",
-   "name": "ANA ‘Aha Mele Evening & Moonlight Concert",
-   "date": "2026-11-25",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-25T00:08:55.484Z"
-  },
-  "TW14250604": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 140.72,
-   "note": "2 of 2 ticket types on sale, availability M, no count",
-   "name": "ANA ‘Aha Mele Evening & Moonlight Concert",
-   "date": "2026-11-25",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-25T00:08:57.681Z"
-  },
-  "TW15014393": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 36.12,
-   "note": "2 of 7 ticket types on sale, availability M, no count",
-   "name": "Venna with Khal!l",
-   "date": "2026-11-25",
-   "venue": "Thalia Hall",
-   "checked": "2026-11-25T00:08:59.582Z"
-  },
-  "TW15033143": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 27.29,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "Exhumed, Jarhead Fertilizer, Savage Master, Molder",
-   "date": "2026-11-25",
-   "venue": "Reggies",
-   "checked": "2026-11-25T00:09:01.527Z"
-  },
-  "TW14277934": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 38.05,
-   "note": "3 of 3 ticket types on sale, availability H/M, no count",
-   "name": "Amorphis, Insomnium, Hinayana",
-   "date": "2026-11-25",
-   "venue": "Bourbon Theatre",
-   "checked": "2026-11-25T00:09:03.340Z"
-  },
-  "TW15020323": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 0,
-   "note": "5 of 5 ticket types on sale, availability M, no count",
-   "name": "  ThanksGiving ThrowDown, Small Town Nation, Nothing Shameful, Millergold, Paloma, Backstxp",
-   "date": "2026-11-25",
-   "venue": "Knitting Factory",
-   "checked": "2026-11-25T00:09:05.458Z"
   },
   "TW14238494": {
    "status": "available",
@@ -3130,1127 +5883,6 @@
    "venue": "Pechanga Resort Casino",
    "checked": "2026-11-25T01:37:50.568Z"
   },
-  "TW14411804": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 0,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Tuesdays With Kev- Gremlins (free movie night)",
-   "date": "2026-12-22",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:07:32.000Z"
-  },
-  "TW14335094": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Magic Theater Presents: Eyes Wide Shut",
-   "date": "2026-12-22",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:07:34.364Z"
-  },
-  "TW14221404": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 29.55,
-   "note": "2 of 2 ticket types on sale, availability M/H, no count",
-   "name": "Abbey Road Christmas Show",
-   "date": "2026-12-23",
-   "venue": "Belly Up",
-   "checked": "2026-11-23T00:07:36.857Z"
-  },
-  "TW14345674": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 56.85,
-   "note": "3 of 3 ticket types on sale, availability H, no count",
-   "name": "The Magical Mystery Show!",
-   "date": "2026-12-23",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-23T00:07:38.823Z"
-  },
-  "TW14441574": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 20,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Haggus, Bifid Corpse, Ampolla, Corrupture, Cold Scope",
-   "date": "2026-12-06",
-   "venue": "Reggies",
-   "checked": "2026-11-23T00:07:42.877Z"
-  },
-  "TW15014273": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 51.08,
-   "note": "1 of 8 ticket types on sale, availability M, no count",
-   "name": "Jamila Woods: 10 Years of HEAVN featuring support from Ayanna Woods and a Sound Bath led by Shawnee Dez hosted by Raych Jackson",
-   "date": "2026-12-06",
-   "venue": "Thalia Hall",
-   "checked": "2026-11-23T00:07:44.955Z"
-  },
-  "TW14887033": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 18.03,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Piano Queen",
-   "date": "2026-12-06",
-   "venue": "Star Theater",
-   "checked": "2026-11-23T00:07:46.957Z"
-  },
-  "TW14197544": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 32.86,
-   "note": "21 of 21 ticket types on sale, availability M/H, no count",
-   "name": "Yaelokre, Ben Caplan",
-   "date": "2026-12-06",
-   "venue": "Knitting Factory",
-   "checked": "2026-11-23T00:07:49.048Z"
-  },
-  "TW15018693": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "note": "page says Sold Out",
-   "name": "Mack Geiger - When It’s Pouring 2026 Tour w/ Colton Dawson",
-   "date": "2026-12-07",
-   "venue": "Belly Up",
-   "checked": "2026-11-23T00:07:51.181Z"
-  },
-  "TW14448584": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 27.86,
-   "note": "2 of 2 ticket types on sale, availability H, no count",
-   "name": "Mariah Carey Christmas Tribute by Jiayin",
-   "date": "2026-12-07",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-23T00:07:53.291Z"
-  },
-  "TW14368454": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Wilco",
-   "date": "2026-12-07",
-   "venue": "Thalia Hall",
-   "checked": "2026-11-23T00:07:55.565Z"
-  },
-  "TW14409384": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Sand Dollar Foundation Annual Gala with music by Assisted Living",
-   "date": "2026-12-08",
-   "venue": "Belly Up",
-   "checked": "2026-11-23T00:07:58.149Z"
-  },
-  "TW14280444": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 32.55,
-   "note": "1 of 1 ticket type on sale, availability L, no count",
-   "name": "The Womack Sisters, The Emkays",
-   "date": "2026-12-08",
-   "venue": "Music Box",
-   "checked": "2026-11-23T00:07:59.992Z"
-  },
-  "TW14339864": {
-   "status": "unknown",
-   "note": "HTTP 401",
-   "name": "Young the Giant - Presented by Alt 94.9's December to Remember",
-   "date": "2026-12-08",
-   "venue": "The Sound",
-   "checked": "2026-11-23T00:08:02.298Z"
-  },
-  "TW14448844": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 27.86,
-   "note": "2 of 2 ticket types on sale, availability H, no count",
-   "name": "Kaia Soul: A Very Soulful Christmas",
-   "date": "2026-12-08",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-23T00:08:04.339Z"
-  },
-  "TW14368524": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "note": "page says Sold Out",
-   "name": "Wilco",
-   "date": "2026-12-08",
-   "venue": "Thalia Hall",
-   "checked": "2026-11-23T00:08:06.195Z"
-  },
-  "TW14339904": {
-   "status": "unknown",
-   "note": "HTTP 401",
-   "name": "Cannons - Presented by Alt 94.9's December to Remember",
-   "date": "2026-12-09",
-   "venue": "The Sound",
-   "checked": "2026-11-23T00:08:08.494Z"
-  },
-  "TW15054493": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 46.08,
-   "note": "2 of 2 ticket types on sale, availability H, no count",
-   "name": "Brother Noland",
-   "date": "2026-12-09",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-23T00:08:10.478Z"
-  },
-  "TW14967733": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 39.96,
-   "note": "2 of 8 ticket types on sale, availability M/L, no count",
-   "name": "Jalen Ngonda: Doctrine of Love Tour with Brooke Combe",
-   "date": "2026-12-09",
-   "venue": "Thalia Hall",
-   "checked": "2026-11-23T00:08:12.699Z"
-  },
-  "TW14359654": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 27.24,
-   "note": "3 of 3 ticket types on sale, availability H, no count",
-   "name": "Silent Civilian \"Rebirth of the Temple\" 20th Anniversary",
-   "date": "2026-12-09",
-   "venue": "Bourbon Theatre",
-   "checked": "2026-11-23T00:08:14.805Z"
-  },
-  "TW14300424": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 38.3,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "JD McPherson - Socks: A Rock N’ Roll Christmas Tour w/ Melissa Carper",
-   "date": "2026-12-10",
-   "venue": "Belly Up",
-   "checked": "2026-11-23T00:08:17.376Z"
-  },
-  "TW15054503": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 46.08,
-   "note": "2 of 2 ticket types on sale, availability H, no count",
-   "name": "Brother Noland",
-   "date": "2026-12-10",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-23T00:08:19.386Z"
-  },
-  "TW15009653": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "note": "page says Sold Out",
-   "name": "*Sold Out* Thee Sinseers: Love Stories Tour with Taylor Williams",
-   "date": "2026-12-10",
-   "venue": "Thalia Hall",
-   "checked": "2026-11-23T00:08:21.356Z"
-  },
-  "TW14303224": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 31.55,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Mason Jennings",
-   "date": "2026-12-10",
-   "venue": "WOW Hall",
-   "checked": "2026-11-23T00:08:23.268Z"
-  },
-  "TW15027083": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "MISSIO: Love & Heartbreak Tour  w/ Ryan Oakes, Wrung",
-   "date": "2026-12-10",
-   "venue": "Star Theater",
-   "checked": "2026-11-23T00:08:26.284Z"
-  },
-  "TW15026823": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 28.3,
-   "note": "3 of 3 ticket types on sale, availability M/H, no count",
-   "name": "MISSIO: Love & Heartbreak Tour with Ryan Oakes & Wrung",
-   "date": "2026-12-10",
-   "venue": "Star Theater",
-   "checked": "2026-11-23T00:08:28.072Z"
-  },
-  "TW14355734": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 19.3,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "65 North Pickers",
-   "date": "2026-12-10",
-   "venue": "Shank Hall",
-   "checked": "2026-11-23T00:08:30.099Z"
-  },
-  "TW14328174": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 17.8,
-   "note": "2 of 2 ticket types on sale, availability H/M, no count",
-   "name": "Atomic Groove's A Very Merry Groovemas Holiday Dance Party Happy Hour",
-   "date": "2026-12-11",
-   "venue": "Belly Up",
-   "checked": "2026-11-23T00:08:32.101Z"
-  },
-  "TW14204024": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "note": "page says Sold Out",
-   "name": "The Jayhawks - Sanctuary Park Tour: Celebrating 40 Years of The Jayhawks w/ Mary Gauthier",
-   "date": "2026-12-11",
-   "venue": "Belly Up",
-   "checked": "2026-11-23T00:08:33.922Z"
-  },
-  "TW14964463": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 57.08,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "Robert Earl Keen, Drayton Farley",
-   "date": "2026-12-11",
-   "venue": "Grizzly Rose",
-   "checked": "2026-11-23T00:08:36.575Z"
-  },
-  "TW14312034": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 44.95,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "3BallMTY",
-   "date": "2026-12-11",
-   "venue": "Club Vinyl",
-   "checked": "2026-11-23T00:08:38.352Z"
-  },
-  "TW14301364": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 46.08,
-   "note": "2 of 2 ticket types on sale, availability M/H, no count",
-   "name": "Mo Amer",
-   "date": "2026-12-11",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-23T00:08:40.402Z"
-  },
-  "TW14301394": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 46.08,
-   "note": "2 of 2 ticket types on sale, availability H, no count",
-   "name": "Mo Amer",
-   "date": "2026-12-11",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-23T00:08:42.374Z"
-  },
-  "TW14335174": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "note": "page says Sold Out",
-   "name": "Honey Revenge x Dead Poet Society",
-   "date": "2026-12-11",
-   "venue": "Bottom Lounge",
-   "checked": "2026-11-23T00:08:44.772Z"
-  },
-  "TW14300714": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 27.29,
-   "note": "2 of 8 ticket types on sale, availability M, no count",
-   "name": "Hollyy - 6th Annual Hollyy-Days Celebration with Nico Segal",
-   "date": "2026-12-11",
-   "venue": "Thalia Hall",
-   "checked": "2026-11-23T00:08:46.669Z"
-  },
-  "TW15035213": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 27.29,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "The Band Feel: What of Now Tour",
-   "date": "2026-12-11",
-   "venue": "Reggies",
-   "checked": "2026-11-23T00:08:49.089Z"
-  },
-  "TW14262894": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 22.09,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "Improv Comedy w/ The Disassociates ft. Fake Beef",
-   "date": "2026-12-11",
-   "venue": "Bourbon Theatre",
-   "checked": "2026-11-23T00:08:51.168Z"
-  },
-  "TW15031243": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 31.55,
-   "note": "3 of 3 ticket types on sale, availability H/M, no count",
-   "name": "Beyond Toxics Fundraiser Concert with Aaron Meyer",
-   "date": "2026-12-11",
-   "venue": "WOW Hall",
-   "checked": "2026-11-23T00:08:53.502Z"
-  },
-  "TW14997523": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 24.96,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "The Reverend Peyton's Big Damn Band",
-   "date": "2026-12-11",
-   "venue": "Shank Hall",
-   "checked": "2026-11-23T00:08:55.417Z"
-  },
-  "TW14219394": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 29.55,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "The FABBA Disco Christmas show w/ It's Britney Beep",
-   "date": "2026-12-12",
-   "venue": "Belly Up",
-   "checked": "2026-11-23T00:08:57.435Z"
-  },
-  "TW14319604": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 14.95,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": " Tsu Nami",
-   "date": "2026-12-12",
-   "venue": "Club Vinyl",
-   "checked": "2026-11-23T00:08:59.555Z"
-  },
-  "TW14373054": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 24.95,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Alex Wann",
-   "date": "2026-12-12",
-   "venue": "Club Vinyl",
-   "checked": "2026-11-23T00:09:01.666Z"
-  },
-  "TW14301374": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 46.08,
-   "note": "2 of 2 ticket types on sale, availability M/H, no count",
-   "name": "Mo Amer",
-   "date": "2026-12-12",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-23T00:09:04.314Z"
-  },
-  "TW14301384": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 46.08,
-   "note": "2 of 2 ticket types on sale, availability H, no count",
-   "name": "Mo Amer",
-   "date": "2026-12-12",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-23T00:09:06.510Z"
-  },
-  "TW14392024": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 0,
-   "note": "2 of 2 ticket types on sale, availability H, no count",
-   "name": "Intonation Student Showcase",
-   "date": "2026-12-12",
-   "venue": "Thalia Hall",
-   "checked": "2026-11-23T00:09:08.425Z"
-  },
-  "TW15059153": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 12.88,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "greaterkind & Arietta Ward play Earth, Wind & Fire",
-   "date": "2026-12-05",
-   "venue": "Star Theater",
-   "checked": "2026-11-23T00:09:10.447Z"
-  },
-  "TW14942453": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "note": "page says Sold Out",
-   "name": "*Sold Out* Clock-Out Lounge Presents: Heathen Axe (John Dwyer of Osees) W/ Special Guest Idol Ko Si & DJ Erik Xeroid",
-   "date": "2026-12-12",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:09:12.273Z"
-  },
-  "TW14335124": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Sold Out! Artist Home Presents: Dead Pioneers w/ P.E.S.T., Vic Bondi and His Issues",
-   "date": "2026-12-12",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:09:15.854Z"
-  },
-  "TW14429254": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 0,
-   "note": "3 of 4 ticket types on sale, availability H/M, no count",
-   "name": "Nocturne: A Big Gay Dance Party!",
-   "date": "2026-12-12",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:09:18.010Z"
-  },
-  "TW14451844": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 36.51,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "Clock-Out Lounge Presents: Blue Xmas with hostess Betty Wetter (PG 13+ matinee)",
-   "date": "2026-12-13",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:09:19.944Z"
-  },
-  "TW14300984": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Mason Jennings w/ Larsen Gardens",
-   "date": "2026-12-13",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:09:22.732Z"
-  },
-  "TW15014413": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Tractor Presents: Genevieve Artadi ft. Louis Cole & Chiquita Magic",
-   "date": "2026-12-13",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:09:26.675Z"
-  },
-  "TW14002624": {
-   "status": "unknown",
-   "note": "page says Protected",
-   "name": "Flammable",
-   "date": "2026-12-13",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:09:28.934Z"
-  },
-  "TW14947003": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 20.03,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Clock-Out Lounge Presents: Collide-O-Scope Xmess 2026 Edition!",
-   "date": "2026-12-14",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:09:30.862Z"
-  },
-  "TW14375814": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 11.3,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "Raised By TV Events Presents: all ages Christmas Films Trilogy Trivia Night",
-   "date": "2026-12-15",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:09:33.002Z"
-  },
-  "TW14087354": {
-   "status": "unknown",
-   "note": "page says Protected",
-   "name": "Scrambler Jam!",
-   "date": "2026-12-15",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:09:35.010Z"
-  },
-  "TW14415234": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 15.47,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Mikey Flores, The Prince On, Kataniica, Carl Christensen",
-   "date": "2026-12-16",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:09:37.149Z"
-  },
-  "TW14909473": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 32.3,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "Alistair Ogden",
-   "date": "2026-12-17",
-   "venue": "Rabbit Box",
-   "checked": "2026-11-23T00:09:39.049Z"
-  },
-  "TW14408404": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 14.99,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Bupp! Gameshow Night!",
-   "date": "2026-12-17",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:09:41.371Z"
-  },
-  "TW14434744": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 27.75,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Ruby Mimosa Presents: BurlesKaraoke",
-   "date": "2026-12-17",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:09:43.280Z"
-  },
-  "TW14354084": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "note": "page says Sold Out",
-   "name": "*Sold Out* Clock-Out Lounge Presents: Blue Xmas with hostess Betty Wetter",
-   "date": "2026-12-18",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:09:45.427Z"
-  },
-  "TW14440804": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 19.31,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Trans Music Showcase",
-   "date": "2026-12-19",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:09:47.323Z"
-  },
-  "TW14452374": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 7.23,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Party Girl - A Night Of Party Girl Anthems",
-   "date": "2026-12-19",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:09:49.798Z"
-  },
-  "TW15053603": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 29.55,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Dyego - Holiday Show and Toy Drive w/ BluNites",
-   "date": "2026-12-20",
-   "venue": "Music Box",
-   "checked": "2026-11-23T00:09:51.823Z"
-  },
-  "TW14291494": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 25.3,
-   "note": "2 of 2 ticket types on sale, availability M/H, no count",
-   "name": "Daring Greatly and Friends w/ Patch & Maggi",
-   "date": "2026-12-20",
-   "venue": "Belly Up",
-   "checked": "2026-11-23T00:09:53.880Z"
-  },
-  "TW14881883": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 40.69,
-   "note": "2 of 2 ticket types on sale, availability H/M, no count",
-   "name": "Chico Bean",
-   "date": "2026-12-20",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-23T00:09:55.910Z"
-  },
-  "TW14881893": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 40.69,
-   "note": "2 of 2 ticket types on sale, availability H, no count",
-   "name": "Chico Bean",
-   "date": "2026-12-20",
-   "venue": "Blue Note Hawaii",
-   "checked": "2026-11-23T00:09:57.943Z"
-  },
-  "TW15024723": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 59.68,
-   "note": "1 of 7 ticket types on sale, availability M, no count",
-   "name": "Mariachi Herencia De México - A Mariachi Christmas",
-   "date": "2026-12-20",
-   "venue": "Thalia Hall",
-   "checked": "2026-11-23T00:10:00.002Z"
-  },
-  "TW14354104": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "note": "page says Sold Out",
-   "name": "*Sold Out* Clock-Out Lounge Presents: Blue Xmas with hostess Betty Wetter (free PG-13 matinee w/ rsvp)",
-   "date": "2026-12-20",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:10:01.964Z"
-  },
-  "TW14002324": {
-   "status": "unknown",
-   "note": "page says Protected",
-   "name": "Flammable",
-   "date": "2026-12-20",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:10:04.122Z"
-  },
-  "TW14410904": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 14.99,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Bupp! Gameshow Night!",
-   "date": "2026-11-25",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:10:15.641Z"
-  },
-  "TW14360404": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Dusty 45s w/ Heels to the Hardwood",
-   "date": "2026-11-25",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:10:18.083Z"
-  },
-  "TW14404734": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 0,
-   "note": "4 of 4 ticket types on sale, availability M/H, no count",
-   "name": "Promiscuous - A 2000's Club Bangers Throwbacks Party",
-   "date": "2026-11-27",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:10:19.877Z"
-  },
-  "TW14381724": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 25.18,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Mad Meow Music & Clock-Out Lounge Present: 3rd Annual Blackie Friday feat Blackie (A Tribute To Blondie), Cheap Scenery (vintage punk tribute)",
-   "date": "2026-11-27",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:10:22.051Z"
-  },
-  "TW14365504": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 15.47,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Iris Kymm, MiSSMANAGED, Hot Stepmom, Kissmark",
-   "date": "2026-11-28",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:10:24.174Z"
-  },
-  "TW14323474": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Bands Don't Cry  Cure Tribute Rusholme Ruffians Smiths Tribute Crvsh",
-   "date": "2026-11-28",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:10:26.505Z"
-  },
-  "TW14438014": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 0,
-   "note": "6 of 6 ticket types on sale, availability M/H, no count",
-   "name": "Whose Night Is It Anyways? Kaytranada Night",
-   "date": "2026-11-28",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:10:28.479Z"
-  },
-  "TW14407424": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 15.94,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "ToX!c and DJ Baby Van Beezly Present: Flirt… A WLW & Flinta event",
-   "date": "2026-11-28",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:10:30.676Z"
-  },
-  "TW15024483": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 15.47,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Lunar Pilots Album Release",
-   "date": "2026-11-29",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:10:33.297Z"
-  },
-  "TW14002444": {
-   "status": "unknown",
-   "note": "page says Protected",
-   "name": "Flammable",
-   "date": "2026-11-29",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:10:35.447Z"
-  },
-  "TW14335074": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Magic Theater Presents: Punch Drunk Love",
-   "date": "2026-11-30",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:10:37.906Z"
-  },
-  "TW14411774": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 0,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Tuesdays With Kev- Down By Law (free movie night)",
-   "date": "2026-12-01",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:10:39.844Z"
-  },
-  "TW14445454": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 15.47,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Little Venom, Tripe, Understater",
-   "date": "2026-12-02",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:10:42.451Z"
-  },
-  "TW14951463": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 15.94,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Emmett Montgomery and Brett Hamil Present: Joketellers Union w/ Richard Bowen and Erin Popelka",
-   "date": "2026-12-02",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:10:44.535Z"
-  },
-  "TW14408494": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 19.31,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Pronoia Program Benefit Show",
-   "date": "2026-12-03",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:10:46.478Z"
-  },
-  "TW15036373": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "A John Prine Christmas w/ Jenner Fox Band *partially seated*",
-   "date": "2026-12-03",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:10:48.974Z"
-  },
-  "TW14931813": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 25.18,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Clock-Out Lounge Presents: Imprecation w/ Torture Rack and Noroth (record release)",
-   "date": "2026-12-03",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:10:50.916Z"
-  },
-  "TW14369134": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "\"A Very Boy Band Christmas Party\" Ft All4doras - Seattle's only tribute boy band w/ DancingFaraz",
-   "date": "2026-12-04",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:10:53.341Z"
-  },
-  "TW13968274": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 7.23,
-   "note": "2 of 3 ticket types on sale, availability H/M, no count",
-   "name": "Candi Pop! (Christmas Party!)",
-   "date": "2026-12-04",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:10:55.311Z"
-  },
-  "TW14199514": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "note": "page says Sold Out",
-   "name": "25th Anniversary of musicforthemorningafter Pete Yorn solo acoustic",
-   "date": "2026-12-05",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:10:57.211Z"
-  },
-  "TW15033383": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "KEXP Presents! Sera Cahoone w/ Serafima & The Shakedowns (Night One)",
-   "date": "2026-12-05",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:10:59.700Z"
-  },
-  "TW14298924": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 0,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Rock N Roll Fantasy Camp Performance plus All Star Jam- free",
-   "date": "2026-12-05",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:11:01.634Z"
-  },
-  "TW14420454": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 0,
-   "note": "4 of 4 ticket types on sale, availability M/H, no count",
-   "name": "MILKSHAKE (2000's Club & Pop Hits!)",
-   "date": "2026-12-05",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:11:03.864Z"
-  },
-  "TW14415394": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 15.47,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "summercoat, Veradas, Long Dark Moon, Bøsque",
-   "date": "2026-12-06",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:11:05.810Z"
-  },
-  "TW14351374": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 11.3,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "Raised By TV Events Presents: all ages Buffy Trivia Night",
-   "date": "2026-12-06",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:11:08.220Z"
-  },
-  "TW15033393": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "KEXP Presents! Sera Cahoone w/ Chris Pureka (Night Two)",
-   "date": "2026-12-06",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:11:10.616Z"
-  },
-  "TW14201114": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Tractor Presents: Two Runner w/ guests AT The Sunset",
-   "date": "2026-12-06",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:11:14.906Z"
-  },
-  "TW14002394": {
-   "status": "unknown",
-   "note": "page says Protected",
-   "name": "Flammable",
-   "date": "2026-12-06",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:11:17.613Z"
-  },
-  "TW14427294": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 0,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Monday Night Football Seahawks vs Cowboys",
-   "date": "2026-12-07",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:11:19.672Z"
-  },
-  "TW14980853": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Oliver Hazard",
-   "date": "2026-12-07",
-   "venue": "Fremont Abbey",
-   "checked": "2026-11-23T00:11:22.760Z"
-  },
-  "TW14236494": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Jessica Lea Mayfield w/ Horsepower",
-   "date": "2026-12-07",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:11:25.861Z"
-  },
-  "TW14351404": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 11.3,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "Raised By TV Events Presents: all ages Avengers films Trivia Night",
-   "date": "2026-12-08",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:11:27.781Z"
-  },
-  "TW14903983": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "The Bobby Lees w/ Forty Feet Tall",
-   "date": "2026-12-08",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:11:30.696Z"
-  },
-  "TW14440604": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 15.47,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Benzo, Blast Cells, Cheliceral Kiss",
-   "date": "2026-12-09",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:11:32.968Z"
-  },
-  "TW14354064": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "note": "page says Sold Out",
-   "name": "*Sold Out* Clock-Out Lounge Presents: Blue Xmas with hostess Betty Wetter",
-   "date": "2026-12-10",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:11:35.062Z"
-  },
-  "TW14312564": {
-   "status": "unknown",
-   "note": "not a TicketWeb event page",
-   "name": "Tractor & Heirophant Present: Wayfarer w/ Nox Novacula, John Haughm",
-   "date": "2026-12-11",
-   "venue": "Tractor Tavern",
-   "checked": "2026-11-23T00:11:37.367Z"
-  },
-  "TW14437364": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 0,
-   "note": "4 of 4 ticket types on sale, availability H, no count",
-   "name": "Sorry For Party Rocking (2010 - 2015 Pop & EDM Bangers All Night Long)",
-   "date": "2026-12-11",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:11:39.373Z"
-  },
-  "TW14354074": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "note": "page says Sold Out",
-   "name": "*Sold Out* Clock-Out Lounge Presents: Blue Xmas with hostess Betty Wetter",
-   "date": "2026-12-11",
-   "venue": "Clock-Out Lounge",
-   "checked": "2026-11-23T00:11:41.175Z"
-  },
-  "TW14439834": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 15.47,
-   "note": "1 of 1 ticket type on sale, availability H, no count",
-   "name": "Cofgod, Kuwaisiana, End of Small Sanctuary",
-   "date": "2026-12-12",
-   "venue": "Chop Suey",
-   "checked": "2026-11-23T00:11:43.795Z"
-  },
-  "TW14412654": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 11.09,
-   "note": "1 of 1 ticket type on sale, availability M, no count",
-   "name": "2nd Annual Battle of the Bands Â Columbia College Edition",
-   "date": "2026-12-12",
-   "venue": "Reggies",
-   "checked": "2026-11-23T00:11:45.766Z"
-  },
   "TW14842433": {
    "status": "available",
    "primary": null,
@@ -4978,339 +6610,6 @@
    "date": "2026-12-23",
    "venue": "Uihlein Hall",
    "checked": "2026-11-23T00:28:51.117Z"
-  },
-  "0A00646B56392301": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 33.25,
-   "note": "1 box-office listed on the page, no count",
-   "name": "Fear Factory - Cybernetic Domination Tour 2026",
-   "date": "2026-11-25",
-   "venue": "House of Blues",
-   "checked": "2026-11-23T00:35:45.421Z"
-  },
-  "0B00649B7DB922EA": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 45.2,
-   "note": "1 box-office listed on the page, no count",
-   "name": "Gary Numan North American Fall Tour 2026",
-   "date": "2026-11-25",
-   "venue": "The Observatory North Park",
-   "checked": "2026-11-23T00:36:05.508Z"
-  },
-  "1E006514E06C5815": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 48.25,
-   "note": "1 box-office listed on the page, no count",
-   "name": "Yung Gravy: The Joyrider Tour",
-   "date": "2026-11-25",
-   "venue": "Summit Music Hall",
-   "checked": "2026-11-23T00:36:25.532Z"
-  },
-  "1E006524BDB02195": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "22nd Annual Last Waltz Revisited - feat. Polytoxic",
-   "date": "2026-11-25",
-   "venue": "The Fillmore Auditorium",
-   "checked": "2026-11-23T00:36:45.664Z"
-  },
-  "1E0064EEB2D29F14": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 102.2,
-   "note": "11 box-office listed on the page, no count",
-   "name": "Colorado Avalanche v Montreal Canadiens",
-   "date": "2026-11-25",
-   "venue": "Ball Arena",
-   "checked": "2026-11-23T00:37:05.707Z"
-  },
-  "0D00650CA8485EC7": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 141.35,
-   "note": "23 box-office listed on the page, no count",
-   "name": "STING 3.0 Tour",
-   "date": "2026-11-25",
-   "venue": "Hard Rock Live",
-   "checked": "2026-11-23T00:37:25.827Z"
-  },
-  "0D006535B04E669B": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 23.6,
-   "note": "40 box-office listed on the page, no count",
-   "name": "Youth Fall Musical: The Spongebob Musical - Youth Edition",
-   "date": "2026-11-25",
-   "venue": "Broward Center",
-   "checked": "2026-11-23T00:37:45.885Z"
-  },
-  "0E006511C4C1DAC5": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Makari & Kurt Travis",
-   "date": "2026-11-25",
-   "venue": "The Masquerade",
-   "checked": "2026-11-23T00:38:05.897Z"
-  },
-  "0E0064C3DA432534": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Atlanta Gladiators vs. Savannah Ghost Pirates",
-   "date": "2026-11-25",
-   "venue": "Gas South Arena",
-   "checked": "2026-11-23T00:38:26.077Z"
-  },
-  "0E0064CFE120DA7D": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "The Buzzcocks: Celebrating 50 Years of Buzzcocks",
-   "date": "2026-11-25",
-   "venue": "The Masquerade",
-   "checked": "2026-11-23T00:38:46.219Z"
-  },
-  "0E00635EAB7482F9": {
-   "status": "available",
-   "primary": 100,
-   "resale": 0,
-   "fromPrimary": 175,
-   "fromResale": null,
-   "name": "Delta SKY 360 Club Experience - Rush",
-   "date": "2026-11-25",
-   "venue": "State Farm Arena",
-   "checked": "2026-11-23T00:38:49.845Z"
-  },
-  "0E006350D2B1924E": {
-   "status": "available",
-   "primary": 698,
-   "resale": 482,
-   "fromPrimary": 147.5,
-   "fromResale": 100,
-   "name": "RUSH: Fifty Something",
-   "date": "2026-11-25",
-   "venue": "State Farm Arena",
-   "checked": "2026-11-23T00:38:52.440Z"
-  },
-  "0E006556FAF979EA": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Belly Gang Kushington: Wtf Goin Tour",
-   "date": "2026-11-25",
-   "venue": "Tabernacle",
-   "checked": "2026-11-23T00:39:12.447Z"
-  },
-  "070064E9A7DE23A6": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "The Hip Hop Nutcracker (Chicago)",
-   "date": "2026-11-25",
-   "venue": "Cadillac Palace",
-   "checked": "2026-11-23T00:39:32.546Z"
-  },
-  "0700650CA703E656": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "fromResale": 89.14,
-   "note": "2 resale listed on the page",
-   "name": "Blue Man Group - A New Holiday Surprise",
-   "date": "2026-11-25",
-   "venue": "CIBC Theatre",
-   "checked": "2026-11-23T00:39:52.779Z"
-  },
-  "04006555DC37B264": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 44.25,
-   "note": "1 box-office listed on the page, no count",
-   "name": "Turnover - Down On Earth Tour",
-   "date": "2026-11-25",
-   "venue": "House of Blues",
-   "checked": "2026-11-23T00:40:12.964Z"
-  },
-  "070064E9A7D323A1": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "The Hip Hop Nutcracker (Chicago)",
-   "date": "2026-11-25",
-   "venue": "Cadillac Palace",
-   "checked": "2026-11-23T00:40:33.155Z"
-  },
-  "0700650CA6FEE653": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Blue Man Group - A New Holiday Surprise",
-   "date": "2026-11-25",
-   "venue": "CIBC Theatre",
-   "checked": "2026-11-23T00:40:53.328Z"
-  },
-  "070064EAB2CC3167": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Mrs. Doubtfire (Chicago)",
-   "date": "2026-11-25",
-   "venue": "Nederlander Theatre",
-   "checked": "2026-11-23T00:41:13.544Z"
-  },
-  "040065140C27C34D": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 102.75,
-   "note": "1 box-office listed on the page, no count",
-   "name": "El Tri \"Adicto Al Rocanrol\"",
-   "date": "2026-11-25",
-   "venue": "Aragon Ballroom",
-   "checked": "2026-11-23T00:41:33.671Z"
-  },
-  "060064E7A7B78D86": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Budweiser Guns 'n Hoses",
-   "date": "2026-11-25",
-   "venue": "Enterprise Center",
-   "checked": "2026-11-23T00:41:53.803Z"
-  },
-  "210064EE501D2E87": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 57.95,
-   "note": "40 box-office listed on the page, no count",
-   "name": "Trivium: Crown In The Grave World Tour",
-   "date": "2026-11-25",
-   "venue": "The Factory",
-   "checked": "2026-11-23T00:42:13.836Z"
-  },
-  "06006548D8B9F641": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 26.8,
-   "note": "1 box-office listed on the page, no count",
-   "name": "Playadors",
-   "date": "2026-11-25",
-   "venue": "Delmar Hall",
-   "checked": "2026-11-23T00:42:33.968Z"
-  },
-  "0600650B99B4696B": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 32.6,
-   "note": "2 box-office listed on the page, no count",
-   "name": "My Posse In Effect - A Live Tribute To The Beastie Boys",
-   "date": "2026-11-25",
-   "venue": "The Pageant",
-   "checked": "2026-11-23T00:42:54.023Z"
-  },
-  "0F0065049CD48EB8": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "fromResale": 55.93,
-   "note": "9 resale listed on the page",
-   "name": "Portland Trail Blazers vs. San Antonio Spurs",
-   "date": "2026-11-25",
-   "venue": "Moda Center",
-   "checked": "2026-11-23T00:43:14.073Z"
-  },
-  "3A0064CAAD18C9D4": {
-   "status": "available",
-   "primary": 1080,
-   "resale": 0,
-   "fromPrimary": 28.5,
-   "fromResale": null,
-   "name": "Imminence - Axis Mundi Tour: North America 2026",
-   "date": "2026-11-25",
-   "venue": "Stubb's",
-   "checked": "2026-11-23T00:43:16.777Z"
-  },
-  "3A006513D5F5222D": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 37.15,
-   "note": "26 box-office listed on the page, no count",
-   "name": "Texas Stars vs Tucson Roadrunners",
-   "date": "2026-11-25",
-   "venue": "H-E-B Center",
-   "checked": "2026-11-23T00:43:36.965Z"
-  },
-  "3A0065150BDB3A6C": {
-   "status": "available",
-   "primary": 343,
-   "resale": 0,
-   "fromPrimary": 19.5,
-   "fromResale": null,
-   "name": "Quentin Moore w/ Vandell Andrew ",
-   "date": "2026-11-25",
-   "venue": "Antone's",
-   "checked": "2026-11-23T00:43:39.785Z"
-  },
-  "0F0064F6A4D5B3D9": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "fromResale": 24,
-   "note": "40 resale listed on the page",
-   "name": "Everett Silvertips vs. Vancouver Giants",
-   "date": "2026-11-25",
-   "venue": "Angel of the Winds Arena",
-   "checked": "2026-11-23T00:43:59.853Z"
-  },
-  "0700654C8CA71E70": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 31.65,
-   "note": "1 box-office listed on the page, no count",
-   "name": "Latin Music Fest 2026 (Ages 18+)",
-   "date": "2026-11-25",
-   "venue": "Majestic Theatre",
-   "checked": "2026-11-23T00:44:20.009Z"
-  },
-  "07006507EAD0DB5B": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "fromResale": 16,
-   "note": "30 resale listed on the page",
-   "name": "Milwaukee Bucks vs. Brooklyn Nets",
-   "date": "2026-11-25",
-   "venue": "Fiserv Forum",
-   "checked": "2026-11-23T00:44:40.123Z"
-  },
-  "0700651522672193": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "fromResale": 88.25,
-   "note": "5 resale listed on the page",
-   "name": "The Sound of Music (Touring)",
-   "date": "2026-11-25",
-   "venue": "Uihlein Hall",
-   "checked": "2026-11-23T00:45:00.222Z"
-  },
-  "0700652FBB47418C": {
-   "status": "available",
-   "primary": 47,
-   "resale": 0,
-   "fromPrimary": 20,
-   "fromResale": null,
-   "name": "Broadway Bites - Pre Show Dining",
-   "date": "2026-11-25",
-   "venue": "Uihlein Hall",
-   "checked": "2026-11-23T00:45:03.946Z"
   },
   "0A00654F4B4327F9": {
    "status": "unknown",
@@ -12058,105 +13357,6 @@
    "venue": "State Farm Arena",
    "checked": "2026-11-19T21:51:57.428Z"
   },
-  "1E0064EE0A11AA91": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Suicide Silence: Reminders Of Hell Tour",
-   "date": "2026-12-04",
-   "venue": "Summit Music Hall",
-   "checked": "2026-11-19T22:13:14.684Z"
-  },
-  "1E006490A077925C": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Decibel - Metal & Beer Festival: Day 1 Pass (12-04)",
-   "date": "2026-12-04",
-   "venue": "The Fillmore Auditorium",
-   "checked": "2026-11-19T22:13:34.765Z"
-  },
-  "1E0064C4CF3FBC7C": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Oliver Hazard",
-   "date": "2026-12-04",
-   "venue": "Marquis Theater",
-   "checked": "2026-11-19T22:13:55.017Z"
-  },
-  "1E0064AEAA5F945F": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "A Drag Queen Christmas",
-   "date": "2026-12-04",
-   "venue": "Paramount Theatre",
-   "checked": "2026-11-19T22:14:15.266Z"
-  },
-  "0D006547E528FAA7": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "PPL Miami - The Finals - Quarterfinals",
-   "date": "2026-12-04",
-   "venue": "James L. Knight Center",
-   "checked": "2026-11-19T22:14:20.925Z"
-  },
-  "0D006553EEFB1715": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Rumble in Miami: Garcia vs. Provodnikov",
-   "date": "2026-12-04",
-   "venue": "Watsco Center",
-   "checked": "2026-11-19T22:14:40.983Z"
-  },
-  "0D00653696704FE7": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Elf Jr",
-   "date": "2026-12-04",
-   "venue": "Broward Center",
-   "checked": "2026-11-19T22:15:01.144Z"
-  },
-  "0D006546D560E203": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 167.05,
-   "note": "3 box-office listed on the page, no count",
-   "name": "RAWAYANA - ¿Dónde es el after? World Tour",
-   "date": "2026-12-04",
-   "venue": "Kaseya Center",
-   "checked": "2026-11-19T22:15:21.269Z"
-  },
-  "0D0064CBD319F076": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Menudo 50",
-   "date": "2026-12-04",
-   "venue": "Hard Rock Live",
-   "checked": "2026-11-19T22:15:41.345Z"
-  },
-  "0D00650AC4916CB4": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "Up Next Music Fest 2026",
-   "date": "2026-12-04",
-   "venue": "Revolution Live",
-   "checked": "2026-11-19T22:15:53.405Z"
-  },
-  "0E006494ED9012F9": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Matteo Lane: We Gotta Catch Up!",
-   "date": "2026-12-04",
-   "venue": "Atlanta Symphony Hall",
-   "checked": "2026-11-19T22:16:13.582Z"
-  },
-  "0E006529E48654CD": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "The Atlanta Cup 2026",
-   "date": "2026-12-04",
-   "venue": "Gas South Arena",
-   "checked": "2026-11-19T22:16:33.674Z"
-  },
   "0E0064CBB2AAD4D3": {
    "status": "available",
    "primary": null,
@@ -12167,1067 +13367,6 @@
    "date": "2026-12-04",
    "venue": "Tabernacle",
    "checked": "2026-11-19T22:16:53.914Z"
-  },
-  "0E006549D8853465": {
-   "status": "available",
-   "primary": 1035,
-   "resale": 0,
-   "fromPrimary": 26,
-   "fromResale": null,
-   "name": "Babyfxce E - The Xperience Tour",
-   "date": "2026-12-04",
-   "venue": "The Masquerade",
-   "checked": "2026-11-19T22:16:58.741Z"
-  },
-  "0E00656398527E17": {
-   "status": "available",
-   "primary": 243,
-   "resale": 0,
-   "fromPrimary": 15,
-   "fromResale": null,
-   "name": "Peace Cult",
-   "date": "2026-12-04",
-   "venue": "The Masquerade",
-   "checked": "2026-11-19T22:17:10.739Z"
-  },
-  "0E006442CD877F51": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Maria Bamford",
-   "date": "2026-12-04",
-   "venue": "Buckhead Theatre",
-   "checked": "2026-11-19T22:17:30.951Z"
-  },
-  "0E006546B512E89C": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Lil Baby: Fresh Prince of Atlanta Birthday Celebration",
-   "date": "2026-12-04",
-   "venue": "State Farm Arena",
-   "checked": "2026-11-19T22:17:50.966Z"
-  },
-  "0E00647EABF29083": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 43,
-   "fromPrimary": null,
-   "fromResale": 41,
-   "name": "Akeem Ali",
-   "date": "2026-12-04",
-   "venue": "Center Stage",
-   "checked": "2026-11-19T22:18:03.293Z"
-  },
-  "0E006555D49D2E14": {
-   "status": "available",
-   "primary": 516,
-   "resale": 0,
-   "fromPrimary": 26,
-   "fromResale": null,
-   "name": "Rexv2",
-   "date": "2026-12-04",
-   "venue": "The Loft",
-   "checked": "2026-11-19T22:18:15.451Z"
-  },
-  "0E0064DDCC02B80B": {
-   "status": "available",
-   "primary": 89,
-   "resale": 0,
-   "fromPrimary": 20,
-   "fromResale": null,
-   "name": "Eddie And The Getaway",
-   "date": "2026-12-04",
-   "venue": "Vinyl",
-   "checked": "2026-11-19T22:18:27.668Z"
-  },
-  "0400654143E6C31D": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 7,
-   "fromPrimary": null,
-   "fromResale": 250.43,
-   "name": "Zeds Dead 2Day Ticket",
-   "date": "2026-12-04",
-   "venue": "Aragon Ballroom",
-   "checked": "2026-11-19T22:18:33.041Z"
-  },
-  "0400656C9F2767B8": {
-   "status": "available",
-   "primary": 746,
-   "resale": 0,
-   "fromPrimary": 27,
-   "fromResale": null,
-   "name": "Chicago Elite Classic",
-   "date": "2026-12-04",
-   "venue": "Credit Union 1 Arena",
-   "checked": "2026-11-19T22:18:45.336Z"
-  },
-  "040064D3EF1DEE01": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Illinois v. UCONN",
-   "date": "2026-12-04",
-   "venue": "United Center",
-   "checked": "2026-11-19T22:19:05.566Z"
-  },
-  "0700650CA747E687": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "fromResale": 67.97,
-   "note": "3 resale listed on the page",
-   "name": "Blue Man Group - A New Holiday Surprise",
-   "date": "2026-12-04",
-   "venue": "CIBC Theatre",
-   "checked": "2026-11-19T22:19:25.823Z"
-  },
-  "0700652A9CF947F5": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Wilco - Winterlude 2026",
-   "date": "2026-12-04",
-   "venue": "The Chicago Theatre",
-   "checked": "2026-11-19T22:19:45.878Z"
-  },
-  "04006519EDFF715B": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 62,
-   "fromPrimary": null,
-   "fromResale": 118,
-   "name": "Zeds Dead",
-   "date": "2026-12-04",
-   "venue": "Aragon Ballroom",
-   "checked": "2026-11-19T22:19:58.134Z"
-  },
-  "0600654D03418194": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Dynasty Combat Sports: Seasons Beatings 2026",
-   "date": "2026-12-04",
-   "venue": "Pinnacle Bank Arena",
-   "checked": "2026-11-19T22:20:18.174Z"
-  },
-  "06006537A7BFB8ED": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 19.13,
-   "note": "1 box-office listed on the page, no count",
-   "name": "Omaha Women's Basketball vs. Stephen F. Austin",
-   "date": "2026-12-04",
-   "venue": "Baxter Arena",
-   "checked": "2026-11-19T22:20:38.390Z"
-  },
-  "20006506C0442F84": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "#IMOMSOHARD",
-   "date": "2026-12-04",
-   "venue": "The Astro Theater",
-   "checked": "2026-11-19T22:20:58.467Z"
-  },
-  "17006458E0629A4D": {
-   "status": "available",
-   "primary": 368,
-   "resale": 0,
-   "fromPrimary": 45.99,
-   "fromResale": null,
-   "name": "Mark Normand",
-   "date": "2026-12-04",
-   "venue": "Palazzo Theatre",
-   "checked": "2026-11-19T22:21:03.735Z"
-  },
-  "2E0064A6E9674385": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Matt Rife: Stay Golden World Tour",
-   "date": "2026-12-04",
-   "venue": "Dolby Live",
-   "checked": "2026-11-19T22:21:23.742Z"
-  },
-  "170064EAD77A9115": {
-   "status": "available",
-   "primary": 886,
-   "resale": 29,
-   "fromPrimary": 66,
-   "fromResale": 124,
-   "name": "Dierks Bentley",
-   "date": "2026-12-04",
-   "venue": "Fontainebleau",
-   "checked": "2026-11-19T22:21:28.915Z"
-  },
-  "170062F0FD686374": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Barry Manilow",
-   "date": "2026-12-04",
-   "venue": "Westgate International Theater",
-   "checked": "2026-11-19T22:21:48.965Z"
-  },
-  "17006483D6F9FC58": {
-   "status": "available",
-   "primary": 23,
-   "resale": 0,
-   "fromPrimary": 243.5,
-   "fromResale": null,
-   "name": "Eagles Live at Sphere",
-   "date": "2026-12-04",
-   "venue": "Sphere",
-   "checked": "2026-11-19T22:21:54.061Z"
-  },
-  "3900650EE958A2F0": {
-   "status": "available",
-   "primary": 1290,
-   "resale": 0,
-   "fromPrimary": 29.59,
-   "fromResale": null,
-   "name": "An Evening With Jeff Foxworthy And Larry The Cable Guy",
-   "date": "2026-12-04",
-   "venue": "PH Live",
-   "checked": "2026-11-19T22:22:06.100Z"
-  },
-  "17006513D3BB499D": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Dita Von Teese",
-   "date": "2026-12-04",
-   "venue": "Voltaire",
-   "checked": "2026-11-19T22:22:26.345Z"
-  },
-  "170064FCD11330E0": {
-   "status": "available",
-   "primary": 448,
-   "resale": 0,
-   "fromPrimary": 94,
-   "fromResale": null,
-   "name": "Hooey Presents: Cross Canadian Ragweed",
-   "date": "2026-12-04",
-   "venue": "Brooklyn Bowl",
-   "checked": "2026-11-19T22:22:31.242Z"
-  },
-  "1700652AE33241DB": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "Whitey Morgan & the 78s",
-   "date": "2026-12-04",
-   "venue": "24 Oxford",
-   "checked": "2026-11-19T22:22:36.078Z"
-  },
-  "170064D1D77FE95D": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Pat Green",
-   "date": "2026-12-04",
-   "venue": "Golden Nugget Showroom",
-   "checked": "2026-11-19T22:22:56.143Z"
-  },
-  "1700656C7B72765F": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Colin Stough",
-   "date": "2026-12-04",
-   "venue": "Golden Nugget Showroom",
-   "checked": "2026-11-19T22:23:16.198Z"
-  },
-  "0F0064FB99067372": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Portland Winterhawks vs Victoria Royals",
-   "date": "2026-12-04",
-   "venue": "Veterans Memorial Coliseum",
-   "checked": "2026-11-19T22:23:36.348Z"
-  },
-  "0F0064E9C16BA5CA": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Cirque Musica Holiday Wonderland",
-   "date": "2026-12-04",
-   "venue": "Angel of the Winds Arena",
-   "checked": "2026-11-19T22:23:56.428Z"
-  },
-  "0F0064F4CB69E2C8": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 9,
-   "fromPrimary": null,
-   "fromResale": 120,
-   "name": "Tape B: 2-Day Pass",
-   "date": "2026-12-04",
-   "venue": "WAMU Theater",
-   "checked": "2026-11-19T22:24:08.581Z"
-  },
-  "0F0064F899EAADA4": {
-   "status": "available",
-   "primary": 90,
-   "resale": 0,
-   "fromPrimary": 65,
-   "fromResale": null,
-   "name": "Wamu Theater Amplified: 2-Day Tape B (Not an Event Ticket)",
-   "date": "2026-12-04",
-   "venue": "WAMU Theater",
-   "checked": "2026-11-19T22:24:20.230Z"
-  },
-  "0F0064F4C041D0B7": {
-   "status": "available",
-   "primary": 1308,
-   "resale": 22,
-   "fromPrimary": 55,
-   "fromResale": 55,
-   "name": "Tape B",
-   "date": "2026-12-04",
-   "venue": "WAMU Theater",
-   "checked": "2026-11-19T22:24:25.607Z"
-  },
-  "0F0064F713DBDB32": {
-   "status": "available",
-   "primary": 215,
-   "resale": 0,
-   "fromPrimary": 40,
-   "fromResale": null,
-   "name": "WAMU Theater Amplified: Tape B (Not an Event Ticket)",
-   "date": "2026-12-04",
-   "venue": "WAMU Theater",
-   "checked": "2026-11-19T22:24:37.640Z"
-  },
-  "070064ED988F1F7C": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Christmas On The Avenue",
-   "date": "2026-12-04",
-   "venue": "Fox Cities P.A.C.",
-   "checked": "2026-11-19T22:24:57.792Z"
-  },
-  "06006531F7FDFDDE": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Tyler Henry - The Hollywood Medium: An Evening of Hope and Healing",
-   "date": "2026-12-04",
-   "venue": "Treasure Island Resort & Casino",
-   "checked": "2026-11-19T22:25:17.928Z"
-  },
-  "0700654D835B204F": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "AMA Partzilla Arenacross: Track Walk Experience",
-   "date": "2026-12-04",
-   "venue": "Veterans Memorial Coliseum",
-   "checked": "2026-11-19T22:25:30.175Z"
-  },
-  "07006521EC2774DC": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "AMA Partzilla National Arenacross Championship Series",
-   "date": "2026-12-04",
-   "venue": "Veterans Memorial Coliseum",
-   "checked": "2026-11-19T22:25:50.213Z"
-  },
-  "0700651B9E4D25D4": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Steely Dane",
-   "date": "2026-12-04",
-   "venue": "Orpheum Theater",
-   "checked": "2026-11-19T22:26:10.460Z"
-  },
-  "0700638315AEAA2F": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Aly & AJ- Places To Run Tour 2026",
-   "date": "2026-12-04",
-   "venue": "The Sylvee",
-   "checked": "2026-11-19T22:26:30.540Z"
-  },
-  "07006536C59A4F83": {
-   "status": "available",
-   "primary": 392,
-   "resale": 0,
-   "fromPrimary": 15,
-   "fromResale": null,
-   "name": "Varsity Mac + Scorched Waves W/ Velvet Blue & In Ropes",
-   "date": "2026-12-04",
-   "venue": "High Noon Saloon",
-   "checked": "2026-11-19T22:26:42.577Z"
-  },
-  "0A00654CC5007BDA": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "San Diego State Aztecs Mens Basketball vs. UNLV Runnin' Rebels Mens Basketball",
-   "date": "2026-12-05",
-   "venue": "Viejas Arena",
-   "checked": "2026-11-19T22:27:02.826Z"
-  },
-  "0A006512E64863D6": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "The Hip Hop Nutcracker (Touring)",
-   "date": "2026-12-05",
-   "venue": "Balboa Theatre",
-   "checked": "2026-11-19T22:27:23.026Z"
-  },
-  "0A006529A2E97B75": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "Holiday Wonderland at Petco Park",
-   "date": "2026-12-05",
-   "venue": "Petco Park",
-   "checked": "2026-11-19T22:27:24.820Z"
-  },
-  "0A00652BE0ECE34F": {
-   "status": "available",
-   "primary": 90,
-   "resale": 0,
-   "fromPrimary": 25,
-   "fromResale": null,
-   "name": "Eric Blake",
-   "date": "2026-12-05",
-   "venue": "Pechanga Resort Casino",
-   "checked": "2026-11-19T22:27:37.150Z"
-  },
-  "0A006512E64263C9": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "The Hip Hop Nutcracker (Touring)",
-   "date": "2026-12-05",
-   "venue": "Balboa Theatre",
-   "checked": "2026-11-19T22:27:57.161Z"
-  },
-  "0B00653090DEA64A": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "Punchis Presents: ¿Eres Emo?",
-   "date": "2026-12-05",
-   "venue": "The Observatory North Park",
-   "checked": "2026-11-19T22:28:09.509Z"
-  },
-  "0A006505AB55AEB5": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Pedro Fernández - Ave Fénix Two'r",
-   "date": "2026-12-05",
-   "venue": "Cal Coast Open Air Theatre",
-   "checked": "2026-11-19T22:28:29.656Z"
-  },
-  "0A00655290FE3577": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Nguoi Ke Chuyen Tinh",
-   "date": "2026-12-05",
-   "venue": "Pechanga Resort Casino",
-   "checked": "2026-11-19T22:28:49.875Z"
-  },
-  "0A00652BE0EEE353": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "Eric Blake",
-   "date": "2026-12-05",
-   "venue": "Pechanga Resort Casino",
-   "checked": "2026-11-19T22:29:01.839Z"
-  },
-  "1E006490A17D9473": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Decibel - Metal & Beer Festival: Day 2 Pass (12-05)",
-   "date": "2026-12-05",
-   "venue": "The Fillmore Auditorium",
-   "checked": "2026-11-19T22:29:22.064Z"
-  },
-  "1E006541AC5A9459": {
-   "status": "available",
-   "primary": 383,
-   "resale": 0,
-   "fromPrimary": 30,
-   "fromResale": null,
-   "name": "Colorado Hardcore Toy Drive Feat. All Out War",
-   "date": "2026-12-05",
-   "venue": "Marquis Theater",
-   "checked": "2026-11-19T22:29:33.985Z"
-  },
-  "1E006531ECA4DF79": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "BRESH - 18+",
-   "date": "2026-12-05",
-   "venue": "Summit Music Hall",
-   "checked": "2026-11-19T22:29:45.923Z"
-  },
-  "0D0064D0BCFD77B4": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Sensory-Inclusive: Elf Jr.",
-   "date": "2026-12-05",
-   "venue": "Broward Center",
-   "checked": "2026-11-19T22:30:06.019Z"
-  },
-  "0D00653696764FF3": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Elf Jr",
-   "date": "2026-12-05",
-   "venue": "Broward Center",
-   "checked": "2026-11-19T22:30:26.258Z"
-  },
-  "0D006548C2BCEB80": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "PPL Miami - The Finals - Semifinals",
-   "date": "2026-12-05",
-   "venue": "James L. Knight Center",
-   "checked": "2026-11-19T22:30:38.954Z"
-  },
-  "0D0065478FBA4A13": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Miami Hurricanes Men's Basketball vs. Stetson Hatters",
-   "date": "2026-12-05",
-   "venue": "Watsco Center",
-   "checked": "2026-11-19T22:30:59.060Z"
-  },
-  "0D006536967D4FF9": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Elf Jr",
-   "date": "2026-12-05",
-   "venue": "Broward Center",
-   "checked": "2026-11-19T22:31:19.087Z"
-  },
-  "0D00648DDB9EC91E": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "The R&B Tour - Starring Usher Raymond & Chris Brown",
-   "date": "2026-12-05",
-   "venue": "Hard Rock Stadium",
-   "checked": "2026-11-19T22:31:39.322Z"
-  },
-  "0D00652B3BD7353D": {
-   "status": "available",
-   "primary": 678,
-   "resale": 0,
-   "fromPrimary": 32.5,
-   "fromResale": null,
-   "name": "DJ Meredith Marks You. Can. Dance. Tour",
-   "date": "2026-12-05",
-   "venue": "Revolution Live",
-   "checked": "2026-11-19T22:31:51.718Z"
-  },
-  "0D0064B5BFA4BF26": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "SOTA : Dionne Warwick, Deborah Cox, Jordin Sparks, and Myles Frost",
-   "date": "2026-12-05",
-   "venue": "Broward Center",
-   "checked": "2026-11-19T22:32:11.964Z"
-  },
-  "0D00646CAA719BDC": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "RAWAYANA - ¿Dónde es el after? World Tour",
-   "date": "2026-12-05",
-   "venue": "Kaseya Center",
-   "checked": "2026-11-19T22:32:32.098Z"
-  },
-  "0D0064C4D94E447E": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Willy Chirino & Lissette Navidad en Familia",
-   "date": "2026-12-05",
-   "venue": "The Fillmore Miami Beach",
-   "checked": "2026-11-19T22:32:52.345Z"
-  },
-  "0D006504CC766EF5": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 72.19,
-   "note": "19 box-office listed on the page, no count",
-   "name": "Silvestre Dangond - El Baile de Todos",
-   "date": "2026-12-05",
-   "venue": "Hard Rock Live",
-   "checked": "2026-11-19T22:33:12.583Z"
-  },
-  "0E006474CA08E771": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 87,
-   "note": "40 box-office listed on the page, no count",
-   "name": "Atlanta Ballet Presents The Nutcracker",
-   "date": "2026-12-05",
-   "venue": "Cobb Energy Centre",
-   "checked": "2026-11-19T22:33:32.832Z"
-  },
-  "0E0064DDB3A2962A": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "2026 Sec Championship Game",
-   "date": "2026-12-05",
-   "venue": "Mercedes-Benz Stadium",
-   "checked": "2026-11-19T22:33:52.916Z"
-  },
-  "0E0064CBB153D288": {
-   "status": "available",
-   "primary": 739,
-   "resale": 0,
-   "fromPrimary": 39.5,
-   "fromResale": null,
-   "name": "Senses Fail Presents Still Searching",
-   "date": "2026-12-05",
-   "venue": "Buckhead Theatre",
-   "checked": "2026-11-19T22:34:05.132Z"
-  },
-  "0E006564EFF96C8F": {
-   "status": "available",
-   "primary": 95,
-   "resale": 0,
-   "fromPrimary": 100,
-   "fromResale": null,
-   "name": "Junhee Vvip Add-on",
-   "date": "2026-12-05",
-   "venue": "The Loft",
-   "checked": "2026-11-19T22:34:10.936Z"
-  },
-  "0E006564EF0F696E": {
-   "status": "available",
-   "primary": 94,
-   "resale": 0,
-   "fromPrimary": 70,
-   "fromResale": null,
-   "name": "JUNHEE VIP-Add on",
-   "date": "2026-12-05",
-   "venue": "The Loft",
-   "checked": "2026-11-19T22:34:23.024Z"
-  },
-  "0E006564F57D8311": {
-   "status": "available",
-   "primary": 173,
-   "resale": 0,
-   "fromPrimary": 51,
-   "fromResale": null,
-   "name": "JUNHEE Selfi Add-on",
-   "date": "2026-12-05",
-   "venue": "The Loft",
-   "checked": "2026-11-19T22:34:28.087Z"
-  },
-  "0E006564EC90617E": {
-   "status": "available",
-   "primary": 557,
-   "resale": 0,
-   "fromPrimary": 50,
-   "fromResale": null,
-   "name": "Junhee World Domination CH. 02 U.S",
-   "date": "2026-12-05",
-   "venue": "The Loft",
-   "checked": "2026-11-19T22:34:40.026Z"
-  },
-  "0E006564F2717595": {
-   "status": "available",
-   "primary": 80,
-   "resale": 0,
-   "fromPrimary": 130,
-   "fromResale": null,
-   "name": "Junhee Silver VIP",
-   "date": "2026-12-05",
-   "venue": "The Loft",
-   "checked": "2026-11-19T22:34:51.936Z"
-  },
-  "0E006474CA0CE777": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Atlanta Ballet Presents The Nutcracker",
-   "date": "2026-12-05",
-   "venue": "Cobb Energy Centre",
-   "checked": "2026-11-19T22:35:11.994Z"
-  },
-  "0E006515D83C9B99": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "Skyline Lounge Nutcracker",
-   "date": "2026-12-05",
-   "venue": "Cobb Energy Centre",
-   "checked": "2026-11-19T22:35:24.196Z"
-  },
-  "0E00653CB0ACAC5D": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "fromResale": 294.55,
-   "note": "40 resale listed on the page",
-   "name": "Lil Baby: Fresh Prince of Atlanta Birthday Celebration",
-   "date": "2026-12-05",
-   "venue": "State Farm Arena",
-   "checked": "2026-11-19T22:35:44.406Z"
-  },
-  "0E0064D8A6799E54": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Music from Carmen and Roméo and Juliet",
-   "date": "2026-12-05",
-   "venue": "Atlanta Symphony Hall",
-   "checked": "2026-11-19T22:36:04.600Z"
-  },
-  "0E0064F5E0FC3CE9": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Martin Lawrence with Nate Jackson, Desi Banks and more!",
-   "date": "2026-12-05",
-   "venue": "Gas South Arena",
-   "checked": "2026-11-19T22:36:24.694Z"
-  },
-  "0E0065240D14B240": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "An Intimate Evening with Tamar & Friends",
-   "date": "2026-12-05",
-   "venue": "Tabernacle",
-   "checked": "2026-11-19T22:36:44.714Z"
-  },
-  "0E0065392BDF1910": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "Akeem Ali",
-   "date": "2026-12-05",
-   "venue": "Center Stage",
-   "checked": "2026-11-19T22:36:57.179Z"
-  },
-  "0E0065729FE28D6C": {
-   "status": "available",
-   "primary": 101,
-   "resale": 0,
-   "fromPrimary": 25,
-   "fromResale": null,
-   "name": "Lil Nakur & Gorilla Glue",
-   "date": "2026-12-05",
-   "venue": "Vinyl",
-   "checked": "2026-11-19T22:37:09.361Z"
-  },
-  "0E006550FA971742": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "K-Pop Club Night | 18+",
-   "date": "2026-12-05",
-   "venue": "The Masquerade",
-   "checked": "2026-11-19T22:37:29.459Z"
-  },
-  "04006507DD1E82D3": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Sister Hazel 2 Day Ticket: Show =17+ & Brunch = All Ages",
-   "date": "2026-12-05",
-   "venue": "House of Blues",
-   "checked": "2026-11-19T22:37:49.504Z"
-  },
-  "0400656C9F036780": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "Chicago Elite Classic",
-   "date": "2026-12-05",
-   "venue": "Credit Union 1 Arena",
-   "checked": "2026-11-19T22:38:01.900Z"
-  },
-  "0700650CA757E690": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Blue Man Group - A New Holiday Surprise",
-   "date": "2026-12-05",
-   "venue": "CIBC Theatre",
-   "checked": "2026-11-19T22:38:21.998Z"
-  },
-  "0700650CA751E68C": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Blue Man Group - A New Holiday Surprise",
-   "date": "2026-12-05",
-   "venue": "CIBC Theatre",
-   "checked": "2026-11-19T22:38:42.079Z"
-  },
-  "04006507D40A65E3": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Sister Hazel",
-   "date": "2026-12-05",
-   "venue": "House of Blues",
-   "checked": "2026-11-19T22:39:02.237Z"
-  },
-  "040064EA9B0A8C90": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Chicago Wolves V Cleveland Monsters",
-   "date": "2026-12-05",
-   "venue": "Allstate Arena",
-   "checked": "2026-11-19T22:39:22.360Z"
-  },
-  "0700652A9CFF4803": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Wilco - Winterlude 2026",
-   "date": "2026-12-05",
-   "venue": "The Chicago Theatre",
-   "checked": "2026-11-19T22:39:42.444Z"
-  },
-  "04006519F0557B37": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 57,
-   "fromPrimary": null,
-   "fromResale": 120.01,
-   "name": "Zeds Dead",
-   "date": "2026-12-05",
-   "venue": "Aragon Ballroom",
-   "checked": "2026-11-19T22:39:47.777Z"
-  },
-  "06006495AEB92095": {
-   "status": "available",
-   "primary": 1594,
-   "resale": 100,
-   "fromPrimary": 39,
-   "fromResale": 58,
-   "name": "Christmas Together with Amy Grant, Michael W. Smith, and CeCe Winans",
-   "date": "2026-12-05",
-   "venue": "Pinnacle Bank Arena",
-   "checked": "2026-11-19T22:39:53.857Z"
-  },
-  "06006549D607F03D": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "fromResale": 85.68,
-   "note": "40 resale listed on the page",
-   "name": "Creighton Bluejays vs Nebraska Cornhuskers",
-   "date": "2026-12-05",
-   "venue": "CHI Health Center Omaha",
-   "checked": "2026-11-19T22:40:14.111Z"
-  },
-  "200064CA906A19BD": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Imminence - Axis Mundi Tour: North America 2026",
-   "date": "2026-12-05",
-   "venue": "Steelhouse Omaha",
-   "checked": "2026-11-19T22:40:34.141Z"
-  },
-  "2000646CC4254AB9": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Blue October",
-   "date": "2026-12-05",
-   "venue": "The Astro Theater",
-   "checked": "2026-11-19T22:40:54.255Z"
-  },
-  "170062F0FD6A6376": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Barry Manilow",
-   "date": "2026-12-05",
-   "venue": "Westgate International Theater",
-   "checked": "2026-11-19T22:41:14.324Z"
-  },
-  "170064B1FB07DC83": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Dweezil Zappa DZ20: Like Father, Like Son",
-   "date": "2026-12-05",
-   "venue": "House of Blues",
-   "checked": "2026-11-19T22:41:34.576Z"
-  },
-  "390064E29A59174B": {
-   "status": "available",
-   "primary": 130,
-   "resale": 133,
-   "fromPrimary": 149,
-   "fromResale": 195,
-   "name": "Rascal Flatts",
-   "date": "2026-12-05",
-   "venue": "The Colosseum",
-   "checked": "2026-11-19T22:41:46.727Z"
-  },
-  "390064901B3786FD": {
-   "status": "available",
-   "primary": 650,
-   "resale": 239,
-   "fromPrimary": 79,
-   "fromResale": 88,
-   "name": "Bailey Zimmerman",
-   "date": "2026-12-05",
-   "venue": "PH Live",
-   "checked": "2026-11-19T22:41:48.705Z"
-  },
-  "170064EAD782913B": {
-   "status": "available",
-   "primary": 993,
-   "resale": 27,
-   "fromPrimary": 66,
-   "fromResale": 123,
-   "name": "Dierks Bentley",
-   "date": "2026-12-05",
-   "venue": "Fontainebleau",
-   "checked": "2026-11-19T22:41:54.290Z"
-  },
-  "1700644BFBA4D431": {
-   "status": "available",
-   "primary": 1,
-   "resale": 0,
-   "fromPrimary": 45,
-   "fromResale": null,
-   "name": "Kathleen Madigan: Flying Cats & Marching Armadillos Tour",
-   "date": "2026-12-05",
-   "venue": "Palazzo Theatre",
-   "checked": "2026-11-19T22:42:07.548Z"
-  },
-  "17006483D6FAFC5E": {
-   "status": "available",
-   "primary": 37,
-   "resale": 0,
-   "fromPrimary": 957.5,
-   "fromResale": null,
-   "name": "Eagles Live at Sphere",
-   "date": "2026-12-05",
-   "venue": "Sphere",
-   "checked": "2026-11-19T22:42:20.212Z"
-  },
-  "170064A5DB957E9E": {
-   "status": "available",
-   "primary": 376,
-   "resale": 38,
-   "fromPrimary": 45,
-   "fromResale": 55,
-   "name": "Clay Walker: Doin' What I Love Tour",
-   "date": "2026-12-05",
-   "venue": "The Venetian Theatre",
-   "checked": "2026-11-19T22:42:32.798Z"
-  },
-  "17006521E5AC78A6": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Ron White",
-   "date": "2026-12-05",
-   "venue": "The Chelsea",
-   "checked": "2026-11-19T22:42:52.903Z"
-  },
-  "17006513D3BD49AC": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Dita Von Teese",
-   "date": "2026-12-05",
-   "venue": "Voltaire",
-   "checked": "2026-11-19T22:43:12.913Z"
-  },
-  "170064D1DDE7F427": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Sammy Kershaw",
-   "date": "2026-12-05",
-   "venue": "Golden Nugget Showroom",
-   "checked": "2026-11-19T22:43:32.953Z"
-  },
-  "0F00653E803C4090": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "fromResale": 18,
-   "note": "11 resale listed on the page",
-   "name": "Oregon Ducks Men's Basketball vs. USC Trojans Men's Basketball",
-   "date": "2026-12-05",
-   "venue": "Matthew Knight Arena",
-   "checked": "2026-11-19T22:43:52.980Z"
-  },
-  "0F0064FB990B737F": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Portland Winterhawks vs Victoria Royals",
-   "date": "2026-12-05",
-   "venue": "Veterans Memorial Coliseum",
-   "checked": "2026-11-19T22:44:13.226Z"
-  },
-  "0F0064F6A4DCB3F7": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Everett Silvertips vs. Kelowna Rockets",
-   "date": "2026-12-05",
-   "venue": "Angel of the Winds Arena",
-   "checked": "2026-11-19T22:44:51.561Z"
-  },
-  "0F00653E7ABC35A9": {
-   "status": "unknown",
-   "note": "no answer in 90 s",
-   "name": "Lewd & Crued & Made In Iron",
-   "date": "2026-12-05",
-   "venue": "APEX Everett",
-   "checked": "2026-11-19T22:53:59.359Z"
-  },
-  "0F0064F4C3DCD65E": {
-   "status": "available",
-   "primary": 719,
-   "resale": 0,
-   "fromPrimary": 55,
-   "fromResale": null,
-   "name": "Tape B",
-   "date": "2026-12-05",
-   "venue": "WAMU Theater",
-   "checked": "2026-11-19T22:54:12.148Z"
-  },
-  "0F0064F89A47AE5C": {
-   "status": "available",
-   "primary": 210,
-   "resale": 0,
-   "fromPrimary": 40,
-   "fromResale": null,
-   "name": "WAMU Theater Amplified: Tape B (Not an Event Ticket)",
-   "date": "2026-12-05",
-   "venue": "WAMU Theater",
-   "checked": "2026-11-19T22:54:18.011Z"
-  },
-  "06006546A09A981D": {
-   "status": "available",
-   "primary": null,
-   "resale": 0,
-   "fromPrimary": 25.15,
-   "note": "30 box-office listed on the page, no count",
-   "name": "Rochester Dance Company presents The Nutcracker",
-   "date": "2026-12-05",
-   "venue": "Mayo Civic Center",
-   "checked": "2026-11-19T22:54:38.215Z"
-  },
-  "06006546A0A09827": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "Rochester Dance Company presents The Nutcracker",
-   "date": "2026-12-05",
-   "venue": "Mayo Civic Center",
-   "checked": "2026-11-19T22:54:58.252Z"
-  },
-  "0700654D83682061": {
-   "status": "unknown",
-   "note": "facets unparsable",
-   "name": "AMA Partzilla Arenacross: Track Walk Experience",
-   "date": "2026-12-05",
-   "venue": "Veterans Memorial Coliseum",
-   "checked": "2026-11-19T22:55:11.070Z"
-  },
-  "07006521EC2D74DF": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "AMA Partzilla National Arenacross Championship Series",
-   "date": "2026-12-05",
-   "venue": "Veterans Memorial Coliseum",
-   "checked": "2026-11-19T22:55:31.244Z"
-  },
-  "07006571A2BC3684": {
-   "status": "unknown",
-   "note": "no inventory call",
-   "name": "2010s Night (ages 18+)",
-   "date": "2026-12-05",
-   "venue": "Majestic Theatre",
-   "checked": "2026-11-19T22:55:51.433Z"
-  },
-  "07006534DDA35413": {
-   "status": "soldout",
-   "primary": 0,
-   "resale": 0,
-   "fromResale": 105.91,
-   "note": "40 resale listed on the page",
-   "name": "Marquette Golden Eagles Men's Basketball vs. University of Wisconsin Badgers Mens Basketball",
-   "date": "2026-12-05",
-   "venue": "Fiserv Forum",
-   "checked": "2026-11-19T22:56:11.502Z"
   },
   "070064F6CDBF6EB1": {
    "status": "unknown",
